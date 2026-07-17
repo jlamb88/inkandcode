@@ -42,12 +42,12 @@ class Header extends HTMLElement {
           </label>
           <ul class="submenu" role="menu">
             <div class="menu-title">
-            <span><a href='/ink.html' target='_blank' role='menuitem'>Graphic Design</span>
+            <span><a href='pages/ink.html' refer='noreferrer' target='_blank' role='menuitem'>Graphic Design</span>
             </div>
             <div class="menu-items">
-              <li><a href="pages/ink.html#branding" target="_blank" role="menuitem">Brand Design</a></li>
-              <li><a href="" target="_blank" role="menuitem">Web Design</a></li>
-              <li><a href="pages/ink.html#graphic-design" target="_blank" role="menuitem">Print Media</a></li>
+              <li><a href="pages/ink.html#branding" target="_blank" refer='noreferrer' role="menuitem">Brand Design</a></li>
+              <li><a href="pages/code.html" target="_blank" refer='noreferrer' role="menuitem">Web Design</a></li>
+              <li><a href="pages/ink.html#graphic-design" target="_blank" refer='noreferrer' role="menuitem">Print Media</a></li>
             </div>
           </ul>
         </li>
