@@ -9,7 +9,7 @@ class Header extends HTMLElement {
     
 <header class="header">
   <div class="header-logo">
-  <a href="/home.html" target="_blank" role="menuitem">
+  <a href="/home.html" role="menuitem">
     <svg aria-label="Logo" role="img"viewBox="0 0 367 91">
       <use href="#logo" />
     </svg>
@@ -31,7 +31,7 @@ class Header extends HTMLElement {
     <div class="nav-overlay"></div>
     <nav class="navbar">
       <svg class="mini-logo">
-        <use href="../assets/logos.svg#miniLogo">
+        <use href="assets/logos.svg#miniLogo">
       </svg>
       <ul class="nav-items">
         <li class="has-submenu">
@@ -42,12 +42,12 @@ class Header extends HTMLElement {
           </label>
           <ul class="submenu" role="menu">
             <div class="menu-title">
-            <span><a href='ink.html' refer='noreferer' target='_blank' role='menuitem'>Graphic Design</span>
+            <span><a href='ink.html' refer='noreferer' role='menuitem'>Graphic Design</span>
             </div>
             <div class="menu-items">
-              <li><a href="ink.html#branding" target="_blank" refer='noreferer' role="menuitem">Brand Design</a></li>
-              <li><a href="code.html" target="_blank" refer='noreferer' role="menuitem">Web Design</a></li>
-              <li><a href="ink.html#graphic-design" target="_blank" refer='noreferer' role="menuitem">Print Media</a></li>
+              <li><a href="ink.html#branding" refer='noreferer' role="menuitem">Brand Design</a></li>
+              <li><a href="code.html" refer='noreferer' role="menuitem">Web Design</a></li>
+              <li><a href="ink.html#graphic-design" refer='noreferer' role="menuitem">Print Media</a></li>
             </div>
           </ul>
         </li>
@@ -58,17 +58,17 @@ class Header extends HTMLElement {
           </label>
           <ul class="submenu">
           <div class="menu-title">
-            <span><a href='code.html' target=_blank refer='noreferer' role='menuitem'>Web Services</span>
+            <span><a href='code.html' refer='noreferer' role='menuitem'>Web Services</span>
           </div>
             <div class="menu-items">
-              <li><a target="_blank" refer='noreferer' role='menuitem' href="code.html/#webdevelop">Web Development</a></li>
-              <li><a target="_blank" refer='noreferer' role='menuitem' href="code.html/#SEO">SEO & Performance</a></li>
-              <li><a target="_blank" refer='noreferer' role='menuitem' href="code.html/#hosting">Web Hosting & Maintenance</a></li>
+              <li><a refer='noreferer' role='menuitem' href="code.html/#webdevelop">Web Development</a></li>
+              <li><a refer='noreferer' role='menuitem' href="code.html/#SEO">SEO & Performance</a></li>
+              <li><a refer='noreferer' role='menuitem' href="code.html/#hosting">Web Hosting & Maintenance</a></li>
             </div>
           </ul>
         </li>
-        <li><a target="_blank" refer='noreferer' role='menuitem' href="about.html">CTRL + Us</a></li>
-        <li><a target="_blank" refer='noreferer' role='menuitem' href="#contact">Hit Us Up</a></li>
+        <li><a refer='noreferer' role='menuitem' href="about.html">CTRL + Us</a></li>
+        <li><a refer='noreferer' role='menuitem' href="#contact">Hit Us Up</a></li>
   </ul>
 </nav>
 </div>
