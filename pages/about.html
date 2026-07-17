@@ -1,0 +1,1129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ink & Code | About (not really)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100..900&family=Caveat:wght@400..700&family=Orbit&family=Cascadia+Mono:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #1e1f50;
+        --navy-deep: #2b3457;
+        --navy-mid: #313b5f;
+        --slate: #4b5566;
+        --slate-light: #9da2ab;
+
+        --teal-dim: rgba(80, 227, 194, 0.15);
+        --teal-glow: rgba(80, 227, 194, 0.4);
+        --purple: #8a7093;
+        --purple-dark: #531368;
+        --white: #ededed;
+        --off-white: #f4f4f2;
+
+        --dark-text: #1c1c1c;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: 10px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--dark-blue);
+        color: var(--white);
+        font-family: "Nunito", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* ─── NAV BAR (stub) ─────────────────────────────── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.8rem 5%;
+        background: linear-gradient(
+          to bottom,
+          rgba(30, 31, 80, 0.95),
+          transparent
+        );
+        backdrop-filter: blur(4px);
+      }
+      .logo {
+        font-family: "Orbit", sans-serif;
+        font-size: 2.2rem;
+        letter-spacing: 0.05em;
+        color: var(--white);
+        text-decoration: none;
+      }
+      .logo span {
+        color: var(--teal);
+      }
+      .nav-links {
+        display: flex;
+        gap: 3rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: var(--light-gray);
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--teal);
+      }
+
+      /* ─── HERO ───────────────────────────────────────── */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 14rem 7% 8rem;
+        background: linear-gradient(
+          160deg,
+          #2b3457 0%,
+          #1e1f50 40%,
+          #313b5f 80%,
+          #4b5566 100%
+        );
+        overflow: hidden;
+      }
+
+      /* grain overlay */
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+        opacity: 0.04;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* teal accent bar — top left */
+      .hero-accent-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 60%;
+        background: linear-gradient(to bottom, var(--teal), transparent);
+      }
+
+      /* watermark CTRL+ */
+      .hero-watermark {
+        position: absolute;
+        right: -2%;
+        top: 10%;
+        font-family: "Raleway", sans-serif;
+        font-size: clamp(14rem, 22vw, 28rem);
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.025);
+        letter-spacing: -0.06em;
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .hero-eyebrow {
+        position: relative;
+        z-index: 1;
+        font-family: "Cascadia Mono", monospace;
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: var(--teal);
+        letter-spacing: 0.15em;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        display: inline-block;
+        width: 40px;
+        height: 1px;
+        background: var(--teal);
+      }
+
+      .hero-ctrl {
+        position: relative;
+        z-index: 1;
+        font-family: "Raleway", sans-serif;
+        font-size: clamp(5rem, 12vw, 14rem);
+        font-weight: 800;
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+      }
+      .hero-ctrl .asterisk {
+        color: var(--teal);
+      }
+      .hero-ctrl .outline-text {
+        -webkit-text-stroke: 1.5px var(--white);
+        color: transparent;
+      }
+
+      .hero-not-about {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.8rem;
+        margin-bottom: 3.5rem;
+      }
+      .hero-not-about .word {
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(1.8rem, 3.5vw, 4rem);
+        font-weight: 200;
+        color: var(--light-gray);
+        letter-spacing: -0.02em;
+      }
+      .hero-not-about .word.bracket {
+        font-weight: 700;
+        color: var(--teal);
+      }
+      .hero-not-about .word.strike {
+        text-decoration: line-through;
+        text-decoration-color: var(--purple);
+        color: var(--slate-light);
+      }
+      .hero-not-about .word.loud {
+        font-weight: 700;
+        color: var(--white);
+        font-size: clamp(2rem, 4vw, 4.8rem);
+      }
+
+      .hero-sub {
+        position: relative;
+        z-index: 1;
+        max-width: 600px;
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 1.7;
+        color: var(--slate-light);
+      }
+
+      /* glitch scanline */
+      .scanline {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+        background: linear-gradient(to bottom, transparent, var(--dark-blue));
+        z-index: 1;
+      }
+
+      /* ─── SECTIONS SHARED ────────────────────────────── */
+      section {
+        position: relative;
+        width: 90%;
+        max-width: 1400px;
+        margin-inline: auto;
+        padding-block: 8rem;
+      }
+
+      .section-label {
+        font-family: "Cascadia Mono", monospace;
+        font-size: 1.2rem;
+        color: var(--teal);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .section-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(to right, var(--teal-glow), transparent);
+        max-width: 200px;
+      }
+
+      h2.section-title {
+        font-family: "Raleway", sans-serif;
+        font-size: clamp(3.5rem, 7vw, 7.5rem);
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        margin-bottom: 3rem;
+      }
+      h2.section-title .teal {
+        color: var(--teal);
+      }
+      h2.section-title .outline {
+        -webkit-text-stroke: 1.5px var(--white);
+        color: transparent;
+      }
+
+      p.body-text {
+        font-family: "Nunito", sans-serif;
+        font-size: 1.7rem;
+        font-weight: 400;
+        line-height: 1.75;
+        color: var(--slate-light);
+        max-width: 680px;
+      }
+      p.body-text + p.body-text {
+        margin-top: 2rem;
+      }
+      p.body-text strong {
+        color: var(--white);
+        font-weight: 700;
+      }
+
+      /* ─── DIVIDER ────────────────────────────────────── */
+      .slash-divider {
+        font-family: "Raleway", sans-serif;
+        font-size: 8rem;
+        font-weight: 800;
+        color: rgba(80, 227, 194, 0.06);
+        letter-spacing: -0.05em;
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+        text-align: center;
+        padding-block: 0;
+      }
+
+      /* ─── MANIFESTO SECTION ──────────────────────────── */
+      .manifesto {
+        background: linear-gradient(160deg, #1e1f50 0%, #2b3457 100%);
+        width: 100%;
+        max-width: none;
+        padding-inline: 7%;
+        border-top: 1px solid rgba(80, 227, 194, 0.12);
+        border-bottom: 1px solid rgba(80, 227, 194, 0.12);
+      }
+
+      .manifesto-inner {
+        max-width: 1400px;
+        margin-inline: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8rem;
+        align-items: center;
+      }
+
+      .manifesto-number {
+        font-family: "Cascadia Mono", monospace;
+        font-size: 1.2rem;
+        color: var(--teal);
+        margin-bottom: 1rem;
+      }
+
+      .big-statement {
+        font-family: "Raleway", sans-serif;
+        font-size: clamp(3rem, 5vw, 5.5rem);
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        color: var(--white);
+        margin-bottom: 3rem;
+      }
+      .big-statement em {
+        font-style: normal;
+        color: transparent;
+        -webkit-text-stroke: 1px var(--teal);
+      }
+
+      .manifesto-aside {
+        border-left: 2px solid var(--teal);
+        padding-left: 3rem;
+      }
+
+      .handwritten {
+        font-family: "Caveat", cursive;
+        font-size: 2.4rem;
+        color: var(--teal);
+        margin-bottom: 1.5rem;
+        display: block;
+      }
+
+      /* ─── ATLANTA SECTION ────────────────────────────── */
+      .atlanta-section {
+        overflow: hidden;
+      }
+
+      .atlanta-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: start;
+      }
+
+      .area-code {
+        font-family: "Raleway", sans-serif;
+        font-size: clamp(10rem, 18vw, 20rem);
+        font-weight: 800;
+        line-height: 0.85;
+        letter-spacing: -0.06em;
+        background: linear-gradient(
+          135deg,
+          rgba(80, 227, 194, 0.6) 0%,
+          rgba(80, 227, 194, 0.1) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        user-select: none;
+      }
+
+      .atl-text-block {
+        padding-top: 2rem;
+      }
+
+      /* ─── REGIONAL MAP SECTION ───────────────────────── */
+      .regional-section {
+        background: linear-gradient(180deg, var(--navy) 0%, #22234f 100%);
+        width: 100%;
+        max-width: none;
+        padding-inline: 7%;
+      }
+      .regional-inner {
+        max-width: 1400px;
+        margin-inline: auto;
+      }
+      .regional-header {
+        margin-bottom: 6rem;
+      }
+
+      .cities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 2rem;
+      }
+
+      .city-card {
+        position: relative;
+        border: 1px solid rgba(80, 227, 194, 0.15);
+        border-radius: 8px;
+        padding: 2.5rem 2.5rem 2rem;
+        background: rgba(80, 227, 194, 0.03);
+        transition:
+          border-color 0.25s,
+          background 0.25s;
+        overflow: hidden;
+      }
+      .city-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 0;
+        background: var(--teal);
+        transition: height 0.3s ease;
+      }
+      .city-card:hover {
+        border-color: rgba(80, 227, 194, 0.4);
+        background: rgba(80, 227, 194, 0.06);
+      }
+      .city-card:hover::before {
+        height: 100%;
+      }
+
+      .city-card.home-base {
+        border-color: rgba(80, 227, 194, 0.5);
+        background: rgba(80, 227, 194, 0.08);
+      }
+      .city-card.home-base::before {
+        height: 100%;
+      }
+
+      .city-num {
+        font-family: "Cascadia Mono", monospace;
+        font-size: 1rem;
+        color: rgba(80, 227, 194, 0.5);
+        margin-bottom: 0.8rem;
+      }
+      .city-name {
+        font-family: "Raleway", sans-serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--white);
+        letter-spacing: -0.02em;
+        margin-bottom: 0.5rem;
+      }
+      .city-tag {
+        font-family: "Cascadia Mono", monospace;
+        font-size: 1.1rem;
+        color: var(--teal);
+        margin-bottom: 1rem;
+      }
+      .city-desc {
+        font-family: "Nunito", sans-serif;
+        font-size: 1.35rem;
+        line-height: 1.6;
+        color: var(--slate-light);
+      }
+      .home-badge {
+        display: inline-block;
+        background: var(--teal);
+        color: var(--navy);
+        font-family: "Cascadia Mono", monospace;
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 0.3rem 0.9rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        letter-spacing: 0.08em;
+      }
+
+      /* ─── ADVANTAGES SECTION ─────────────────────────── */
+      .advantages-section {
+        position: relative;
+      }
+
+      .adv-watermark {
+        position: absolute;
+        top: 4rem;
+        right: -5%;
+        font-family: "Raleway", sans-serif;
+        font-size: clamp(8rem, 15vw, 18rem);
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.02);
+        letter-spacing: -0.05em;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .adv-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: end;
+        margin-bottom: 6rem;
+      }
+
+      .adv-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .adv-item {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        align-items: start;
+        padding-block: 3rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        gap: 2rem;
+        transition: background 0.2s;
+        position: relative;
+      }
+      .adv-item:first-child {
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      .adv-item::after {
+        content: "/";
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: "Raleway", sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+        color: rgba(80, 227, 194, 0.15);
+        transition: color 0.2s;
+      }
+      .adv-item:hover::after {
+        color: rgba(80, 227, 194, 0.5);
+      }
+
+      .adv-num {
+        font-family: "Cascadia Mono", monospace;
+        font-size: 1.2rem;
+        color: rgba(80, 227, 194, 0.4);
+        padding-top: 0.6rem;
+      }
+
+      .adv-content {
+      }
+      .adv-title {
+        font-family: "Raleway", sans-serif;
+        font-size: clamp(2rem, 3.5vw, 3.2rem);
+        font-weight: 700;
+        color: var(--white);
+        letter-spacing: -0.02em;
+        margin-bottom: 0.8rem;
+      }
+      .adv-desc {
+        font-family: "Nunito", sans-serif;
+        font-size: 1.6rem;
+        line-height: 1.65;
+        color: var(--slate-light);
+        max-width: 650px;
+      }
+
+      /* ─── CLOSING / CTA ──────────────────────────────── */
+      .closing-section {
+        background: linear-gradient(
+          160deg,
+          #22234f 0%,
+          #1e1f50 50%,
+          #2b3457 100%
+        );
+        width: 100%;
+        max-width: none;
+        padding-inline: 7%;
+        border-top: 1px solid rgba(80, 227, 194, 0.12);
+      }
+      .closing-inner {
+        max-width: 1400px;
+        margin-inline: auto;
+        padding-block: 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4rem;
+      }
+
+      .closing-headline {
+        font-family: "Raleway", sans-serif;
+        font-size: clamp(3.5rem, 7vw, 8rem);
+        font-weight: 800;
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+        color: var(--white);
+      }
+      .closing-headline .outline {
+        -webkit-text-stroke: 1.5px var(--teal);
+        color: transparent;
+      }
+
+      .cta-row {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+      }
+
+      .cta-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.4rem 3rem;
+        border: 1.5px solid var(--teal);
+        border-radius: 4px;
+        background: transparent;
+        color: var(--teal);
+        font-family: "Poppins", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        cursor: pointer;
+        overflow: hidden;
+        transition: color 0.3s;
+      }
+      .cta-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--teal);
+        transform: translateX(-101%);
+        transition: transform 0.3s ease;
+        z-index: 0;
+      }
+      .cta-btn:hover {
+        color: var(--navy);
+      }
+      .cta-btn:hover::before {
+        transform: translateX(0);
+      }
+      .cta-btn span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-secondary {
+        font-family: "Nunito", sans-serif;
+        font-size: 1.5rem;
+        color: var(--slate-light);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(80, 227, 194, 0.3);
+        padding-bottom: 0.2rem;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .cta-secondary:hover {
+        color: var(--teal);
+        border-color: var(--teal);
+      }
+
+      /* ─── SCROLL ANIMATIONS ──────────────────────────── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ─── RESPONSIVE ─────────────────────────────────── */
+      @media (max-width: 900px) {
+        .manifesto-inner,
+        .atlanta-grid,
+        .adv-header {
+          grid-template-columns: 1fr;
+          gap: 4rem;
+        }
+        .nav-links {
+          display: none;
+        }
+        .area-code {
+          font-size: clamp(8rem, 30vw, 16rem);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a class="logo" href="#">Ink<span>&</span>Code</a>
+      <ul class="nav-links">
+        <li><a href="#">Work</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- ═══ HERO ══════════════════════════════════════════ -->
+    <div class="hero">
+      <div class="hero-accent-bar"></div>
+      <div class="hero-watermark" aria-hidden="true">CTRL*</div>
+
+      <p class="hero-eyebrow" aria-hidden="true">
+        // about.html → not_really.exe
+      </p>
+
+      <h1 class="hero-ctrl" aria-label="CTRL Plus Us">
+        CTRL<span class="asterisk">+</span><br />
+        <span class="outline">US</span><span class="asterisk">*</span>
+      </h1>
+
+      <div
+        class="hero-not-about"
+        role="text"
+        aria-label="This is not an about page"
+      >
+        <span class="word">this</span>
+        <span class="word">is</span>
+        <span class="word bracket">(</span><span class="word strike">not</span
+        ><span class="word bracket">)</span>
+        <span class="word">an</span>
+        <span class="word loud">About</span>
+        <span class="word">page.</span>
+      </div>
+
+      <p class="hero-sub">
+        We're Ink&amp;Code — a web development studio born in Atlanta, operating
+        across the Southeast, and allergic to boring.
+      </p>
+
+      <div class="scanline" aria-hidden="true"></div>
+    </div>
+
+    <!-- ═══ MANIFESTO ═════════════════════════════════════ -->
+    <div class="manifesto">
+      <section class="manifesto reveal">
+        <div class="manifesto-inner">
+          <div>
+            <div class="manifesto-number">01 / what we actually do</div>
+            <h2 class="big-statement">
+              We don't just build<br />
+              <em>websites</em>—<br />
+              we build relationships.
+            </h2>
+            <p class="body-text">
+              At Ink&amp;Code, we take the time to understand your vision,
+              goals, and audience. Not in a buzzword-brochure kind of way. Like,
+              we actually <strong>listen</strong>.
+            </p>
+            <p class="body-text" style="margin-top: 2rem">
+              Our team works hand-in-hand with you to create designs that truly
+              reflect your brand's spirit — not a template we slapped your logo
+              on at 4:59&nbsp;pm on a Friday.
+            </p>
+          </div>
+
+          <div class="manifesto-aside">
+            <span class="handwritten">collaborate.</span>
+            <p class="body-text">
+              We believe the best digital products happen when clients and
+              creators are in the same conversation — not just the same Slack
+              channel.
+            </p>
+            <p class="body-text" style="margin-top: 2.5rem">
+              Small businesses don't need an agency that treats them like an
+              afterthought. You need a <strong>partner</strong> who shows up,
+              speaks plainly, and ships things that work.
+            </p>
+            <p class="body-text" style="margin-top: 2.5rem">
+              That's us. We break boundaries, <em>not</em> budgets.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="slash-divider" aria-hidden="true">/ / / / / / / / / / /</div>
+
+    <!-- ═══ ATLANTA ═══════════════════════════════════════ -->
+    <section class="atlanta-section reveal">
+      <div class="section-label">02 / where we're from</div>
+      <div class="atlanta-grid">
+        <div>
+          <div class="area-code" aria-label="404">404</div>
+        </div>
+
+        <div class="atl-text-block">
+          <h2 class="section-title">
+            Atlanta<br />is our<br />
+            <span class="teal">home base.</span>
+          </h2>
+          <p class="body-text">
+            We're rooted in Atlanta — the city that taught the world you can
+            build something world-class without asking anyone's permission. That
+            energy runs through everything we make.
+          </p>
+          <p class="body-text" style="margin-top: 2rem">
+            The Southeast isn't flyover country. It's a region full of
+            <strong>ambitious founders, makers, and local legends</strong> who
+            deserve digital presences as sharp as their ideas. We know this
+            market from the inside — because we live it.
+          </p>
+          <p class="body-text" style="margin-top: 2rem">
+            HBCUs, food &amp; bev, music, retail, nonprofits, contractors,
+            creatives — we've worked with them all, and we understand the
+            economics and culture that shape their brands.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ REGIONAL ══════════════════════════════════════ -->
+    <div class="regional-section">
+      <section
+        class="regional-inner reveal"
+        style="
+          max-width: 1400px;
+          margin-inline: auto;
+          padding-block: 8rem;
+          width: 100%;
+        "
+      >
+        <div class="regional-header">
+          <div class="section-label">03 / our region</div>
+          <h2 class="section-title">
+            Rooted in ATL.<br />
+            <span class="outline">Reach across</span><br />
+            <span class="teal">the Southeast.</span>
+          </h2>
+          <p class="body-text" style="max-width: 700px">
+            We maintain marketing hubs and active client relationships across
+            the Southeast — so whether you're in Midtown or the Mississippi Gulf
+            Coast, you're working with a team that knows your market.
+          </p>
+        </div>
+
+        <div class="cities-grid">
+          <div class="city-card home-base">
+            <div class="home-badge">HQ</div>
+            <div class="city-num">01</div>
+            <div class="city-name">Atlanta, GA</div>
+            <div class="city-tag">// home_base.atl</div>
+            <div class="city-desc">
+              Where it all started. Our studio, our roots, our city. The beating
+              heart of everything Ink&amp;Code builds.
+            </div>
+          </div>
+
+          <div class="city-card">
+            <div class="city-num">02</div>
+            <div class="city-name">Charlotte, NC</div>
+            <div class="city-tag">// hub.clt</div>
+            <div class="city-desc">
+              One of the fastest-growing metros in the South — we're here for
+              the boom, not the aftermath.
+            </div>
+          </div>
+
+          <div class="city-card">
+            <div class="city-num">03</div>
+            <div class="city-name">Nashville, TN</div>
+            <div class="city-tag">// hub.bna</div>
+            <div class="city-desc">
+              Music City's brand scene is exploding. We help businesses cut
+              through the noise with design that actually lands.
+            </div>
+          </div>
+
+          <div class="city-card">
+            <div class="city-num">04</div>
+            <div class="city-name">Birmingham, AL</div>
+            <div class="city-tag">// hub.bhm</div>
+            <div class="city-desc">
+              A city in the middle of its own reinvention. We're proud to help
+              local businesses shape that story.
+            </div>
+          </div>
+
+          <div class="city-card">
+            <div class="city-num">05</div>
+            <div class="city-name">Savannah, GA</div>
+            <div class="city-tag">// hub.sav</div>
+            <div class="city-desc">
+              Historic, creative, hospitality-driven. Savannah's brands deserve
+              a digital presence as distinctive as the city itself.
+            </div>
+          </div>
+
+          <div class="city-card">
+            <div class="city-num">06</div>
+            <div class="city-name">Raleigh, NC</div>
+            <div class="city-tag">// hub.rdu</div>
+            <div class="city-desc">
+              Research Triangle's startup and small-biz energy? That's our kind
+              of client. Bold ideas, real stakes.
+            </div>
+          </div>
+
+          <div class="city-card">
+            <div class="city-num">07</div>
+            <div class="city-name">Tampa, FL</div>
+            <div class="city-tag">// hub.tpa</div>
+            <div class="city-desc">
+              Sun and hustle in equal measure. Tampa's entrepreneurial scene is
+              one of the South's best-kept secrets — not for long.
+            </div>
+          </div>
+
+          <div class="city-card">
+            <div class="city-num">08</div>
+            <div class="city-name">New Orleans, LA</div>
+            <div class="city-tag">// hub.msy</div>
+            <div class="city-desc">
+              Culture, food, resilience, creativity — NOLA brands need design
+              with actual soul. We show up for that.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ═══ ADVANTAGES ════════════════════════════════════ -->
+    <section class="advantages-section reveal">
+      <div class="adv-watermark" aria-hidden="true">ADV/</div>
+      <div class="adv-header">
+        <div>
+          <div class="section-label">04 / why us</div>
+          <h2 class="section-title">
+            The case<br />for working<br />
+            <span class="teal">with us.</span>
+          </h2>
+        </div>
+        <div>
+          <p class="body-text">
+            Boutique studio energy. No bloated agency overhead. No account
+            managers for your account managers. Just real people making real
+            things for real businesses — at prices that don't require a board
+            vote.
+          </p>
+        </div>
+      </div>
+
+      <div class="adv-list">
+        <div class="adv-item reveal">
+          <div class="adv-num">01/</div>
+          <div class="adv-content">
+            <div class="adv-title">Custom Solutions, Full Stop.</div>
+            <div class="adv-desc">
+              We design and build websites tailored to your actual business
+              goals — not the goals of a generic template some vendor
+              pre-loaded. Every project is a unique user experience built to
+              make you
+              <strong style="color: var(--white)">stand out</strong>, not blend
+              in.
+            </div>
+          </div>
+        </div>
+
+        <div class="adv-item reveal">
+          <div class="adv-num">02/</div>
+          <div class="adv-content">
+            <div class="adv-title">Flexible CMS Options.</div>
+            <div class="adv-desc">
+              Need WordPress? Done. Headless CMS? Let's talk. We build on
+              whatever platform actually fits your life — not ours. Beautiful
+              customization, industry-standard under the hood, zero lock-in
+              panic.
+            </div>
+          </div>
+        </div>
+
+        <div class="adv-item reveal">
+          <div class="adv-num">03/</div>
+          <div class="adv-content">
+            <div class="adv-title">End-to-End, Start to Ship.</div>
+            <div class="adv-desc">
+              Graphic design. Branding. Website build. Maintenance. SEO. We
+              handle the whole chain so you're not duct-taping together five
+              different vendors and praying they talk to each other. One
+              relationship. Everything covered.
+            </div>
+          </div>
+        </div>
+
+        <div class="adv-item reveal">
+          <div class="adv-num">04/</div>
+          <div class="adv-content">
+            <div class="adv-title">
+              Built for Small Business, Built to Scale.
+            </div>
+            <div class="adv-desc">
+              We understand the unique challenges small businesses face — the
+              tight timelines, the real budgets, the everything-at-once
+              pressure. Our pricing is
+              <strong style="color: var(--white)">transparent</strong>, our work
+              is <strong style="color: var(--white)">competitive</strong>, and
+              we never charge more than a solution actually needs to cost.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CLOSING CTA ═══════════════════════════════════ -->
+    <div class="closing-section">
+      <div class="closing-inner reveal">
+        <div class="section-label">05 / let's do this</div>
+        <h2 class="closing-headline">
+          Ready to build<br />
+          something<br />
+          <span class="outline">worth clicking?</span>
+        </h2>
+        <p class="body-text" style="max-width: 560px">
+          Whether you're starting from scratch or finally fixing the site you've
+          been embarrassed to share — we're here. No judgment. Just
+          <strong>good work at real prices.</strong>
+        </p>
+        <div class="cta-row">
+          <a href="#contact" class="cta-btn">
+            <span>Start the Conversation</span>
+            <span>&#x279C;</span>
+          </a>
+          <a href="#work" class="cta-secondary">See our work first →</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Intersection Observer for reveal animations
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              // stagger children if multiple
+              setTimeout(() => {
+                entry.target.classList.add("visible");
+              }, 80);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      reveals.forEach((el) => observer.observe(el));
+
+      // Stagger advantage items
+      const advItems = document.querySelectorAll(".adv-item");
+      const advObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }, i * 120);
+              advObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      advItems.forEach((el) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        advObserver.observe(el);
+      });
+
+      // City card stagger
+      const cards = document.querySelectorAll(".city-card");
+      const cardObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const idx = [...cards].indexOf(entry.target);
+              setTimeout(() => {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }, idx * 80);
+              cardObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.05 },
+      );
+
+      cards.forEach((el) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(24px)";
+        el.style.transition =
+          "opacity 0.5s ease, transform 0.5s ease, border-color 0.25s, background 0.25s";
+        cardObserver.observe(el);
+      });
+    </script>
+  </body>
+</html>

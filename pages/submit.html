@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ink & Code | Digital Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100..900&family=Caveat:wght@400..700&family=Orbit&display=swap"display="swap" rel="stylesheet">
+  <link rel="preload" as="style" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <style> 
+      html {
+        font-size: 62.5%
+      }
+      body {
+        margin: 0px;
+        min-height: 100vh;
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: var(--header-height) auto 1fr var(--footer-height);
+        grid-template-areas: 'header'
+                            'hero'
+                            'main'
+                            'footer';
+        background: linear-gradient(to bottom, #1E1F50 0%,#1E1F50 20%, #4B5566 40%, #FFFFFF 50%);
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 90dvw;
+        margin-inline: auto;
+        grid-area: main;
+      }
+      h1 {
+        font-size: var(--fs-xxl);
+        font-style: normal;
+        font-weight: 600;
+        -webkit-text-stroke: 1.25px #FFF;
+        color: transparent;
+        font-family: "Poppins";
+        line-height: 30px;
+        letter-spacing: 0.18px;
+      }
+      h2 {
+        font-family: Poppins;
+        font-size: var(--fs-xxl);
+        font-weight: 400;
+        color: var(--lightest-gray);
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+        margin-block: 0.2em;
+      }
+      .numbers {
+          font-family: "Orbit";
+          font-size: 14px;
+          line-height: 30px;
+          letter-spacing: 0.08px;
+          font-weight: 400;
+        }
+      .header {
+        display: flex;
+        position: relative;
+        width: 100dvw;
+        height: var(--header-height);
+        grid-area: header;
+        background: linear-gradient(270deg, #535353 0%, #3D3E68 27.21%, #1E1F50 100%);
+        
+        .logo {
+          display: flex;
+          width: 200px;
+          padding: 0.6em;
+        }
+      }
+      
+      .nav {
+          position: relative;
+          right: 5em;
+          font-size: var(--fs-base);
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          width: 60vw;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-end;
+      }
+</style>
+</head>
+<body>
+     <header class="header">
+      <div class="header-logo">
+      <picture>
+        <source media="(min-width: 600px)" srcset="./assets/logo-lg.png">
+        <source media="(max-width: 599px)" srcset="./assets/logo-sm.png">
+        <img class="logo"></img>
+      </div>
+      <div class="header-nav">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label"></label>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+  </header>
+  <main>
+    <h1>Thanks For Hitting Us Up!</h1>
+    <h3>Your info has been received and we should be contacting you soon</h3>
+    </main>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Ink&Code. All rights reserved.</p>
+      <div class="social">FOLLOW US</div>
+    </div>
+  </footer>  
+</body>

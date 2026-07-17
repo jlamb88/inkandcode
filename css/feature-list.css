@@ -1,0 +1,63 @@
+/* Feature List Component Styles */
+
+.feature-container {
+    max-width: none;
+    width: 361px;
+    height: 266px;
+    position: relative;
+    border-radius: 12px;
+    border: 1px solid #959396;
+    background: radial-gradient(50% 50% at 50% 50%, #7C7C7C 0%, #9D9C9C 100%);
+    box-shadow: 1px 1px 25px 5px rgba(83, 19, 104, 0.20) inset;
+    padding: 27px 30px;
+    margin: 0 auto;
+}
+
+.vertical-line-wrapper {
+    position: absolute;
+    left: 30px;
+    top: 27px;
+}
+
+.vertical-line {
+    width: 4px;
+    height: 210px;
+}
+
+.features-content {
+    position: relative;
+    left: 12px;
+    top: 21px;
+    width: 310px;
+    height: 166px;
+}
+
+.feature-item {
+    font: 400 20px/20px Raleway, -apple-system, Roboto, Helvetica, sans-serif;
+    letter-spacing: -0.3px;
+    color: rgba(255, 255, 255, 0.40);
+    margin-bottom: 29px;
+}
+
+.feature-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Tablet styles */
+@media (max-width: 900px) {
+    .feature-container {
+        max-width: 361px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .features-content {
+        left: 8px;
+    }
+    
+    .feature-item {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+}
+

@@ -1,0 +1,168 @@
+.bullet-list-container {
+  max-width: 738px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.bullet-list-content {
+  position: relative;
+  width: 100%;
+  height: 337px;
+}
+
+.bullet-item:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.bullet-item:nth-child(2) {
+  top: 112px;
+  left: 0;
+}
+
+.bullet-item:nth-child(3) {
+  top: 225px;
+  left: 0;
+}
+
+.bullet-point {
+  width: 37.6px;
+  height: 64.7px;
+  background-color: #1e1f50;
+  border-radius: 50%;
+  margin-right: 58px;
+  flex-shrink: 0;
+}
+
+.bullet-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 45.3025px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: #616161;
+  white-space: nowrap;
+}
+
+.connecting-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.vertical-line {
+  position: absolute;
+  left: 35.781px;
+  top: 28.3223px;
+  width: 7.97633px;
+  height: 243.979px;
+  background-color: #909090;
+  border-radius: 3.988px;
+}
+
+.horizontal-line {
+  position: absolute;
+  height: 7.97633px;
+  background-color: #909090;
+  border-radius: 3.988px;
+}
+
+.horizontal-line.top {
+  top: 33.9878px;
+  left: 36.7066px;
+  width: 58.3599px;
+}
+
+.horizontal-line.middle {
+  top: 143.637px;
+  left: 33.8993px;
+  width: 36.6912px;
+}
+
+.horizontal-line.bottom {
+  top: 253.343px;
+  left: 33.9429px;
+  width: 61.1723px;
+}
+
+@media (max-width: 991px) {
+  .bullet-point {
+    width: 30px;
+    height: 52px;
+    margin-right: 46px;
+  }
+
+  .bullet-list-content {
+    height: 270px;
+  }
+
+  .bullet-item:nth-child(2) {
+    top: 90px;
+  }
+
+  .bullet-item:nth-child(3) {
+    top: 180px;
+  }
+}
+
+@media (max-width: 640px) {
+  .bullet-list-container {
+    max-width: 640px;
+    padding: 20px 10px;
+  }
+
+  .bullet-text {
+    font-size: 24px;
+  }
+
+  .bullet-point {
+    width: 20px;
+    height: 34px;
+    margin-right: 30px;
+  }
+
+  .bullet-list-content {
+    height: 200px;
+  }
+
+  .bullet-item:nth-child(2) {
+    top: 67px;
+  }
+
+  .bullet-item:nth-child(3) {
+    top: 134px;
+  }
+
+  .vertical-line {
+    left: 25px;
+    top: 20px;
+    width: 5px;
+    height: 160px;
+  }
+
+  .horizontal-line {
+    height: 5px;
+  }
+
+  .horizontal-line.top {
+    top: 24px;
+    left: 26px;
+    width: 40px;
+  }
+
+  .horizontal-line.middle {
+    top: 91px;
+    left: 24px;
+    width: 25px;
+  }
+
+  .horizontal-line.bottom {
+    top: 158px;
+    left: 24px;
+    width: 42px;
+  }
+}
