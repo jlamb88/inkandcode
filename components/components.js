@@ -45,9 +45,9 @@ class Header extends HTMLElement {
             <span><a href='/ink.html' target='_blank' role='menuitem'>Graphic Design</span>
             </div>
             <div class="menu-items">
-              <li><a href="/ink.html#branding" target="_blank" role="menuitem">Brand Design</a></li>
+              <li><a href="pages/ink.html#branding" target="_blank" role="menuitem">Brand Design</a></li>
               <li><a href="" target="_blank" role="menuitem">Web Design</a></li>
-              <li><a href="/ink.html#graphic-design" target="_blank" role="menuitem">Print Media</a></li>
+              <li><a href="pages/ink.html#graphic-design" target="_blank" role="menuitem">Print Media</a></li>
             </div>
           </ul>
         </li>
@@ -58,16 +58,16 @@ class Header extends HTMLElement {
           </label>
           <ul class="submenu">
           <div class="menu-title">
-            <span><a href='code.html' target=_blank refer='noreferrer' role='menuitem'>Web Services</span>
+            <span><a href='pages/code.html' target=_blank refer='noreferrer' role='menuitem'>Web Services</span>
           </div>
             <div class="menu-items">
-              <li><a target="_blank" href="code.html/#webdevelop">Web Development</a></li>
-              <li><a target="_blank" href="code.html/#SEO">SEO & Performance</a></li>
-              <li><a target="_blank" href="code.html/#hosting">Web Hosting & Maintenance</a></li>
+              <li><a target="_blank" href="pages/code.html/#webdevelop">Web Development</a></li>
+              <li><a target="_blank" href="pages/code.html/#SEO">SEO & Performance</a></li>
+              <li><a target="_blank" href="pages/code.html/#hosting">Web Hosting & Maintenance</a></li>
             </div>
           </ul>
         </li>
-        <li><a target="_blank" href="about.html">CTRL + Us</a></li>
+        <li><a target="_blank" href="pages/about.html">CTRL + Us</a></li>
         <li><a target="_blank" href="#contact">Hit Us Up</a></li>
   </ul>
 </nav>
