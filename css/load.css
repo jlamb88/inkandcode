@@ -56,8 +56,8 @@
 
   --dropdown-menu-background: var(--white);
 
-  --header-height: 8rem;
-  --wide-header-height: 12rem;
+  --header-height: 10rem;
+  --wide-header-height: 8rem;
   --body-padding: 2rem;
   --footer-height: 80rem;
   --nav-width: 16rem;
@@ -160,9 +160,9 @@ body {
     180deg,
     #313b5f 0%,
     #1e1f50 10.4%,
-    #1e1f50 30%,
-    #4b5566 38%,
-    #e8eef1 42%
+    #1e1f50 26%,
+    #4b5566 32%,
+    #e8eef1 34%
   );
   margin: 0;
   padding: 0;
@@ -172,11 +172,11 @@ section {
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 90vw;
+  width: 86vw;
   max-width: 1600px;
-  margin-block: 0 4em;
+  margin-block: 0 0.5em;
   margin-inline: auto;
-  padding: 2em 0;
+  padding: 1em 0;
 }
 
 input[type="checkbox"] {
@@ -208,7 +208,7 @@ h1 {
 
 h2 {
   font-family: Poppins;
-  font-size: var(--fs-xxl);
+  font-size: var(--fs-xl);
   font-weight: 400;
   color: inherit;
 }
@@ -238,7 +238,6 @@ h2 {
   position: relative;
   transition: transform 0.3s ease;
   width: 100dvw;
-  margin-inline: auto;
   height: inherit;
   min-height: 85px;
   /* background: linear-gradient(270deg, #535353 0%, #3d3e68 27.21%, #1e1f50 100%); */
@@ -473,7 +472,7 @@ h2 {
 
 hero {
   position: relative;
-  min-height: 440px;
+  min-height: 350px;
   width: 100%;
   grid-area: hero;
   background: #1e1f50;
@@ -505,7 +504,7 @@ hero {
     line-height: 30px;
     letter-spacing: 0.18px;
     right: -2px;
-    bottom: 1em;
+    bottom: 2em;
     .row {
       margin-block-end: 0.1em;
       position: relative;
@@ -545,8 +544,7 @@ hero {
 }
 
 .headline {
-  align-items: center;
-  margin-block: 0.2em;
+  margin-block: 0.3em;
   h2 {
     font-family: Raleway, sans-serif;
   }
@@ -565,8 +563,10 @@ hero {
   }
 
   p {
+    padding-inline: 1em 0;
     margin-block-start: 1em;
     width: 90%;
+    font-weight: 200;
   }
 }
 
@@ -638,7 +638,7 @@ hero {
     .has-submenu > label {
       color: white;
       text-decoration: none;
-      font-size: var(--fs-md);
+      font-size: var(--fs-base);
       font-weight: 400;
       cursor: pointer;
       padding: 0.5em 0.2em;

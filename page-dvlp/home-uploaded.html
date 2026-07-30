@@ -26,11 +26,11 @@
       ><link rel="stylesheet" href="../css/load.css" as="style"
     /></noscript>
     
-    <link rel="stylesheet" href="../css/home-dvlp.css" as="style" />
+    <link rel="stylesheet" href="./home.css" as="style" />
     <link rel="preload" as="image" href="../assets/home/hero-lg.svg" />
     <link rel="preload" as="image" href="../assets/home/hero-sm.png" />
     <script
-      src="../components/components.js"
+      src="../components/components-claude.js"
       type="text/javascript"
       defer
     ></script>
@@ -39,211 +39,141 @@
       type="text/javascript"
       defer
     ></script>
-
-  <!-- ── About-page enhancement styles ───────────────────────────── -->
+  
+  <!-- ── Scroll-driven entry animations ─────────────────────────────
+       animation-timeline: view() drives each animation from the
+       element's own scroll position. No JS required.
+       animation-fill-mode: both holds the 'from' state (opacity:0)
+       before the range starts so nothing flashes in unexpectedly.
+  ──────────────────────────────────────────────────────────────── -->
   <style>
-    /* Grain overlay — sits over the hero image, pointer-events off */
-    .grain-overlay {
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      opacity: 0.04;
-      pointer-events: none;
-      z-index: 1;
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Vertical teal accent bar — left edge of hero */
-    .hero-teal-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 65%;
-      background: linear-gradient(to bottom, #50e3c2, transparent);
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    /* Hero eyebrow label */
-    .hero-eyebrow-label {
-      position: absolute;
-      top: 28px;
-      left: 5%;
-      font-family: 'Cascadia Mono', monospace;
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: #50e3c2;
-      letter-spacing: 0.18em;
-      z-index: 3;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      opacity: 0.85;
-    }
-    .hero-eyebrow-label::before {
-      content: '';
-      display: inline-block;
-      width: 28px;
-      height: 1px;
-      background: #50e3c2;
-    }
-
-    /* Large ghosted watermark behind the headline section */
-    .section-watermark {
-      position: absolute;
-      font-family: 'Raleway', sans-serif;
-      font-weight: 800;
-      font-size: clamp(7rem, 14vw, 16rem);
-      line-height: 1;
-      letter-spacing: -0.05em;
-      color: rgba(80, 227, 194, 0.055);
-      pointer-events: none;
-      user-select: none;
-      white-space: nowrap;
-      z-index: 0;
-    }
-    .section-watermark.right  { right: -2%; top: -1rem; }
-    .section-watermark.left   { left:  -2%; top: -1rem; }
-
-    /* Monospace eyebrow label used on dark sections */
-    .section-eyebrow {
-      font-family: 'Cascadia Mono', monospace;
-      font-size: 1.15rem;
-      color: #50e3c2;
-      letter-spacing: 0.16em;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-    }
-    .section-eyebrow::after {
-      content: '';
-      display: inline-block;
-      width: 48px;
-      height: 1px;
-      background: linear-gradient(to right, #50e3c2, transparent);
-    }
-
-    /* Teal glow border top — applied to process section */
-    .teal-border-top {
-      border-top: 1px solid rgba(80, 227, 194, 0.18);
-      padding-top: 2em;
-    }
-
-    /* ── Slash divider between dark and light sections ── */
-    .slash-divider {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(5rem, 10vw, 10rem);
-      font-weight: 800;
-      color: rgba(80, 227, 194, 0.06);
-      letter-spacing: -0.04em;
-      line-height: 1;
-      text-align: center;
-      pointer-events: none;
-      user-select: none;
-      padding-block: 0.5rem;
-      overflow: hidden;
-    }
-
-    /* ── Regional teaser section ── */
-    .regional-teaser {
-      position: relative;
-      width: 90%;
-      max-width: 1400px;
-      margin-inline: auto;
-      padding-block: 5rem 6rem;
-      border-top: 1px solid rgba(80, 227, 194, 0.14);
-    }
-
-    .regional-teaser h2 {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(3rem, 6vw, 6.5rem);
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      color: #ededed;
-      margin-bottom: 2rem;
-    }
-    .regional-teaser h2 .teal  { color: #50e3c2; }
-    .regional-teaser h2 .outline-txt {
-      -webkit-text-stroke: 1.5px #ededed;
-      color: transparent;
-    }
-
-    .regional-teaser > p {
-      font-family: 'Nunito', sans-serif;
-      font-size: 1.65rem;
-      line-height: 1.7;
-      color: #9da2ab;
-      max-width: 580px;
-      margin-bottom: 3.5rem;
-      font-weight: 400;
-    }
-
-    .city-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0;
-      margin-bottom: 3.5rem;
-    }
-    .city-strip-item {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 500;
-      color: #ededed;
-      padding: 0.6rem 1.6rem 0.6rem 0;
-    }
-    .city-strip-item .city-num-sm {
-      font-family: 'Cascadia Mono', monospace;
-      font-size: 0.9rem;
-      color: rgba(80, 227, 194, 0.5);
-    }
-    .city-strip-item .city-slash {
-      color: rgba(80, 227, 194, 0.35);
-      font-weight: 300;
-      padding-left: 1.2rem;
-    }
-    .city-strip-item.home-city .city-name-sm {
-      color: #50e3c2;
-      font-weight: 600;
-    }
-
-    /* ── Scroll reveal ── */
+    /* ── Sections with .reveal ──────────────────────────────────── */
     .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+      animation: fadeUp linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 25%;
     }
 
-    /* Handwritten accent (Caveat) for the pricing pullquote */
-    .caveat-accent {
-      font-family: 'Caveat', cursive;
-      font-size: 2.6rem;
-      color: #50e3c2;
-      display: block;
-      margin-bottom: 0.6rem;
-      font-weight: 500;
+    /* ── Headline (no reveal class in markup) ───────────────────── */
+    .headline {
+      animation: fadeUp linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 25%;
     }
 
-    /* Make hero a positioning context if it isn't already */
-    hero { position: relative; }
+    /* ── Process desc sections — vertical stack, view() staggers
+          them naturally as each enters the viewport ─────────────── */
+    .process-desc {
+      animation: fadeUp linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 30%;
+    }
+
+    /* ── Pricing cards — staggered 3 ───────────────────────────── */
+    .pricing-grid > .pricing-card {
+      animation: fadeUp linear both;
+      animation-timeline: view();
+    }
+    .pricing-grid > .pricing-card:nth-child(1) { animation-range: entry 0%  entry 25%; }
+    .pricing-grid > .pricing-card:nth-child(2) { animation-range: entry 8%  entry 33%; }
+    .pricing-grid > .pricing-card:nth-child(3) { animation-range: entry 16% entry 41%; }
+
+    /* ── SEO list rows — staggered 3 ───────────────────────────── */
+    .seo-list > .seo-item {
+      animation: fadeUp linear both;
+      animation-timeline: view();
+    }
+    .seo-list > .seo-item:nth-child(1) { animation-range: entry 0%  entry 22%; }
+    .seo-list > .seo-item:nth-child(2) { animation-range: entry 7%  entry 29%; }
+    .seo-list > .seo-item:nth-child(3) { animation-range: entry 14% entry 36%; }
+
+    /* ── Custom-site points — staggered 4 ──────────────────────── */
+    .sites-grid > .site-point {
+      animation: fadeUp linear both;
+      animation-timeline: view();
+    }
+    .sites-grid > .site-point:nth-child(1) { animation-range: entry 0%  entry 25%; }
+    .sites-grid > .site-point:nth-child(2) { animation-range: entry 7%  entry 32%; }
+    .sites-grid > .site-point:nth-child(3) { animation-range: entry 14% entry 39%; }
+    .sites-grid > .site-point:nth-child(4) { animation-range: entry 21% entry 46%; }
+
+    /* ── Feature items — staggered 4 ───────────────────────────── */
+    .sites-features > .feature-item {
+      animation: fadeUp linear both;
+      animation-timeline: view();
+    }
+    .sites-features > .feature-item:nth-child(1) { animation-range: entry 0%  entry 20%; }
+    .sites-features > .feature-item:nth-child(2) { animation-range: entry 5%  entry 25%; }
+    .sites-features > .feature-item:nth-child(3) { animation-range: entry 10% entry 30%; }
+    .sites-features > .feature-item:nth-child(4) { animation-range: entry 15% entry 35%; }
+
+    /* ── City strip items — staggered 8 ────────────────────────── */
+    .city-strip > .city-strip-item {
+      animation: fadeUp linear both;
+      animation-timeline: view();
+    }
+    .city-strip > .city-strip-item:nth-child(1) { animation-range: entry 0%  entry 20%; }
+    .city-strip > .city-strip-item:nth-child(2) { animation-range: entry 4%  entry 24%; }
+    .city-strip > .city-strip-item:nth-child(3) { animation-range: entry 8%  entry 28%; }
+    .city-strip > .city-strip-item:nth-child(4) { animation-range: entry 12% entry 32%; }
+    .city-strip > .city-strip-item:nth-child(5) { animation-range: entry 16% entry 36%; }
+    .city-strip > .city-strip-item:nth-child(6) { animation-range: entry 20% entry 40%; }
+    .city-strip > .city-strip-item:nth-child(7) { animation-range: entry 24% entry 44%; }
+    .city-strip > .city-strip-item:nth-child(8) { animation-range: entry 28% entry 48%; }
+
+    /* ── City pills — staggered 8 ──────────────────────────────── */
+    .city-pills > .city-pill {
+      animation: fadeUp linear both;
+      animation-timeline: view();
+    }
+    .city-pills > .city-pill:nth-child(1) { animation-range: entry 0%  entry 20%; }
+    .city-pills > .city-pill:nth-child(2) { animation-range: entry 3%  entry 23%; }
+    .city-pills > .city-pill:nth-child(3) { animation-range: entry 6%  entry 26%; }
+    .city-pills > .city-pill:nth-child(4) { animation-range: entry 9%  entry 29%; }
+    .city-pills > .city-pill:nth-child(5) { animation-range: entry 12% entry 32%; }
+    .city-pills > .city-pill:nth-child(6) { animation-range: entry 15% entry 35%; }
+    .city-pills > .city-pill:nth-child(7) { animation-range: entry 18% entry 38%; }
+    .city-pills > .city-pill:nth-child(8) { animation-range: entry 21% entry 41%; }
+
+    /* ── Platform logos — staggered 5 ──────────────────────────── */
+    .platform-icons > img {
+      animation: fadeUp linear both;
+      animation-timeline: view();
+    }
+    .platform-icons > img:nth-child(1) { animation-range: entry 0%  entry 22%; }
+    .platform-icons > img:nth-child(2) { animation-range: entry 5%  entry 27%; }
+    .platform-icons > img:nth-child(3) { animation-range: entry 10% entry 32%; }
+    .platform-icons > img:nth-child(4) { animation-range: entry 15% entry 37%; }
+    .platform-icons > img:nth-child(5) { animation-range: entry 20% entry 42%; }
+
+    /* ── Reduced motion ─────────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .headline,
+      .process-desc,
+      .pricing-grid > .pricing-card,
+      .seo-list > .seo-item,
+      .sites-grid > .site-point,
+      .sites-features > .feature-item,
+      .city-strip > .city-strip-item,
+      .city-pills > .city-pill,
+      .platform-icons > img {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
   </style>
-  </head>
+</head>
 
   <body>
     <header-comp class="header-comp"></header-comp>
     <hero id="stopper">
-      <!-- About-page enhancements: grain, teal bar, eyebrow -->
-      <div class="grain-overlay" aria-hidden="true"></div>
-      <div class="hero-teal-bar" aria-hidden="true"></div>
-      <div class="hero-eyebrow-label" aria-hidden="true">// ink&amp;code.studio → ATL</div>
       <picture>
         <source
           media="(min-width: 601px)"
@@ -287,10 +217,9 @@
       </div>
     </hero>
     <main>
-      <section class="headline reveal">
-        <!-- watermark -->
-        <span class="section-watermark right" aria-hidden="true">INK&amp;CODE</span>
+      <section class="headline">
         <div class="section-eyebrow">// what we do</div>
+        <span class="section-watermark right" aria-hidden="true">INK&amp;CODE</span>
         <h2>
           <div class="row">
             <span class="outline">Scalable</span>
@@ -323,9 +252,8 @@
         />
       </div>
 
-      <section class="process teal-border-top reveal">
-        <div class="section-eyebrow" style="width:90%;margin-inline:auto;margin-bottom:0;">// our.method</div>
-        <h2 class="headline">Our<br />Method</h2>
+      <section class="process">
+        <h2 class="section-watermark right">OUR<br />METHOD</h2>
         <section class="process-desc" id="collaborate">
           <div class="desc-content">
             <div class="row">
@@ -411,19 +339,21 @@
           </div>
         </section>
       </section>
-
-      <!-- ── Regional teaser (from About page) ──────────────── -->
       <section class="regional-teaser reveal">
         <span class="section-watermark left" aria-hidden="true">404</span>
         <div class="section-eyebrow">// where.we.operate</div>
         <h2>
-          Atlanta-rooted.<br>
-          <span class="teal">Southeast-</span><span class="outline-txt">focused.</span>
+          Atlanta-roots.<br>
+          <span class="teal">Southeast-</span><span class="outline-txt">focus.</span>
         </h2>
-        <p>
+        <!-- <p>
           We're based in Atlanta and maintain active marketing hubs across
           the Southeast — so wherever you're building from, you're working
           with a team that knows your market from the inside.
+        </p> -->
+        <p>
+          We're based in Atlanta and maintain active marketing hubs across
+          the Southeast — we know your market because we live in it.
         </p>
         <div class="city-strip">
           <div class="city-strip-item home-city">
@@ -433,12 +363,12 @@
           </div>
           <div class="city-strip-item">
             <span class="city-num-sm">02</span>
-            <span class="city-name-sm">Charlotte, NC</span>
+            <span class="city-name-sm">Augusta, GA</span>
             <span class="city-slash">/</span>
           </div>
           <div class="city-strip-item">
             <span class="city-num-sm">03</span>
-            <span class="city-name-sm">Nashville, TN</span>
+            <span class="city-name-sm">Chattanooga, TN</span>
             <span class="city-slash">/</span>
           </div>
           <div class="city-strip-item">
@@ -453,29 +383,46 @@
           </div>
           <div class="city-strip-item">
             <span class="city-num-sm">06</span>
-            <span class="city-name-sm">Tampa, FL</span>
+            <span class="city-name-sm">Macon, GA</span>
             <span class="city-slash">/</span>
           </div>
           <div class="city-strip-item">
             <span class="city-num-sm">07</span>
-            <span class="city-name-sm">New Orleans, LA</span>
+            <span class="city-name-sm">Greenville, SC</span>
             <span class="city-slash">/</span>
           </div>
           <div class="city-strip-item">
             <span class="city-num-sm">08</span>
-            <span class="city-name-sm">Raleigh, NC</span>
+            <span class="city-name-sm">Asheville, NC</span>
           </div>
         </div>
         <div class="row">
           <a href="about.html" class="cta-btn" aria-role="button">
             <span class="button-text">Our Story</span>
+            <span class="ellipse-overlay">➜</span>
+          </a>
+        </div>
+      </section>
+      <section class="regional-strip reveal pills">
+        
+          <div class="city-pills">
+            <span class="city-pill city-pill--hq"
+              >Atlanta, GA <span class="pill-tag">HQ</span></span
+            >
+            <span class="city-pill">Augusta, GA</span>
+            <span class="city-pill">Savannah, GA</span>
+            <span class="city-pill">Macon, GA</span>
+            <span class="city-pill">Birmingham, AL</span>
+            <span class="city-pill">Chattanooga, TN</span>
+            <span class="city-pill">Asheville, NC</span>
+            <span class="city-pill">Greenville, SC</span>
+          </div>
+          <a href="about.html" class="cta-btn cta-btn--ghost">
+            <span class="button-text">Our Story</span>
             <span class="ellipse-overlay">&#x279C;</span>
           </a>
         </div>
       </section>
-
-      <!-- Slash divider -->
-      <div class="slash-divider" aria-hidden="true">/ / / / / / / / / / / / / / /</div>
 
       <div class="light-section">
         <div>
@@ -486,206 +433,204 @@
           />
         </div>
         <section class="pricing reveal">
-          <span class="caveat-accent">honest work, honest prices.</span>
-          <h2 class="test">Affordable Doesn’t Mean Ordinary</h2>
-          <div class="row">
-            <a
-              target="_blank"
-              href="code.html/#pricing"
-              class="cta-btn"
-              aria-role="button"
+        <span class="section-watermark right" aria-hidden="true">PRICE</span>
+        <div class="section-eyebrow">// invest in your brand</div>
+        <h2>Affordable Doesn'tMean Ordinary.</h2>
+        <p class="pricing-lead">
+          Our transparent pricing fits budgets of all sizes without cutting
+          corners on quality.
+        </p>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-num">01/</div>
+            <h3>Fixed-Rate Packages</h3>
+            <p>
+              Simple, clear, and predictable. Know exactly what you're paying
+              before we start.
+            </p>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-num">02/</div>
+            <h3>Hourly Rates</h3>
+            <p>
+              Pay for the time spent, nothing more. Ideal for smaller updates or
+              ongoing work.
+            </p>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-num">03/</div>
+            <h3>Custom Quotes</h3>
+            <p>
+              Tailored to unique project requirements. We'll scope it together
+              and price it fairly.
+            </p>
+          </div>
+        </div>
+
+        <span class="caveat-accent">honest work, honest prices.</span>
+
+        <a href="code.html#pricing" class="cta-btn" target="_blank">
+          <span class="button-text">See Our Pricing</span>
+          <span class="ellipse-overlay">&#x279C;</span>
+        </a>
+      </section>
+       <!-- ═══ 04 SEO ════════════════════════════════════════════════════ -->
+        
+      <section class="seo reveal">
+        <span class="section-watermark right" aria-hidden="true">SEO</span>
+        <div class="section-eyebrow">// 04 / get found</div>
+        <h2>
+          Ranked<span class="slash-teal">/</span><br />
+          <span class="outline-txt">or invisible.</span>
+        </h2>
+        <p class="seo-lead">
+          At Ink&amp;Code, we don't play hide-and-seek with search engines. We
+          crank the code, tune the speed, and clean the structure so your site
+          screams past the noise.
+        </p>
+
+        <div class="seo-list">
+          <div class="seo-item">
+            <span class="seo-num">01/</span>
+            <span class="seo-text"
+              >More Eyes On Your Work<span class="slash-teal">/</span></span
             >
-              <span class="button-text">See Our Pricing</span>
-              <span class="ellipse-overlay">&#x279C;</span>
-            </a>
           </div>
-          <p>
-            Our transparent pricing structure is designed to accommodate budgets
-            of all sizes without sacrificing quality.
-          </p>
-          <div class="pricing-options">
-            <h3>Options Include</h3>
-            <span>Fixed-Rate Packages - Simple, clear and predictable</span>
-            <span>Hourly Rates - Pay for the time spent, nothing more</span>
-            <span
-              >Custom Quotes - Tailored to more unique project
-              requirements</span
+          <div class="seo-item">
+            <span class="seo-num">02/</span>
+            <span class="seo-text"
+              >More Clicks That Count<span class="slash-teal">/</span></span
             >
           </div>
-          <h4>"No fine print - just honest pricing"</h4>
-        </section>
-
-        <section class="SEO reveal">
-          <div class="section-eyebrow" style="margin-bottom:1rem;">// search.visibility</div>
-          <div class="splash">
-            <span class="splash-text">SEO</span>
-            <span class="splash-sub">that works for you</span>
+          <div class="seo-item">
+            <span class="seo-num">03/</span>
+            <span class="seo-text"
+              >More Business That Sticks<span class="slash-teal">/</span></span
+            >
           </div>
-          <h2 class="headline">Search Engine Optimization</h2>
-          <p>
-            At Ink & Code, we don’t play hide-and-seek with search engines. We
-            crank the code, tune the speed, and clean the structure so your site
-            screams past the noise.
-          </p>
-            <div class="bullet-list-content">
-              <div class="bullet-item">
-                <div class="bullet-point"></div>
-                <div class="bullet-text">More Eyes On Your Work/</div>
-              </div>
+        </div>
 
-              <div class="bullet-item">
-                <div class="bullet-point"></div>
-                <div class="bullet-text">More Clicks That Count/</div>
-              </div>
+        <a href="code.html#SEO" class="cta-btn" target="_blank">
+          <span class="button-text">Get Searched</span>
+          <span class="ellipse-overlay">&#x279C;</span>
+        </a>
+      </section>
 
-              <div class="bullet-item">
-                <div class="bullet-point"></div>
-                <div class="bullet-text">More Business That Sticks/</div>
-              </div>
-            </div>
-        </section>
+      <!-- ═══ 05 CUSTOM SITES (dark block) ════════════════════════════ -->
+      <div class="sites-block reveal">
+        <div class="sites-inner">
+          <div class="section-eyebrow">// 05 / why custom wins</div>
+          <h2 class="sites-headline">
+            Not Stock.<br />
+            Not Stale.<br />
+            <span class="outline-text">Not Sorry.</span>
+          </h2>
 
-        <section class="custom-sites reveal">
-          <div class="color-block">
-            <div class="row">
-              <span>Why Custom is Superior</span>
-            </div>
-            <h2>
-              <br />Not Stock. Not Stale.<br />
-              Not Sorry
-            </h2>
-            <div class="text-block">
-              <h3>Get Searched/</h3>
+          <div class="sites-grid">
+            <div class="site-point">
+              <h3>Get Searched<span class="slash-teal">/</span></h3>
               <p>
-                Optimized from the ground up for SEO, we fine-tune your site to
-                climb search rankings and get discovered.
+                Optimized from the ground up — we fine-tune your site to climb
+                search rankings and get discovered.
               </p>
-              <h3>Quality Views/</h3>
+            </div>
+            <div class="site-point">
+              <h3>Quality Views<span class="slash-teal">/</span></h3>
               <p>
-                Templates are designed to fit everyone. We design to fit you.
+                Templates are designed to fit everyone. We design to fit you —
+                your audience, your brand, your goals.
               </p>
-              <div style="position: relative; width: 100%; margin-inline: auto">
-                <!-- <img
-                  class="watermark"
-                  width="250"
-                  src="../assets/home/Watermark.svg"
-                  alt=""
-                /> -->
-                <svg class="watermark">
-                  <use href="../assets/logos.svg#watermark">
-                </svg>
-              </div>
-              <h3>Capture Your Audience/</h3>
+            </div>
+            <div class="site-point">
+              <h3>Capture Your Audience<span class="slash-teal">/</span></h3>
               <p>
                 With visuals, messaging, and flow, your website becomes a
-                reflection of your audience - turning connections into clicks.
+                reflection of your audience — turning connections into clicks.
               </p>
-              <h3>Increase Your Business/</h3>
+            </div>
+            <div class="site-point">
+              <h3>Grow Your Business<span class="slash-teal">/</span></h3>
               <p>
-                Custom websites don’t just look better - they convert better.
-                With targeted calls-to-action and experiences, your visitors are
-                more likely to customers.
+                Custom websites don't just look better — they convert better.
+                More targeted, more effective, more you.
               </p>
             </div>
           </div>
-          <div class="feature-container">
-            <div class="vertical-line-wrapper">
-              <svg class="vertical-line">
-                <use href="#featureSlider" />
-              </svg>
-            </div>
-            <div class="features-content">
-              <div class="feature-item">Custom coding for full control</div>
-              <div class="feature-item">Mobile-first, responsive designs</div>
-              <div class="feature-item">Fast, reactive websites</div>
-              <div class="feature-item">Robust search engine optimization</div>
-            </div>
-          </div>
-          <div class="row">
-            <a
-              target="_blank"
-              href="code.html/#SEO"
-              class="cta-btn"
-              aria-role="button"
-            >
-              <span class="button-text">Get Searched</span>
-              <span class="ellipse-overlay">&#x279C;</span>
-            </a>
-          </div>
-        </section>
 
-        <section class="platforms reveal">
-          <div class="section-eyebrow" style="margin-bottom:0.6rem;padding-inline:5%;">// platforms.we.use</div>
-          <h2>Platforms We Work With</h2>
-
-          <div class="platform-icons">
-            <img
-              width="120"
-              height="120px"
-              src="../assets/home/WordPress.svg"
-              alt="WordPress"
-            />
-            <img
-              width="90"
-              src="../assets/home/Squarespace.png"
-              alt="Squarespace"
-            />
-            <img width="90" src="../assets/home/Hubspot.png" alt="Hubspot" />
-            <img width="90" src="../assets/home/Shopify.png" alt="Shopify" />
-            <img
-              width="90"
-              src="../assets/home/WooCommerce.png"
-              alt="Woocommerce"
-            />
+          <div class="sites-features">
+            <div class="feature-item">Custom coding for full control</div>
+            <div class="feature-item">Mobile-first, responsive designs</div>
+            <div class="feature-item">Fast, reactive websites</div>
+            <div class="feature-item">Robust search engine optimization</div>
           </div>
-          <p>
-            At Ink&Code, we believe custom-built websites offer unmatched
-            flexibility, performance, and brand authenticity. But we also know
-            many businesses rely on familiar platforms - so we meet you where
-            you are.
-          </p>
-        </section>
+
+          <svg style="display: none">
+            <use href="../assets/logos.svg#watermark"></use>
+          </svg>
+
+          <a href="code.html#SEO" class="cta-btn cta-btn--teal" target="_blank">
+            <span class="button-text">See How It Works</span>
+            <span class="ellipse-overlay">&#x279C;</span>
+          </a>
+        </div>
       </div>
+
+      <!-- ═══ 06 PLATFORMS ══════════════════════════════════════════════ -->
+      <section class="platforms reveal">
+        <div class="section-eyebrow">// 06 / platforms we work with</div>
+        <h2>
+          We Meet You<br /><span class="outline-text">Where You Are.</span>
+        </h2>
+        <p class="platforms-lead">
+          We believe custom-built websites offer unmatched flexibility and
+          performance. But we also know many businesses rely on familiar
+          platforms — so we work with what works for you.
+        </p>
+        <div class="platform-icons">
+          <img
+            width="120"
+            height="60"
+            src="../assets/home/WordPress.svg"
+            alt="WordPress"
+            loading="lazy"
+          />
+          <img
+            width="90"
+            height="45"
+            src="../assets/home/Squarespace.png"
+            alt="Squarespace"
+            loading="lazy"
+          />
+          <img
+            width="90"
+            height="45"
+            src="../assets/home/Hubspot.png"
+            alt="HubSpot"
+            loading="lazy"
+          />
+          <img
+            width="90"
+            height="45"
+            src="../assets/home/Shopify.png"
+            alt="Shopify"
+            loading="lazy"
+          />
+          <img
+            width="90"
+            height="45"
+            src="../assets/home/WooCommerce.png"
+            alt="WooCommerce"
+            loading="lazy"
+          />
+        </div>
+      </section>
+    </main>
+
+      </div>
+      
     </main>
     <footer-component class="full-footer"></footer-component>
-
-  <!-- Scroll-reveal animation (from About page) -->
-  <script>
-    (function () {
-      var els = document.querySelectorAll('.reveal');
-      if (!els.length) return;
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08 });
-      els.forEach(function (el) { obs.observe(el); });
-
-      // Stagger city strip items
-      var cities = document.querySelectorAll('.city-strip-item');
-      var cityObs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var idx = Array.prototype.indexOf.call(cities, entry.target);
-            setTimeout(function () {
-              entry.target.style.opacity = '1';
-              entry.target.style.transform = 'translateY(0)';
-            }, idx * 70);
-            cityObs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.05 });
-      cities.forEach(function (el) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(16px)';
-        el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
-        cityObs.observe(el);
-      });
-    })();
-  </script>
   </body>
 
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none">

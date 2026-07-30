@@ -26,11 +26,11 @@
       ><link rel="stylesheet" href="../css/load.css" as="style"
     /></noscript>
     
-    <link rel="stylesheet" href="../css/home.css" as="style" />
+    <link rel="stylesheet" href="./home.css" as="style" />
     <link rel="preload" as="image" href="../assets/home/hero-lg.svg" />
     <link rel="preload" as="image" href="../assets/home/hero-sm.png" />
     <script
-      src="../components/components.js"
+      src="../components/components-claude.js"
       type="text/javascript"
       defer
     ></script>
@@ -88,6 +88,8 @@
     </hero>
     <main>
       <section class="headline">
+        <div class="section-eyebrow">// what we do</div>
+        <span class="section-watermark right" aria-hidden="true">INK&amp;CODE</span>
         <h2>
           <div class="row">
             <span class="outline">Scalable</span>
@@ -121,15 +123,16 @@
       </div>
 
       <section class="process">
-        <h2 class="headline">Our<br />Method</h2>
-        <section class="process-desc" id="collaborate">
+        <div class="section-watermark right">OUR<br />METHOD</div>
+        <ol>
+        <li class="process-desc" id="collaborate">
           <div class="desc-content">
             <div class="row">
               <img alt="" src="../assets/home/collab-icon.png" loading="lazy" />
               <div class="text">
                 <div class="title">
                   <h2>Collaborate/</h2>
-                  <span class="numbers">01</span>
+                  <span class="numbers" aria-hidden="true">01</span>
                 </div>
                 <h3>with Experts Who Get You</h3>
               </div>
@@ -141,16 +144,16 @@
               spirit.
             </p>
           </div>
-        </section>
+        </li>
 
-        <section class="process-desc" id="design">
+        <li class="process-desc" id="design">
           <div class="desc-content">
             <div class="row">
               <img alt="" src="../assets/home/design-icon.png" loading="lazy" />
               <div class="text">
                 <div class="title">
                   <h2>Design/</h2>
-                  <span class="numbers">02</span>
+                  <span class="numbers" aria-hidden="true">02</span>
                 </div>
                 <h3>that Reflects Your Brand</h3>
               </div>
@@ -161,16 +164,16 @@
               Our services are built for those who dare to be noticed.
             </p>
           </div>
-        </section>
+        </li>
 
-        <section class="process-desc" id="create">
+        <li class="process-desc" id="create">
           <div class="desc-content">
             <div class="row">
               <img alt="" src="../assets/home/create-icon.png" loading="lazy" />
               <div class="text">
                 <div class="title">
                   <h2>Create/</h2>
-                  <span class="numbers">03</span>
+                  <span class="numbers" aria-hidden="true">03</span>
                 </div>
                 <h3>with Passion and Precision</h3>
               </div>
@@ -182,8 +185,8 @@
               landscape.
             </p>
           </div>
-        </section>
-        <section class="process-desc" id="succeed">
+        </li>
+        <li class="process-desc" id="succeed">
           <div class="desc-content">
             <div class="row">
               <img
@@ -205,9 +208,90 @@
               web deployment and a strategic digital presence.
             </p>
           </div>
-        </section>
+        </li>
+      </ol>
       </section>
-
+    
+      <section class="regional-teaser reveal visible">
+        <span class="section-watermark left" aria-hidden="true">404</span>
+        <div class="section-eyebrow">// where.we.operate</div>
+        <h2>
+          Atlanta-roots.<br>
+          <span class="teal">Southeast-</span><span class="outline-txt">focus.</span>
+        </h2>
+        <!-- <p>
+          We're based in Atlanta and maintain active marketing hubs across
+          the Southeast — so wherever you're building from, you're working
+          with a team that knows your market from the inside.
+        </p> -->
+        <p>
+          We're based in Atlanta and maintain active marketing hubs across
+          the Southeast — we know your market because we live in it.
+        </p>
+        <div class="city-strip">
+          <div class="city-strip-item home-city">
+            <span class="city-num-sm">01</span>
+            <span class="city-name-sm">Atlanta, GA</span>
+            <span class="city-slash">/</span>
+          </div>
+          <div class="city-strip-item">
+            <span class="city-num-sm">02</span>
+            <span class="city-name-sm">Augusta, GA</span>
+            <span class="city-slash">/</span>
+          </div>
+          <div class="city-strip-item">
+            <span class="city-num-sm">03</span>
+            <span class="city-name-sm">Chattanooga, TN</span>
+            <span class="city-slash">/</span>
+          </div>
+          <div class="city-strip-item">
+            <span class="city-num-sm">04</span>
+            <span class="city-name-sm">Birmingham, AL</span>
+            <span class="city-slash">/</span>
+          </div>
+          <div class="city-strip-item">
+            <span class="city-num-sm">05</span>
+            <span class="city-name-sm">Savannah, GA</span>
+            <span class="city-slash">/</span>
+          </div>
+          <div class="city-strip-item" >
+            <span class="city-num-sm">06</span>
+            <span class="city-name-sm">Macon, GA</span>
+            <span class="city-slash">/</span>
+          </div>
+          <div class="city-strip-item">
+            <span class="city-num-sm">07</span>
+            <span class="city-name-sm">Greenville, SC</span>
+            <span class="city-slash">/</span>
+          </div>
+          <div class="city-strip-item">
+            <span class="city-num-sm">08</span>
+            <span class="city-name-sm">Asheville, NC</span>
+          </div>
+        </div>
+        <div class="city-pills">
+            <span class="city-pill city-pill--hq"
+              >Atlanta, GA <span class="pill-tag">HQ</span></span
+            >
+            <span class="city-pill">Augusta, GA</span>
+            <span class="city-pill">Savannah, GA</span>
+            <span class="city-pill">Macon, GA</span>
+            <span class="city-pill">Birmingham, AL</span>
+            <span class="city-pill">Chattanooga, TN</span>
+            <span class="city-pill">Asheville, NC</span>
+            <span class="city-pill">Greenville, SC</span>
+          </div>
+        <div class="row">
+          <!-- <a href="about.html" class="cta-btn" aria-role="button">
+            <span class="button-text">Our Story</span>
+            <span class="ellipse-overlay">➜</span>
+          </a> -->
+          <a href="about.html" class="cta-btn cta-btn--ghost">
+            <span class="button-text">Our Story</span>
+            <span class="ellipse-overlay">&#x279C;</span>
+          </a>
+        </div>
+      </section>
       <div class="light-section">
         <div>
           <img
@@ -216,164 +300,203 @@
             src="../assets/wavesObliqGreen.svg"
           />
         </div>
-        <section class="pricing">
-          <h2 class="test">Affordable Doesn’t Mean Ordinary</h2>
-          <div class="row">
-            <a
-              target="_blank"
-              href="code.html/#pricing"
-              class="cta-btn"
-              aria-role="button"
+        <section class="pricing reveal">
+        <span class="section-watermark right" aria-hidden="true">PRICE</span>
+        <div class="section-eyebrow">// invest in your brand</div>
+        <h2>Affordable Doesn'tMean Ordinary.</h2>
+        <p class="pricing-lead">
+          Our transparent pricing fits budgets of all sizes without cutting
+          corners on quality.
+        </p>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-num">01/</div>
+            <h3>Fixed-Rate Packages</h3>
+            <p>
+              Simple, clear, and predictable. Know exactly what you're paying
+              before we start.
+            </p>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-num">02/</div>
+            <h3>Hourly Rates</h3>
+            <p>
+              Pay for the time spent, nothing more. Ideal for smaller updates or
+              ongoing work.
+            </p>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-num">03/</div>
+            <h3>Custom Quotes</h3>
+            <p>
+              Tailored to unique project requirements. We'll scope it together
+              and price it fairly.
+            </p>
+          </div>
+        </div>
+
+        <span class="caveat-accent">honest work, honest prices.</span>
+
+        <a href="code.html#pricing" class="cta-btn" target="_blank">
+          <span class="button-text">See Our Pricing</span>
+          <span class="ellipse-overlay">&#x279C;</span>
+        </a>
+      </section>
+       <!-- ═══ 04 SEO ════════════════════════════════════════════════════ -->
+        
+      <section class="seo reveal">
+        <span class="section-watermark right" aria-hidden="true">SEO</span>
+        <div class="section-eyebrow">// get found</div>
+        <h2>
+          Ranked<span class="slash-teal">/</span><br />
+          <span class="outline-txt">or invisible.</span>
+        </h2>
+        <p class="seo-lead">
+          At Ink&amp;Code, we don't play hide-and-seek with search engines. We
+          crank the code, tune the speed, and clean the structure so your site
+          screams past the noise.
+        </p>
+
+        <div class="seo-list">
+          <div class="seo-item">
+            <span class="seo-num">01/</span>
+            <span class="seo-text"
+              >More Eyes On Your Work<span class="slash-teal">/</span></span
             >
-              <span class="button-text">See Our Pricing</span>
-              <span class="ellipse-overlay">&#x279C;</span>
-            </a>
           </div>
-          <p>
-            Our transparent pricing structure is designed to accommodate budgets
-            of all sizes without sacrificing quality.
-          </p>
-          <div class="pricing-options">
-            <h3>Options Include</h3>
-            <span>Fixed-Rate Packages - Simple, clear and predictable</span>
-            <span>Hourly Rates - Pay for the time spent, nothing more</span>
-            <span
-              >Custom Quotes - Tailored to more unique project
-              requirements</span
+          <div class="seo-item">
+            <span class="seo-num">02/</span>
+            <span class="seo-text"
+              >More Clicks That Count<span class="slash-teal">/</span></span
             >
           </div>
-          <h4>"No fine print - just honest pricing"</h4>
-        </section>
-
-        <section class="SEO">
-          <div class="splash">
-            <span class="splash-text">SEO</span>
-            <span class="splash-sub">that works for you</span>
+          <div class="seo-item">
+            <span class="seo-num">03/</span>
+            <span class="seo-text"
+              >More Business That Sticks<span class="slash-teal">/</span></span
+            >
           </div>
-          <h2 class="headline">Search Engine Optimization</h2>
-          <p>
-            At Ink & Code, we don’t play hide-and-seek with search engines. We
-            crank the code, tune the speed, and clean the structure so your site
-            screams past the noise.
-          </p>
-            <div class="bullet-list-content">
-              <div class="bullet-item">
-                <div class="bullet-point"></div>
-                <div class="bullet-text">More Eyes On Your Work/</div>
-              </div>
+        </div>
 
-              <div class="bullet-item">
-                <div class="bullet-point"></div>
-                <div class="bullet-text">More Clicks That Count/</div>
-              </div>
+        <a href="code.html#SEO" class="cta-btn" target="_blank">
+          <span class="button-text">Get Searched</span>
+          <span class="ellipse-overlay">&#x279C;</span>
+        </a>
+      </section>
 
-              <div class="bullet-item">
-                <div class="bullet-point"></div>
-                <div class="bullet-text">More Business That Sticks/</div>
-              </div>
-            </div>
-        </section>
+      <!-- ═══ 05 CUSTOM SITES (dark block) ════════════════════════════ -->
+      <div class="sites-block reveal">
+        <div class="sites-inner">
+          <div class="section-eyebrow">// why custom wins</div>
+          <h2 class="sites-headline">
+            Not Stock.<br />
+            Not Stale.<br />
+            <span class="outline-text">Not Sorry.</span>
+          </h2>
 
-        <section class="custom-sites">
-          <div class="color-block">
-            <div class="row">
-              <span>Why Custom is Superior</span>
-            </div>
-            <h2>
-              <br />Not Stock. Not Stale.<br />
-              Not Sorry
-            </h2>
-            <div class="text-block">
-              <h3>Get Searched/</h3>
+          <div class="sites-grid">
+            <div class="site-point">
+              <h3>Get Searched<span class="slash-teal">/</span></h3>
               <p>
-                Optimized from the ground up for SEO, we fine-tune your site to
-                climb search rankings and get discovered.
+                Optimized from the ground up — we fine-tune your site to climb
+                search rankings and get discovered.
               </p>
-              <h3>Quality Views/</h3>
+            </div>
+            <div class="site-point">
+              <h3>Quality Views<span class="slash-teal">/</span></h3>
               <p>
-                Templates are designed to fit everyone. We design to fit you.
+                Templates are designed to fit everyone. We design to fit you —
+                your audience, your brand, your goals.
               </p>
-              <div style="position: relative; width: 100%; margin-inline: auto">
-                <!-- <img
-                  class="watermark"
-                  width="250"
-                  src="../assets/home/Watermark.svg"
-                  alt=""
-                /> -->
-                <svg class="watermark">
-                  <use href="../assets/logos.svg#watermark">
-                </svg>
-              </div>
-              <h3>Capture Your Audience/</h3>
+            </div>
+            <div class="site-point">
+              <h3>Capture Your Audience<span class="slash-teal">/</span></h3>
               <p>
                 With visuals, messaging, and flow, your website becomes a
-                reflection of your audience - turning connections into clicks.
+                reflection of your audience — turning connections into clicks.
               </p>
-              <h3>Increase Your Business/</h3>
+            </div>
+            <div class="site-point">
+              <h3>Grow Your Business<span class="slash-teal">/</span></h3>
               <p>
-                Custom websites don’t just look better - they convert better.
-                With targeted calls-to-action and experiences, your visitors are
-                more likely to customers.
+                Custom websites don't just look better — they convert better.
+                More targeted, more effective, more you.
               </p>
             </div>
           </div>
-          <div class="feature-container">
-            <div class="vertical-line-wrapper">
-              <svg class="vertical-line">
-                <use href="#featureSlider" />
-              </svg>
-            </div>
-            <div class="features-content">
-              <div class="feature-item">Custom coding for full control</div>
-              <div class="feature-item">Mobile-first, responsive designs</div>
-              <div class="feature-item">Fast, reactive websites</div>
-              <div class="feature-item">Robust search engine optimization</div>
-            </div>
-          </div>
-          <div class="row">
-            <a
-              target="_blank"
-              href="code.html/#SEO"
-              class="cta-btn"
-              aria-role="button"
-            >
-              <span class="button-text">Get Searched</span>
-              <span class="ellipse-overlay">&#x279C;</span>
-            </a>
-          </div>
-        </section>
 
-        <section class="platforms">
-          <h2>Platforms We Work With</h2>
-
-          <div class="platform-icons">
-            <img
-              width="120"
-              height="120px"
-              src="../assets/home/WordPress.svg"
-              alt="WordPress"
-            />
-            <img
-              width="90"
-              src="../assets/home/Squarespace.png"
-              alt="Squarespace"
-            />
-            <img width="90" src="../assets/home/Hubspot.png" alt="Hubspot" />
-            <img width="90" src="../assets/home/Shopify.png" alt="Shopify" />
-            <img
-              width="90"
-              src="../assets/home/WooCommerce.png"
-              alt="Woocommerce"
-            />
+          <div class="sites-features">
+            <div class="feature-item">Custom coding for full control</div>
+            <div class="feature-item">Mobile-first, responsive designs</div>
+            <div class="feature-item">Fast, reactive websites</div>
+            <div class="feature-item">Robust search engine optimization</div>
           </div>
-          <p>
-            At Ink&Code, we believe custom-built websites offer unmatched
-            flexibility, performance, and brand authenticity. But we also know
-            many businesses rely on familiar platforms - so we meet you where
-            you are.
-          </p>
-        </section>
+
+          <svg style="display: none">
+            <use href="../assets/logos.svg#watermark"></use>
+          </svg>
+
+          <a href="code.html#SEO" class="cta-btn cta-btn--teal" target="_blank">
+            <span class="button-text">See How It Works</span>
+            <span class="ellipse-overlay">&#x279C;</span>
+          </a>
+        </div>
       </div>
+
+      <!-- ═══ 06 PLATFORMS ══════════════════════════════════════════════ -->
+      <section class="platforms reveal">
+        <div class="section-eyebrow">// platforms we work with</div>
+        <h2>
+          We Meet You<br /><span class="outline-text">Where You Are.</span>
+        </h2>
+        <p class="platforms-lead">
+          We believe custom-built websites offer unmatched flexibility and
+          performance. But we also know many businesses rely on familiar
+          platforms — so we work with what works for you.
+        </p>
+        <div class="platform-icons">
+          <img
+            width="120"
+            height="60"
+            src="../assets/home/WordPress.svg"
+            alt="WordPress"
+            loading="lazy"
+          />
+          <img
+            width="90"
+            height="45"
+            src="../assets/home/Squarespace.png"
+            alt="Squarespace"
+            loading="lazy"
+          />
+          <img
+            width="90"
+            height="45"
+            src="../assets/home/Hubspot.png"
+            alt="HubSpot"
+            loading="lazy"
+          />
+          <img
+            width="90"
+            height="45"
+            src="../assets/home/Shopify.png"
+            alt="Shopify"
+            loading="lazy"
+          />
+          <img
+            width="90"
+            height="45"
+            src="../assets/home/WooCommerce.png"
+            alt="WooCommerce"
+            loading="lazy"
+          />
+        </div>
+      </section>
+    </main>
+
+      </div>
+      
     </main>
     <footer-component class="full-footer"></footer-component>
   </body>
