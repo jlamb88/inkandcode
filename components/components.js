@@ -88,7 +88,7 @@ class Footer extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <div class="footer-wrapper">
-      <section class="contact" id="contact">
+      <section class="contact-full" id="contact-full">
       <span>Get In Touch</span>
       <h2>Ready To Collaborate?</h2>
       <script type="text/javascript"> var submitted=false</script>

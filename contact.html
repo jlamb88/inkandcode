@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ink & Code | Hit Us Up</title>
+  <meta name="description" content="Get in touch with Ink & Code — no gatekeepers, no runaround. Just a real conversation about your project.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100..900&family=Caveat:wght@400..700&family=Orbit&family=Cascadia+Mono:wght@200..700&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="style" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="preload" href="../css/load.css" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../css/load.css"></noscript>
+  <link rel="stylesheet" href="../css/contact.css">
+
+  <script src="../components/components.js" type="text/javascript" defer></script>
+  <script src="../index.js" type="text/javascript" defer></script>
+</head>
+
+<body class="contact-body">
+
+  <header-comp class="header-comp"></header-comp>
+
+  <main class="contact-page">
+
+    <!-- ── Left panel ──────────────────────────────────────────── -->
+    <div class="contact-panel contact-panel--left">
+      <div class="grain-overlay" aria-hidden="true"></div>
+      <div class="hero-teal-bar"  aria-hidden="true"></div>
+
+      <div class="left-content">
+        <p class="contact-eyebrow">// let's talk</p>
+
+        <h1 class="contact-headline">
+          Hit Us<br>
+          <span class="outline-text">Up.</span>
+        </h1>
+
+        <p class="contact-sub">
+          No gatekeepers. No intake forms that disappear into a void.
+          Just a real conversation with the team that'll actually
+          build your thing.
+        </p>
+
+        <div class="contact-details">
+          <a class="contact-detail-row" href="mailto:info@inkandcode.com">
+            <span class="detail-label">// email</span>
+            <span class="detail-val">info@inkandcode.com</span>
+          </a>
+          <div class="contact-detail-row">
+            <span class="detail-label">// phone</span>
+            <span class="detail-val">555-555-1111</span>
+          </div>
+          <div class="contact-detail-row">
+            <span class="detail-label">// based in</span>
+            <span class="detail-val">Atlanta, GA — SE region</span>
+          </div>
+          <div class="contact-detail-row">
+            <span class="detail-label">// response</span>
+            <span class="detail-val">Under 24 hours</span>
+          </div>
+        </div>
+
+        <p class="contact-caveat">
+          <span class="caveat-accent">we answer.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Right panel — form ───────────────────────────────────── -->
+    <div class="contact-panel contact-panel--right">
+      <div class="form-wrap">
+
+        <p class="form-eyebrow">// start here</p>
+        <p class="form-sub">Tell us what you're working on and we'll take it from there.</p>
+
+        <script type="text/javascript">var submitted = false;</script>
+        <iframe
+          name="hiddenSubmit"
+          id="hiddenSubmit"
+          style="display:none"
+          onload="if(submitted){window.location='submit.html'};">
+        </iframe>
+
+        <form
+          class="contact-form"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSdGSbl2NHThGbI2LvTBIf-UBqRXg71cmHLuW-JlBYoeza8rBQ/formResponse"
+          method="post"
+          target="hiddenSubmit"
+          onsubmit="submitted=true"
+          novalidate
+        >
+
+          <!-- Row 1: Name + Email -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name">// name *</label>
+              <input
+                id="f-name"
+                type="text"
+                name="entry.2005620554"
+                placeholder="Your name"
+                required
+                autocomplete="name"
+              >
+            </div>
+            <div class="form-group">
+              <label for="f-email">// email *</label>
+              <input
+                id="f-email"
+                type="email"
+                name="entry.1045781291"
+                placeholder="your@email.com"
+                required
+                autocomplete="email"
+              >
+            </div>
+          </div>
+
+          <!-- Row 2: Phone + Topic -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-phone">// phone</label>
+              <input
+                id="f-phone"
+                type="tel"
+                name="entry.1166974658"
+                placeholder="Optional"
+                autocomplete="tel"
+              >
+            </div>
+            <div class="form-group">
+              <label for="entry.839337160">// i want to talk about</label>
+              <select name="entry.839337160" id="entry.839337160">
+                <option value="" disabled selected>Pick one...</option>
+                <option value="Making A Website">Making A Website</option>
+                <option value="Updating My Website">Updating My Website</option>
+                <option value="Improving My Searches">Improving My Searches</option>
+                <option value="Designing Something Pretty">Designing Something Pretty</option>
+                <option value="Hosting and Maintaining My Website">Hosting &amp; Maintenance</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Row 3: Message -->
+          <div class="form-group">
+            <label for="f-message">// message</label>
+            <textarea
+              id="f-message"
+              name="entry.1389680958"
+              placeholder="Tell us what you're building, fixing, or trying to figure out..."
+              rows="5"
+            ></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="submit-btn">
+            <span class="submit-text">Send It</span>
+            <span class="submit-arrow" aria-hidden="true">&#x279C;</span>
+          </button>
+
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
