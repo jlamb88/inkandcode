@@ -149,11 +149,11 @@ class Footer extends HTMLElement {
         </ul>
         </nav>
       <section class="contact-us">
-        <div class="contact-row">
+        <div class="row">
           <img src="../assets/email.svg" width="30"/>
           <a mailto="info@inkandcode.com">info@inkandcode.com</a>
         </div>
-        <div class="contact-row">
+        <div class="row">
           <img src="../assets/phone.svg" width="30px">
           <span>555-555-1111</span>
         </div>

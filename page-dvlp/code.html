@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,22 +7,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100..900&family=Caveat:wght@400..700&family=Orbit&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100..900&family=Caveat:wght@400..700&family=Orbit&family=Cascadia+Mono:wght@200..700&display=swap"
       display="swap"
       rel="stylesheet"
     />
     <link rel="preload" as="style" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/reset.css" as="style" />
     <link
       rel="preload"
       href="../css/load.css"
       as="style"
       fetchpriority="high"
-      onload="this.onload=null;this.rel='stylesheet'"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
     <noscript>
       <link rel="stylesheet" href="../css/load.css" as="style" />
     </noscript>
-    <link rel="stylesheet" href="../css/code.css" />
+    <link rel="stylesheet" href="./code.css" />
 
     <script
       src="../components/components-claude.js"
@@ -33,7 +37,7 @@
   </head>
 
   <body>
-    <header-comp></header-comp>
+    <header-comp class="header-comp"></header-comp>
 
     <hero class="hero" id="stopper">
       <picture>
@@ -53,17 +57,28 @@
           src="../assets/code/code-hero-lg.png"
         />
       </picture>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-accent-bar" aria-hidden="true"></div>
       <div class="hero-text">
-        <h1 class="row">Code_</h1>
+        <p class="hero-eyebrow" aria-hidden="true">
+          // code.html → ship_it.exe
+        </p>
+        <h1 class="row">Code<span class="accent">_</span></h1>
         <div class="row">
           <h2 class="hero-sub">Where Ideas Go Live</h2>
         </div>
       </div>
+      <div class="scanline" aria-hidden="true"></div>
     </hero>
 
     <main>
       <section class="container headline">
-        <h2>Website Design That Dares To Be Different</h2>
+        <div class="section-label">// what.we.build</div>
+        <h2 class="section-title">
+          Website Design That <span class="outline">Dares</span> To Be
+          <span class="dark-green">Different.</span>
+        </h2>
         <p>
           Our web development services are crafted for brands that crave
           individuality. Whether you’re launching your first site or revamping
@@ -77,41 +92,50 @@
         </div>
       </section>
       <section class="services">
+        <div class="section-label">// the.lineup</div>
         <h2 class="services-head">We Build</h2>
-        <div class="service-list">
-          <div class="row">
-            <h3>
-              <span class="numbers">01</span>
-              <span class="services-headline">Custom Websites</span>
-            </h3>
+        <div class="adv-list">
+          <div class="adv-item">
+            <div class="adv-num">01/</div>
+            <div class="adv-content">
+              <div class="adv-title">Custom Websites</div>
+              <div class="adv-desc">
+                Tailored designs that capture your brand’s uniqueness
+              </div>
+            </div>
           </div>
-          <p>Tailored designs that capture your brand’s uniqueness</p>
-          <div class="row">
-            <h3>
-              <span class="numbers">02</span>
-              <span class="services-headline">Responsive Design</span>
-            </h3>
+          <div class="adv-item">
+            <div class="adv-num">02/</div>
+            <div class="adv-content">
+              <div class="adv-title">Responsive Design</div>
+              <div class="adv-desc">
+                Beautiful on mobile, desktop, and everywhere in between
+              </div>
+            </div>
           </div>
-          <p>Beautiful on mobile, desktop, and everywhere in between</p>
-          <div class="row">
-            <h3>
-              <span class="numbers">03</span>
-              <span class="services-headline">E-Commerce</span>
-            </h3>
+          <div class="adv-item">
+            <div class="adv-num">03/</div>
+            <div class="adv-content">
+              <div class="adv-title">E-Commerce</div>
+              <div class="adv-desc">
+                Sleek, secure, and straightforward to manage
+              </div>
+            </div>
           </div>
-          <p>Sleek, secure, and straightforward to manage</p>
-          <div class="row">
-            <h3>
-              <span class="numbers">04</span>
-              <span class="services-headline">CMS Integrations</span>
-            </h3>
+          <div class="adv-item">
+            <div class="adv-num">04/</div>
+            <div class="adv-content">
+              <div class="adv-title">CMS Integrations</div>
+              <div class="adv-desc">
+                Update your site with ease and keep your content fresh
+              </div>
+            </div>
           </div>
-          <p>Update your site with ease and keep your content fresh</p>
-          <div style="position: relative; width: 100%; margin-inline: auto">
-            <svg class="watermark" loading="lazy" decoding="async">
-              <use href="../assets/logos.svg#watermark" />
-            </svg>
-          </div>
+        </div>
+        <div style="position: relative; width: 100%; margin-inline: auto">
+          <svg class="watermark" loading="lazy" decoding="async">
+            <use href="../assets/logos.svg#watermark" />
+          </svg>
         </div>
       </section>
       <div style="position: relative">
@@ -119,12 +143,15 @@
       </div>
 
       <section class="pricing">
-        <h2>Our Pricing/</h2>
-        <div class="pricing-sub">
-          designed for affordability without sacrificing quality
+        <div class="intro">
+          <div class="section-label">// what.it.costs</div>
+          <h2>Our Pricing/</h2>
+          <div class="pricing-sub">
+            designed for affordability without sacrificing quality
+          </div>
         </div>
         <section class="pricing-table">
-          <section class="tab-navigation">
+          <div class="tab-navigation">
             <button class="tab-button" data-category="web">Web Plans</button>
             <button class="tab-button" data-category="ecommerce">
               E-Commerce
@@ -132,8 +159,8 @@
             <button class="tab-button" data-category="maintenance">
               Maintenance
             </button>
-          </section>
-          <section class="main-content">
+          </div>
+          <div class="main-content">
             <div class="feature-sidebar">
               <div>
                 <h3 class="sidebar-title"></h3>
@@ -160,7 +187,7 @@
                 </svg>
               </button>
             </div>
-          </section>
+          </div>
         </section>
       </section>
       <div class="quote-splash">
@@ -173,55 +200,67 @@
           src="../assets/wavesObliqPurple.svg"
         />
       </div>
+
       <section class="SEO">
-        <h2>Get Searched/</h2>
-        <picture>
-          <source
-            media="(min-width: 601px)"
-            srcset="../assets/code/metal-waves-lg.png"
-          />
-          <source
-            media="(max-width: 600px)"
-            srcset="../assets/code/metal-waves-sm.png"
-          />
-          <img class="SEO-img" fetchpriority="high" width: 412px alt="curved
-          multi colored modern metallic sculpture"
-          src="../assets/code/metal-waves-lg.png" />
-        </picture>
-        <h3>Technical SEO: The Engine Under the Hood</h3>
+        <div class="section-label">// under the hood</div>
+        <h2 class="section-title">
+          Technical SEO: The <span class="outline">Engine</span> Under The
+          <span class="teal">Hood.</span>
+        </h2>
         <p>
           At Ink & Code, we believe good design deserves a strong stage. What’s
-          the point of killer visuals if no one can find them? That’s where
-          technical SEO kicks in.<br />We don’t just make things pretty; we make
-          them powerful. Our job is to fuse the ink - the design people see -
-          with the code - the backend architecture that search engines and users
-          rely on. Together, they create a site that’s not only sharp-looking,
-          but sharp-performing.
+          the point of killer visuals if no one can find them? We don’t just
+          make things pretty; we make them powerful — fusing the ink, the design
+          people see, with the code, the backend architecture that search
+          engines and users rely on.
         </p>
-        <span>Here’s how we tear it up:</span>
-        <div>
-          <span
-            >Speed that shreds – Your site loads in a flash. Users stay. Leads
-            convert. No excuses.</span
-          >
-          <span
-            >Mobile-first muscle – A responsive site that plays loud and clear
-            on every screen size.</span
-          >
-          <span
-            >Clean architecture – Code tuned so Google crawls it effortlessly.
-            No dead ends, no chaos—just clarity.</span
-          >
-          <span
-            >Search visibility that sticks – When the structure’s tight, your
-            content actually climbs. Rankings turn into real traffic.</span
-          >
+        <div class="seo-terminal">
+          <div class="terminal-bar">
+            <span class="term-dot term-dot--r"></span>
+            <span class="term-dot term-dot--y"></span>
+            <span class="term-dot term-dot--g"></span>
+            <span class="terminal-path">seo_audit.sh</span>
+          </div>
+          <div class="terminal-body">
+            <p class="term-prompt">
+              $ audit --site=inkandcode.com <span class="cursor">▌</span>
+            </p>
+            <div class="term-results">
+              <div class="term-line">
+                <span class="term-check">✓</span>
+                <span class="term-label">Speed that shreds</span>
+                <span class="term-desc"
+                  >Your site loads in a flash. Users stay. Leads convert. No
+                  excuses.</span
+                >
+              </div>
+              <div class="term-line">
+                <span class="term-check">✓</span>
+                <span class="term-label">Mobile-first muscle</span>
+                <span class="term-desc"
+                  >A responsive site that plays loud and clear on every screen
+                  size.</span
+                >
+              </div>
+              <div class="term-line">
+                <span class="term-check">✓</span>
+                <span class="term-label">Clean architecture</span>
+                <span class="term-desc"
+                  >Code tuned so Google crawls it effortlessly. No dead ends, no
+                  chaos—just clarity.</span
+                >
+              </div>
+              <div class="term-line">
+                <span class="term-check">✓</span>
+                <span class="term-label">Search visibility that sticks</span>
+                <span class="term-desc"
+                  >When the structure’s tight, your content actually climbs.
+                  Rankings turn into real traffic.</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
-
-        <p>
-          Ink & Code bridges both, giving you a site that looks brutal, runs
-          smooth, and shows up where it matters: on top.
-        </p>
       </section>
     </main>
     <footer-component class="full-footer"></footer-component>
@@ -235,7 +274,7 @@
       </symbol>
       <symbol id="banner" viewBox="0 0 102 29" fill="none">
         <path d="M0 0L11 7V29L0 21.3333V0Z" fill="#A8A2B3" />
-        <rect width="102" height="22" fill="#D0CEDE" fill-opacity="0.75" />
+        <rect width="102" height="24" fill="#D0CEDE" fill-opacity="0.75" />
       </symbol>
       <symbol id="icon" viewBox="0 0 32 32" fill="currentColor">
         <rect width="32" height="32" />

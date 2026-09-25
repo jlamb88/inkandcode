@@ -237,11 +237,7 @@ class Header extends HTMLElement {
 .submenu-title:hover { color: var(--hdr-teal); }
 
 /* Submenu divider */
-.submenu-header {
-  border-bottom: 1px solid rgba(80, 227, 194, 0.12);
-  padding-bottom: 0.75em;
-  margin-bottom: 0.5em;
-}
+
 
 /* Submenu links */
 .submenu-list {
@@ -713,83 +709,81 @@ class Footer extends HTMLElement {
     this.innerHTML = `
     <div class="footer-wrapper">
       <section class="contact" id="contact">
-        <div class="headline">
-          <span>Get In Touch</span>
-          <h2>Ready To Collaborate?</h2>
-        </div>
-        <script type="text/javascript"> var submitted=false</script>
-        <iframe
-          name="hiddenSubmit"
-          id="hiddenSubmit"
-          style="display: none;"
-          onload="if(submitted)
-          {window.location='submit.html'};">
-        </iframe>
-        <form
-          class="contact-form"
-          action="https://docs.google.com/forms/d/e/1FAIpQLSdGSbl2NHThGbI2LvTBIf-UBqRXg71cmHLuW-JlBYoeza8rBQ/formResponse"
-          method="post"
-          target="hiddenSubmit"
-          onSubmit="submitted=true"
-          >
-          <input type="text" name="entry.2005620554" placeholder="Name*">
-          <input type="email" name="entry.1045781291" placeholder="Email*">
-          <input type="tel" name="entry.1166974658" placeholder="Phone">
+      <span>Get In Touch</span>
+      <script type="text/javascript"> var submitted=false</script>
+      <iframe
+        name="hiddenSubmit"
+        id="hiddenSubmit"
+        style="display: none;"
+        onload="if(submitted)
+        {window.location='submit.html'};">
+      </iframe>
+      <form
+      class="contact-form"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSdGSbl2NHThGbI2LvTBIf-UBqRXg71cmHLuW-JlBYoeza8rBQ/formResponse"
+      method="post"
+      target="hiddenSubmit"
+      onSubmit="submitted=true"
+      >
+        <input type="text" name="entry.2005620554" placeholder="Name*">
+        <input type="email" name="entry.1045781291" placeholder="Email*">
+        <input type="tel" name="entry.1166974658" placeholder="Phone">
 
-          <label for="entry.839337160">I Want To Talk About...</label>
-          <select name="entry.839337160" id="entry.839337160">
-            <option value="Making A Website">Making A Website</option>
-            <option value="Updating My Website">Updating My Website</option>
-            <option value="Improving My Searches">Improving My Searches</option>
-            <option value="Designing Something Pretty">Designing Something Pretty</option>
-            <option value="Hosting and Maintaining My Website">Hosting and Maintaining My Website</select>
-          </select>
-          <textarea name="entry.1389680958" placeholder="Your Message or Questions"></textarea>
-          <button type="submit">Submit</button>
-        </form>
-      </section>
-      <footer class="footer">
-        <div>
-          <svg alt="Logo" class="footer-logo">
-            <use href="#logo"></use>
-          </svg>
+        <label for="entry.839337160">I Want To Talk About...</label>
+        <select name="entry.839337160" id="entry.839337160">
+          <option value="Making A Website">Making A Website</option>
+          <option value="Updating My Website">Updating My Website</option>
+          <option value="Improving My Searches">Improving My Searches</option>
+          <option value="Designing Something Pretty">Designing Something Pretty</option>
+          <option value="Hosting and Maintaining My Website">Hosting and Maintaining My Website</select>
+        </select>
+        <textarea name="entry.1389680958" placeholder="Your Message or Questions"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+  </section>
+  <footer class="footer">
+      <div>
+        <svg alt="Logo" class="footer-logo">
+          <use href="#logo"></use>
+        </svg>
+      </div>
+      <div class="social">
+        <img src="../assets/facebook.svg" width="30px"/>
+        <img src="../assets/instagram.svg" width="30px"/>
+        <img src="../assets/linkedIn.svg" width="30px"/>
         </div>
-        <div class="social">
-          <img src="../assets/facebook.svg" width="30px"/>
-          <img src="../assets/instagram.svg" width="30px"/>
-          <img src="../assets/linkedIn.svg" width="30px"/>
-        </div>
-        <nav class="nav-footer">
-          <h4>SERVICES</h4>
-          <ul aria-label="Services menu">
-            <li><a target="_blank" href="ink.html/#webdesign">Web Design</a></li>
-            <li><a target="_blank" href="code.html/#development">Web Development</a></li>
-            <li><a target="_blank" href="code.html/#SEO">Search Engine Optimization (SEO)</a></li>
-            <li><a target="_blank" href="code.html/#hosting">Web Hosting</a></li>
-            <li><a target="_blank" href="ink.html">Graphic Design</a></li>
-          </ul>
-          <h4>LINKS</h4>
-          <ul aria-label="Links Menu">
-            <li><a target="_blank" href="code.html/#pricing">Pricing</a></li>
-            <li><a target="_blank" href="about.html">About</a></li>
-          </ul>
+      <nav class="nav-footer">
+        <h4>SERVICES</h4>
+        <ul aria-label="Services menu">
+          <li><a target="_blank" href="ink.html/#webdesign">Web Design</a></li>
+          <li><a target="_blank" href="code.html/#development">Web Development</a></li>
+          <li><a target="_blank" href="code.html/#SEO">Search Engine Optimization (SEO)</a></li>
+          <li><a target="_blank" href="code.html/#hosting">Web Hosting</a></li>
+          <li><a target="_blank" href="ink.html">Graphic Design</a></li>
+        </ul>
+        <h4>LINKS</h4>
+        <ul aria-label="Links Menu">
+          <li><a target="_blank" href="code.html/#pricing">Pricing</a></li>
+          <li><a target="_blank" href="about.html">About</a></li>
+        </ul>
         </nav>
-        <section class="contact-us">
-          <div class="contact-row">
-            <img src="../assets/email.svg" width="30"/>
-            <a mailto="info@inkandcode.com">info@inkandcode.com</a>
-          </div>
-          <div class="contact-row">
-            <img src="../assets/phone.svg" width="30px">
-            <span>555-555-1111</span>
-          </div>
-        </section>
-        
-      </footer>
-      <img class="waves"
-            src="../assets/wavesObliqPurple.svg" width="100%">
+      <section class="contact-us">
+        <div class="row">
+          <img src="../assets/email.svg" width="30"/>
+          <a mailto="info@inkandcode.com">info@inkandcode.com</a>
+        </div>
+        <div class="row">
+          <img src="../assets/phone.svg" width="30px">
+          <span>555-555-1111</span>
+        </div>
+      </section>
+      <div>
+      </div>
     </div>
-    <span class="copy-terms">&copy; 2025 Ink&Code. All rights reserved.</span>
+  </footer>
+   <img class="waves"
+        src="../assets/wavesObliqPurple.svg" width="100%">
+  <span class="copy-terms">&copy; 2025 Ink&Code. All rights reserved.</span>
 
     `;
   }

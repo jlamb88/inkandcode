@@ -34,7 +34,7 @@
 /* Ghost outline text — navy stroke on light, teal stroke on dark */
 .outline-text {
   color: transparent;
-  -webkit-text-stroke: 2px var(--navy);
+  -webkit-text-stroke: 1.6px var(--navy);
 }
 
 /* Monospace section eyebrow */
@@ -54,7 +54,16 @@
   height: 1px;
   background: linear-gradient(to right, var(--teal-glow), transparent);
 }
-
+.teal-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 64%;
+  background: linear-gradient(to bottom, var(--teal), transparent);
+  z-index: 4;
+  pointer-events: none;
+}
 /* Large ghosted watermark — navy tint on light backgrounds */
 .section-watermark {
   position: absolute;
@@ -74,6 +83,21 @@
 .section-watermark.right {
   left: auto;
   right: -2%;
+}
+.watermark-num {
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  font-size: clamp(12rem, 28vw, 36rem);
+  line-height: 0.85;
+  background: linear-gradient(
+    135deg,
+    rgba(80, 227, 194, 0.14) 0%,
+    rgba(80, 227, 194, 0.02) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Caveat handwritten accent */
@@ -95,7 +119,7 @@
 .slash-divider {
   font-family: "Raleway", sans-serif;
   font-weight: 800;
-  font-size: clamp(4rem, 8vw, 9rem);
+  font-size: clamp(4rem, 6vw, 6rem);
   line-height: 1;
   letter-spacing: -0.04em;
   color: rgba(30, 31, 80, 0.055);
@@ -126,6 +150,7 @@
   display: inline-flex;
   align-items: center;
   height: 50px;
+  max-width: 80%;
   padding-inline: 1em 3em;
   padding-block: 0.75em;
   margin-block: 2em 0;
@@ -236,6 +261,7 @@ hero {
   }
   .section-eyebrow {
     position: absolute;
+    display: none;
     left: 2%;
     max-width: 88%;
     padding-left: 2rem;
@@ -258,7 +284,7 @@ hero {
     width: 34%;
     height: 100%;
     flex-shrink: 0;
-    background: var(--navy);
+    background: linear-gradient(to bottom, #313b5f 70%, white 95%);
   }
   .hero-teal-bar {
     position: absolute;
@@ -282,8 +308,7 @@ hero {
   .hero-headline {
     width: 80%;
     height: 60px;
-
-    color: var(--black);
+    color: var(--grey);
   }
   .hero-sub {
     font-family: "Raleway", sans-serif;
@@ -326,7 +351,7 @@ hero {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.2;
+    opacity: 0.12;
     z-index: 1;
     pointer-events: none;
   }
@@ -346,7 +371,7 @@ hero {
     left: 0;
     right: 0;
     height: 70px;
-    background: linear-gradient(to bottom, transparent, rgba(30, 31, 80, 0.9));
+    /* background: linear-gradient(to bottom, transparent, rgba(30, 31, 80, 0.9)); */
     z-index: 6;
     pointer-events: none;
   }
@@ -365,29 +390,34 @@ main {
 
 /* ─── 01  HEADLINE ──────────────────────────────────────────────── */
 .headline {
-  /* the ghost signature below can run large — keep its overflow
-     contained to this section instead of bleeding into the next */
   overflow: hidden;
+  margin-block: 1em 4em;
 }
 .headline-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1em;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-block: 1.5em 0;
+  gap: 0.3em;
+  .outline-text {
+    font-weight: 600;
+    font-size: var(--fs-xxl);
+  }
 }
 .headline-inner h2 {
-  font-size: var(--fs-xl);
+  margin-block: 0.3em 0;
+  margin-inline: 0.5em;
+  font-size: var(--fs-xxl);
+  line-height: 42px;
 }
 .headline-right p {
   max-width: 700px;
+  font-weight: 300;
 }
 
-/* Ghost signature — the number reuses the size + gradient of the
-   original hero watermark; the ampersand + Ink mark sign it */
 .headline-signature {
   position: absolute;
   right: -1%;
-  bottom: -9%;
+  bottom: 15%;
   display: flex;
   align-items: flex-end;
   gap: 1.5rem;
@@ -432,83 +462,95 @@ main {
 }
 
 /* ─── 02  SERVICES ──────────────────────────────────────────────── */
-.services-headline {
-  font-size: clamp(3.5rem, 7vw, 7.5rem);
-  margin-bottom: 2rem;
-}
-.services-intro {
-  font-size: 1.98rem;
-  max-width: 600px;
-  margin-bottom: 4rem;
-}
 
-/* 3-column service cards */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 2rem;
-  position: relative;
-  z-index: 1;
-}
+.services {
+  display: relative;
+  margin-block: 0 4em;
 
-.service-card {
-  position: relative;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 3rem 2.8rem 2.5rem;
-  box-shadow: 0 2px 16px rgba(30, 31, 80, 0.06);
-  overflow: hidden;
-  transition:
-    border-color 0.25s,
-    box-shadow 0.25s;
-}
-/* teal left accent bar on hover */
-.service-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 0;
-  background: var(--teal);
-  transition: height 0.3s ease;
-}
-.service-card:hover {
-  border-color: var(--border-teal);
-  box-shadow: 0 6px 28px rgba(80, 227, 194, 0.1);
-}
-.service-card:hover::before {
-  height: 100%;
-}
-
-.card-num {
-  font-family: "Cascadia Mono", monospace;
-  font-size: 1rem;
-  color: rgba(80, 227, 194, 0.55);
-  margin-bottom: 1.2rem;
-}
-.service-card h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-.service-card p {
-  font-size: 1.74rem;
-}
-
-/* Brand logo watermark */
-.watermark-wrap {
-  position: absolute;
-  bottom: 2rem;
-  left: -5%;
-  width: 300px;
-  opacity: 0.035;
-  pointer-events: none;
-}
-.watermark-wrap .watermark {
-  width: 100%;
-  height: auto;
-}
+  .services-headline {
+    font-size: var(--fs-xxl);
+    margin-block: 0 2rem;
+    line-height: 42px;
+  }
+  .services-intro {
+    font-size: 1.8rem;
+    max-width: 600px;
+    margin-bottom: 4rem;
+  }
+  .watermark-num {
+    position: absolute;
+    top: 260px;
+    left: 0px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .service-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 3rem 2.8rem 2.5rem;
+    box-shadow: 0 2px 16px rgba(30, 31, 80, 0.06);
+    overflow: hidden;
+    .reveal.visible {
+      opacity: 0.6;
+    }
+    transition:
+      border-color 0.25s,
+      box-shadow 0.25s;
+  }
+  #second-card {
+    opacity: 0.9;
+  }
+  /* teal left accent bar on hover */
+  .service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--teal);
+    transition: height 0.3s ease;
+  }
+  .service-card:hover {
+    border-color: var(--border-teal);
+    box-shadow: 0 6px 28px rgba(80, 227, 194, 0.1);
+  }
+  .service-card:hover::before {
+    height: 100%;
+  }
+  .card-num {
+    font-family: "Cascadia Mono", monospace;
+    font-size: 2rem;
+    color: rgba(80, 227, 194, 0.55);
+    margin-bottom: 1.2rem;
+  }
+  .service-card h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .service-card p {
+    font-size: 1.74rem;
+  }
+  .watermark-wrap {
+    position: absolute;
+    bottom: 200px;
+    right: -5%;
+    width: 120px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .watermark-wrap .watermark {
+    width: 100%;
+    height: auto;
+  }
+} /* services close */
 
 /* ─── CTA BRAND BAND — deliberately dark/purple ─────────────────── */
 .cta-band {
@@ -548,11 +590,11 @@ main {
 }
 .band-waves {
   position: absolute;
-  bottom: 0;
+  bottom: 115px;
   left: 0;
   width: 100%;
-  height: auto;
-  opacity: 0.14;
+  transform: scaleY(120%);
+  opacity: 0.6;
   z-index: 0;
 }
 .band-overlay-wrap {
@@ -571,184 +613,197 @@ main {
 }
 
 /* ─── 03  DESIGN ────────────────────────────────────────────────── */
+.design {
+  margin-block: 2em 0;
+  .quote-block {
+    position: relative;
+    margin-block: 3em 2em;
+    padding: 3rem 4rem;
+    border-left: 3px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    background: var(--surface);
+    box-shadow: 0 2px 20px rgba(30, 31, 80, 0.07);
+    max-width: 820px;
+  }
+  .quote-mark {
+    position: absolute;
+    font-family: "Nunito", sans-serif;
+    font-size: clamp(8rem, 15vw, 14rem);
+    font-weight: 700;
+    color: rgba(30, 31, 80, 0.06);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+  .quote-mark.left {
+    top: -2rem;
+    left: -1rem;
+  }
+  .quote-mark.right {
+    bottom: -6rem;
+    right: -1rem;
+  }
 
-/* Pull quote */
-.quote-block {
-  position: relative;
-  margin-block: 3rem 4rem;
-  padding: 3rem 4rem;
-  border-left: 3px solid var(--teal);
-  border-radius: 0 8px 8px 0;
-  background: var(--surface);
-  box-shadow: 0 2px 20px rgba(30, 31, 80, 0.07);
-  max-width: 820px;
-}
-.quote-mark {
-  position: absolute;
-  font-family: "Nunito", sans-serif;
-  font-size: clamp(8rem, 15vw, 14rem);
-  font-weight: 700;
-  color: rgba(30, 31, 80, 0.06);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-}
-.quote-mark.left {
-  top: -2rem;
-  left: -1rem;
-}
-.quote-mark.right {
-  bottom: -2rem;
-  right: -1rem;
-}
+  blockquote {
+    position: relative;
+    z-index: 1;
+    font-family: "Nunito", sans-serif;
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--text-head);
+  }
 
-blockquote {
-  position: relative;
-  z-index: 1;
-  font-family: "Nunito", sans-serif;
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
-  font-style: italic;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  color: var(--text-head);
-}
+  .design-intro {
+    font-size: 1.6rem;
+    max-width: 660px;
+    margin-bottom: 4rem;
+  }
 
-.design-intro {
-  font-size: 2.04rem;
-  max-width: 660px;
-  margin-bottom: 4rem;
-}
+  /* Numbered design benefits list */
+  .design-list {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--border);
+    margin-bottom: 6rem;
+  }
+  .design-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 1em;
+    align-items: start;
+    padding-block: 1em;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    transition: background 0.2s;
+    border-radius: 0 4px 4px 0;
+  }
+  .design-item:hover {
+    background: rgba(80, 227, 194, 0.04);
+  }
+  .design-item::after {
+    content: "/";
+    position: absolute;
+    left: 5%;
+    top: 50px;
+    transform: translateY(-50%);
+    font-family: "Raleway", sans-serif;
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: rgba(80, 227, 194, 0.15);
+    transition: color 0.2s;
+  }
+  .design-item:hover::after {
+    color: rgba(80, 227, 194, 0.55);
+  }
 
-/* Numbered design benefits list */
-.design-list {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--border);
-  margin-bottom: 6rem;
+  .num {
+    font-family: "Cascadia Mono", monospace;
+    font-size: 1.8rem;
+    color: rgba(80, 227, 194, 0.6);
+    padding-top: 0.3rem;
+  }
+  .content {
+    h3 {
+      font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: rgba(80, 227, 194, 0.55);
+    }
+    p {
+      margin-inline: 0.8em 0;
+      font-size: 1.6rem;
+      max-width: 680px;
+    }
+  }
+  /* Full-bleed image strip */
+  .span-window {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-block: 2rem 7rem;
+  }
+  .window-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 }
-.design-item {
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 2rem;
-  align-items: start;
-  padding-block: 3rem;
-  border-bottom: 1px solid var(--border);
-  position: relative;
-  transition: background 0.2s;
-  border-radius: 0 4px 4px 0;
-}
-.design-item:hover {
-  background: rgba(80, 227, 194, 0.04);
-}
-.design-item::after {
-  content: "/";
-  position: absolute;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: "Raleway", sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: rgba(80, 227, 194, 0.18);
-  transition: color 0.2s;
-}
-.design-item:hover::after {
-  color: rgba(80, 227, 194, 0.55);
-}
-
-.d-num {
-  font-family: "Cascadia Mono", monospace;
-  font-size: 1.1rem;
-  color: rgba(80, 227, 194, 0.6);
-  padding-top: 0.3rem;
-}
-.d-content h3 {
-  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
-  margin-bottom: 0.6rem;
-}
-.d-content p {
-  font-size: 1.86rem;
-  max-width: 680px;
-}
-
-/* Full-bleed image strip */
-.span-window {
-  position: relative;
-  width: 100vw;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-block: 2rem 7rem;
-}
-.window-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 /* ─── COSTS ─────────────────────────────────────────────────────── */
-.costs-section {
-  padding-block: 0 2rem;
-}
-.costs-headline {
-  margin-bottom: 1.5rem;
-}
-.costs-intro {
-  font-size: 1.98rem;
-  max-width: 620px;
-  margin-bottom: 4rem;
-}
+.costs {
+  padding-block: 0 4em;
+  .costs-headline {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    line-height: 3.6rem;
+  }
+  h2 {
+    font-size: var(--fs-xxl);
+  }
+  .costs-intro {
+    font-size: 1.8rem;
+    max-width: 620px;
+    margin-bottom: 4rem;
+  }
 
-.costs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 2rem;
-}
-.cost-card {
-  position: relative;
-  background: var(--surface);
-  border: 1px solid rgba(200, 50, 50, 0.14);
-  border-radius: 8px;
-  padding: 2.8rem 2.5rem 2.5rem;
-  box-shadow: 0 2px 14px rgba(30, 31, 80, 0.05);
-  overflow: hidden;
-  transition:
-    border-color 0.25s,
-    box-shadow 0.25s;
-}
-.cost-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 0;
-  background: rgba(210, 50, 50, 0.6);
-  transition: height 0.3s ease;
-}
-.cost-card:hover {
-  border-color: rgba(200, 50, 50, 0.35);
-  box-shadow: 0 6px 24px rgba(200, 50, 50, 0.08);
-}
-.cost-card:hover::before {
-  height: 100%;
-}
-.cost-x {
-  font-family: "Cascadia Mono", monospace;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: rgba(200, 50, 50, 0.55);
-  margin-bottom: 1rem;
-}
-.cost-card h3 {
-  font-size: 1.9rem;
-  margin-bottom: 0.8rem;
-}
-.cost-card p {
-  font-size: 1.68rem;
+  .costs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 2rem;
+  }
+  .cost-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid rgba(200, 50, 50, 0.14);
+    border-radius: 8px;
+    padding: 2.8rem 2.5rem 2.5rem;
+    box-shadow: 0 2px 14px rgba(30, 31, 80, 0.05);
+    overflow: hidden;
+    z-index: 10;
+    transition:
+      border-color 0.25s,
+      box-shadow 0.25s;
+  }
+  .cost-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: rgba(210, 50, 50, 0.6);
+    transition: height 0.3s ease;
+  }
+  .cost-card:hover {
+    border-color: rgba(200, 50, 50, 0.35);
+    box-shadow: 0 6px 24px rgba(200, 50, 50, 0.08);
+  }
+  .cost-card:hover::before {
+    height: 100%;
+  }
+  .cost-x {
+    font-family: "Cascadia Mono", monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(200, 50, 50, 0.55);
+    margin-bottom: 1em;
+    padding-inline: 0.3em 1em;
+  }
+  .cost-card h3 {
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+  .cost-card p {
+    font-size: 1.68rem;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -807,8 +862,7 @@ blockquote {
   position: relative;
   z-index: 1;
   /* Push content below the fade strip so text appears in full navy */
-  padding-top: 4em;
-  padding-bottom: 10rem;
+  padding-block: 4em 1em;
 }
 .closing-headline {
   font-size: clamp(4rem, 8vw, 9rem);
@@ -820,56 +874,118 @@ blockquote {
 .full-footer {
   position: relative;
   z-index: 1;
+  .contact {
+    margin-block: 5%;
+    h2 {
+      display: none;
+    }
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════════════════════════════ */
 @media screen and (min-width: 900px) {
-  /* side-by-side 33/67 split */
-  .hero-split {
-    flex-direction: row;
-  }
-  .hero-color-bar {
-    width: 33%;
-    height: 100%;
-  }
-  .hero-image-wrap {
-    width: 67%;
-    height: 100%;
-  }
-  .hero-teal-bar {
-    height: 60%;
-  }
+  .hero {
+    .hero-split {
+      flex-direction: row;
+    }
+    .hero-color-bar {
+      width: 33%;
+      height: 100%;
+    }
+    .hero-image-wrap {
+      width: 67%;
+      height: 100%;
+    }
+    .hero-teal-bar {
+      height: 60%;
+    }
 
-  .hero-eyebrow {
-    left: 8%;
-    max-width: 24%;
-  }
-  .hero-text {
-    left: 8%;
-    max-width: 24%;
-    top: 50%;
-  }
-  .hero-headline {
-    height: 90px;
+    .section-eyebrow {
+      left: 8%;
+      max-width: 24%;
+    }
+    .hero-text {
+      left: 8%;
+      top: 50%;
+    }
+    .hero-headline {
+      font-size: var(--fs-h1);
+      font-weight: 600;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-sub {
+      font-size: var(--fs-lg);
+      padding: 0.5em;
+    }
   }
 
   .headline {
     .headline-inner {
       gap: 8rem;
     }
+    .watermark-num {
+      font-size: 19.6rem;
+    }
+  }
+
+  .slash-divider {
+    letter-spacing: 1.5rem;
   }
   .services-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .cta-band {
+    height: 40vh;
+    min-height: 450px;
+    .cta-band-inner {
+      line-height: 6.4rem;
+    }
+    .caveat-accent {
+      font-size: var(--fs-lg);
+    }
+  }
   .costs-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-  .quote-block {
-    margin-left: 5%;
-  }
-  .design-list {
-    margin-bottom: 8rem;
+  .design {
+    .section-eyebrow {
+      font-size: 1.8rem;
+    }
+    .section-watermark {
+      color: rgba(30, 31, 80, 0.08);
+    }
+    .quote-block {
+      margin-inline: 5%;
+      margin-block: 6em 2em;
+      padding: 4em 3em;
+    }
+    .quote-mark.left {
+      top: -3rem;
+    }
+    .quote-mark.right {
+      bottom: -10rem;
+    }
+    .design-intro {
+      font-size: var(--fs-md);
+      margin-inline: 10%;
+    }
+    .design-list {
+      margin-bottom: 8rem;
+    }
+    .num {
+      font-size: 2.4rem;
+    }
+    .design-item::after {
+      left: 2.5%;
+    }
+    .content {
+      h3 {
+        font-size: 2.2rem;
+      }
+    }
   }
 } /* close media res */

@@ -26,11 +26,11 @@
       ><link rel="stylesheet" href="../css/load.css" as="style"
     /></noscript>
     
-    <link rel="stylesheet" href="./home.css" as="style" />
+    <link rel="stylesheet" href="../css/home.css" as="style" />
     <link rel="preload" as="image" href="../assets/home/hero-lg.svg" />
     <link rel="preload" as="image" href="../assets/home/hero-sm.png" />
     <script
-      src="../components/components-claude.js"
+      src="../components/components.js"
       type="text/javascript"
       defer
     ></script>
@@ -39,137 +39,7 @@
       type="text/javascript"
       defer
     ></script>
-  
-  <!-- ── Scroll-driven entry animations ─────────────────────────────
-       animation-timeline: view() drives each animation from the
-       element's own scroll position. No JS required.
-       animation-fill-mode: both holds the 'from' state (opacity:0)
-       before the range starts so nothing flashes in unexpectedly.
-  ──────────────────────────────────────────────────────────────── -->
-  <style>
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── Sections with .reveal ──────────────────────────────────── */
-    .reveal {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 25%;
-    }
-
-    /* ── Headline (no reveal class in markup) ───────────────────── */
-    .headline {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 25%;
-    }
-
-    /* ── Process desc sections — vertical stack, view() staggers
-          them naturally as each enters the viewport ─────────────── */
-    .process-desc {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 30%;
-    }
-
-    /* ── Pricing cards — staggered 3 ───────────────────────────── */
-    .pricing-grid > .pricing-card {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .pricing-grid > .pricing-card:nth-child(1) { animation-range: entry 0%  entry 25%; }
-    .pricing-grid > .pricing-card:nth-child(2) { animation-range: entry 8%  entry 33%; }
-    .pricing-grid > .pricing-card:nth-child(3) { animation-range: entry 16% entry 41%; }
-
-    /* ── SEO list rows — staggered 3 ───────────────────────────── */
-    .seo-list > .seo-item {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .seo-list > .seo-item:nth-child(1) { animation-range: entry 0%  entry 22%; }
-    .seo-list > .seo-item:nth-child(2) { animation-range: entry 7%  entry 29%; }
-    .seo-list > .seo-item:nth-child(3) { animation-range: entry 14% entry 36%; }
-
-    /* ── Custom-site points — staggered 4 ──────────────────────── */
-    .sites-grid > .site-point {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .sites-grid > .site-point:nth-child(1) { animation-range: entry 0%  entry 25%; }
-    .sites-grid > .site-point:nth-child(2) { animation-range: entry 7%  entry 32%; }
-    .sites-grid > .site-point:nth-child(3) { animation-range: entry 14% entry 39%; }
-    .sites-grid > .site-point:nth-child(4) { animation-range: entry 21% entry 46%; }
-
-    /* ── Feature items — staggered 4 ───────────────────────────── */
-    .sites-features > .feature-item {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .sites-features > .feature-item:nth-child(1) { animation-range: entry 0%  entry 20%; }
-    .sites-features > .feature-item:nth-child(2) { animation-range: entry 5%  entry 25%; }
-    .sites-features > .feature-item:nth-child(3) { animation-range: entry 10% entry 30%; }
-    .sites-features > .feature-item:nth-child(4) { animation-range: entry 15% entry 35%; }
-
-    /* ── City strip items — staggered 8 ────────────────────────── */
-    .city-strip > .city-strip-item {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .city-strip > .city-strip-item:nth-child(1) { animation-range: entry 0%  entry 20%; }
-    .city-strip > .city-strip-item:nth-child(2) { animation-range: entry 4%  entry 24%; }
-    .city-strip > .city-strip-item:nth-child(3) { animation-range: entry 8%  entry 28%; }
-    .city-strip > .city-strip-item:nth-child(4) { animation-range: entry 12% entry 32%; }
-    .city-strip > .city-strip-item:nth-child(5) { animation-range: entry 16% entry 36%; }
-    .city-strip > .city-strip-item:nth-child(6) { animation-range: entry 20% entry 40%; }
-    .city-strip > .city-strip-item:nth-child(7) { animation-range: entry 24% entry 44%; }
-    .city-strip > .city-strip-item:nth-child(8) { animation-range: entry 28% entry 48%; }
-
-    /* ── City pills — staggered 8 ──────────────────────────────── */
-    .city-pills > .city-pill {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .city-pills > .city-pill:nth-child(1) { animation-range: entry 0%  entry 20%; }
-    .city-pills > .city-pill:nth-child(2) { animation-range: entry 3%  entry 23%; }
-    .city-pills > .city-pill:nth-child(3) { animation-range: entry 6%  entry 26%; }
-    .city-pills > .city-pill:nth-child(4) { animation-range: entry 9%  entry 29%; }
-    .city-pills > .city-pill:nth-child(5) { animation-range: entry 12% entry 32%; }
-    .city-pills > .city-pill:nth-child(6) { animation-range: entry 15% entry 35%; }
-    .city-pills > .city-pill:nth-child(7) { animation-range: entry 18% entry 38%; }
-    .city-pills > .city-pill:nth-child(8) { animation-range: entry 21% entry 41%; }
-
-    /* ── Platform logos — staggered 5 ──────────────────────────── */
-    .platform-icons > img {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .platform-icons > img:nth-child(1) { animation-range: entry 0%  entry 22%; }
-    .platform-icons > img:nth-child(2) { animation-range: entry 5%  entry 27%; }
-    .platform-icons > img:nth-child(3) { animation-range: entry 10% entry 32%; }
-    .platform-icons > img:nth-child(4) { animation-range: entry 15% entry 37%; }
-    .platform-icons > img:nth-child(5) { animation-range: entry 20% entry 42%; }
-
-    /* ── Reduced motion ─────────────────────────────────────────── */
-    @media (prefers-reduced-motion: reduce) {
-      .reveal,
-      .headline,
-      .process-desc,
-      .pricing-grid > .pricing-card,
-      .seo-list > .seo-item,
-      .sites-grid > .site-point,
-      .sites-features > .feature-item,
-      .city-strip > .city-strip-item,
-      .city-pills > .city-pill,
-      .platform-icons > img {
-        animation: none;
-        opacity: 1;
-        transform: none;
-      }
-    }
-  </style>
-</head>
+  </head>
 
   <body>
     <header-comp class="header-comp"></header-comp>
@@ -218,8 +88,6 @@
     </hero>
     <main>
       <section class="headline">
-        <div class="section-eyebrow">// what we do</div>
-        <span class="section-watermark right" aria-hidden="true">INK&amp;CODE</span>
         <h2>
           <div class="row">
             <span class="outline">Scalable</span>
@@ -253,7 +121,7 @@
       </div>
 
       <section class="process">
-        <h2 class="section-watermark right">OUR<br />METHOD</h2>
+        <h2 class="headline">Our<br />Method</h2>
         <section class="process-desc" id="collaborate">
           <div class="desc-content">
             <div class="row">
@@ -339,90 +207,6 @@
           </div>
         </section>
       </section>
-      <section class="regional-teaser reveal">
-        <span class="section-watermark left" aria-hidden="true">404</span>
-        <div class="section-eyebrow">// where.we.operate</div>
-        <h2>
-          Atlanta-roots.<br>
-          <span class="teal">Southeast-</span><span class="outline-txt">focus.</span>
-        </h2>
-        <!-- <p>
-          We're based in Atlanta and maintain active marketing hubs across
-          the Southeast — so wherever you're building from, you're working
-          with a team that knows your market from the inside.
-        </p> -->
-        <p>
-          We're based in Atlanta and maintain active marketing hubs across
-          the Southeast — we know your market because we live in it.
-        </p>
-        <div class="city-strip">
-          <div class="city-strip-item home-city">
-            <span class="city-num-sm">01</span>
-            <span class="city-name-sm">Atlanta, GA</span>
-            <span class="city-slash">/</span>
-          </div>
-          <div class="city-strip-item">
-            <span class="city-num-sm">02</span>
-            <span class="city-name-sm">Augusta, GA</span>
-            <span class="city-slash">/</span>
-          </div>
-          <div class="city-strip-item">
-            <span class="city-num-sm">03</span>
-            <span class="city-name-sm">Chattanooga, TN</span>
-            <span class="city-slash">/</span>
-          </div>
-          <div class="city-strip-item">
-            <span class="city-num-sm">04</span>
-            <span class="city-name-sm">Birmingham, AL</span>
-            <span class="city-slash">/</span>
-          </div>
-          <div class="city-strip-item">
-            <span class="city-num-sm">05</span>
-            <span class="city-name-sm">Savannah, GA</span>
-            <span class="city-slash">/</span>
-          </div>
-          <div class="city-strip-item">
-            <span class="city-num-sm">06</span>
-            <span class="city-name-sm">Macon, GA</span>
-            <span class="city-slash">/</span>
-          </div>
-          <div class="city-strip-item">
-            <span class="city-num-sm">07</span>
-            <span class="city-name-sm">Greenville, SC</span>
-            <span class="city-slash">/</span>
-          </div>
-          <div class="city-strip-item">
-            <span class="city-num-sm">08</span>
-            <span class="city-name-sm">Asheville, NC</span>
-          </div>
-        </div>
-        <div class="row">
-          <a href="about.html" class="cta-btn" aria-role="button">
-            <span class="button-text">Our Story</span>
-            <span class="ellipse-overlay">➜</span>
-          </a>
-        </div>
-      </section>
-      <section class="regional-strip reveal pills">
-        
-          <div class="city-pills">
-            <span class="city-pill city-pill--hq"
-              >Atlanta, GA <span class="pill-tag">HQ</span></span
-            >
-            <span class="city-pill">Augusta, GA</span>
-            <span class="city-pill">Savannah, GA</span>
-            <span class="city-pill">Macon, GA</span>
-            <span class="city-pill">Birmingham, AL</span>
-            <span class="city-pill">Chattanooga, TN</span>
-            <span class="city-pill">Asheville, NC</span>
-            <span class="city-pill">Greenville, SC</span>
-          </div>
-          <a href="about.html" class="cta-btn cta-btn--ghost">
-            <span class="button-text">Our Story</span>
-            <span class="ellipse-overlay">&#x279C;</span>
-          </a>
-        </div>
-      </section>
 
       <div class="light-section">
         <div>
@@ -432,203 +216,164 @@
             src="../assets/wavesObliqGreen.svg"
           />
         </div>
-        <section class="pricing reveal">
-        <span class="section-watermark right" aria-hidden="true">PRICE</span>
-        <div class="section-eyebrow">// invest in your brand</div>
-        <h2>Affordable Doesn'tMean Ordinary.</h2>
-        <p class="pricing-lead">
-          Our transparent pricing fits budgets of all sizes without cutting
-          corners on quality.
-        </p>
-
-        <div class="pricing-grid">
-          <div class="pricing-card">
-            <div class="pricing-num">01/</div>
-            <h3>Fixed-Rate Packages</h3>
-            <p>
-              Simple, clear, and predictable. Know exactly what you're paying
-              before we start.
-            </p>
+        <section class="pricing">
+          <h2 class="test">Affordable Doesn’t Mean Ordinary</h2>
+          <div class="row">
+            <a
+              target="_blank"
+              href="code.html/#pricing"
+              class="cta-btn"
+              aria-role="button"
+            >
+              <span class="button-text">See Our Pricing</span>
+              <span class="ellipse-overlay">&#x279C;</span>
+            </a>
           </div>
-          <div class="pricing-card">
-            <div class="pricing-num">02/</div>
-            <h3>Hourly Rates</h3>
-            <p>
-              Pay for the time spent, nothing more. Ideal for smaller updates or
-              ongoing work.
-            </p>
-          </div>
-          <div class="pricing-card">
-            <div class="pricing-num">03/</div>
-            <h3>Custom Quotes</h3>
-            <p>
-              Tailored to unique project requirements. We'll scope it together
-              and price it fairly.
-            </p>
-          </div>
-        </div>
-
-        <span class="caveat-accent">honest work, honest prices.</span>
-
-        <a href="code.html#pricing" class="cta-btn" target="_blank">
-          <span class="button-text">See Our Pricing</span>
-          <span class="ellipse-overlay">&#x279C;</span>
-        </a>
-      </section>
-       <!-- ═══ 04 SEO ════════════════════════════════════════════════════ -->
-        
-      <section class="seo reveal">
-        <span class="section-watermark right" aria-hidden="true">SEO</span>
-        <div class="section-eyebrow">// 04 / get found</div>
-        <h2>
-          Ranked<span class="slash-teal">/</span><br />
-          <span class="outline-txt">or invisible.</span>
-        </h2>
-        <p class="seo-lead">
-          At Ink&amp;Code, we don't play hide-and-seek with search engines. We
-          crank the code, tune the speed, and clean the structure so your site
-          screams past the noise.
-        </p>
-
-        <div class="seo-list">
-          <div class="seo-item">
-            <span class="seo-num">01/</span>
-            <span class="seo-text"
-              >More Eyes On Your Work<span class="slash-teal">/</span></span
+          <p>
+            Our transparent pricing structure is designed to accommodate budgets
+            of all sizes without sacrificing quality.
+          </p>
+          <div class="pricing-options">
+            <h3>Options Include</h3>
+            <span>Fixed-Rate Packages - Simple, clear and predictable</span>
+            <span>Hourly Rates - Pay for the time spent, nothing more</span>
+            <span
+              >Custom Quotes - Tailored to more unique project
+              requirements</span
             >
           </div>
-          <div class="seo-item">
-            <span class="seo-num">02/</span>
-            <span class="seo-text"
-              >More Clicks That Count<span class="slash-teal">/</span></span
-            >
+          <h4>"No fine print - just honest pricing"</h4>
+        </section>
+
+        <section class="SEO">
+          <div class="splash">
+            <span class="splash-text">SEO</span>
+            <span class="splash-sub">that works for you</span>
           </div>
-          <div class="seo-item">
-            <span class="seo-num">03/</span>
-            <span class="seo-text"
-              >More Business That Sticks<span class="slash-teal">/</span></span
-            >
-          </div>
-        </div>
+          <h2 class="headline">Search Engine Optimization</h2>
+          <p>
+            At Ink & Code, we don’t play hide-and-seek with search engines. We
+            crank the code, tune the speed, and clean the structure so your site
+            screams past the noise.
+          </p>
+            <div class="bullet-list-content">
+              <div class="bullet-item">
+                <div class="bullet-point"></div>
+                <div class="bullet-text">More Eyes On Your Work/</div>
+              </div>
 
-        <a href="code.html#SEO" class="cta-btn" target="_blank">
-          <span class="button-text">Get Searched</span>
-          <span class="ellipse-overlay">&#x279C;</span>
-        </a>
-      </section>
+              <div class="bullet-item">
+                <div class="bullet-point"></div>
+                <div class="bullet-text">More Clicks That Count/</div>
+              </div>
 
-      <!-- ═══ 05 CUSTOM SITES (dark block) ════════════════════════════ -->
-      <div class="sites-block reveal">
-        <div class="sites-inner">
-          <div class="section-eyebrow">// 05 / why custom wins</div>
-          <h2 class="sites-headline">
-            Not Stock.<br />
-            Not Stale.<br />
-            <span class="outline-text">Not Sorry.</span>
-          </h2>
-
-          <div class="sites-grid">
-            <div class="site-point">
-              <h3>Get Searched<span class="slash-teal">/</span></h3>
-              <p>
-                Optimized from the ground up — we fine-tune your site to climb
-                search rankings and get discovered.
-              </p>
+              <div class="bullet-item">
+                <div class="bullet-point"></div>
+                <div class="bullet-text">More Business That Sticks/</div>
+              </div>
             </div>
-            <div class="site-point">
-              <h3>Quality Views<span class="slash-teal">/</span></h3>
-              <p>
-                Templates are designed to fit everyone. We design to fit you —
-                your audience, your brand, your goals.
-              </p>
+        </section>
+
+        <section class="custom-sites">
+          <div class="color-block">
+            <div class="row">
+              <span>Why Custom is Superior</span>
             </div>
-            <div class="site-point">
-              <h3>Capture Your Audience<span class="slash-teal">/</span></h3>
+            <h2>
+              <br />Not Stock. Not Stale.<br />
+              Not Sorry
+            </h2>
+            <div class="text-block">
+              <h3>Get Searched/</h3>
+              <p>
+                Optimized from the ground up for SEO, we fine-tune your site to
+                climb search rankings and get discovered.
+              </p>
+              <h3>Quality Views/</h3>
+              <p>
+                Templates are designed to fit everyone. We design to fit you.
+              </p>
+              <div style="position: relative; width: 100%; margin-inline: auto">
+                <!-- <img
+                  class="watermark"
+                  width="250"
+                  src="../assets/home/Watermark.svg"
+                  alt=""
+                /> -->
+                <svg class="watermark">
+                  <use href="../assets/logos.svg#watermark">
+                </svg>
+              </div>
+              <h3>Capture Your Audience/</h3>
               <p>
                 With visuals, messaging, and flow, your website becomes a
-                reflection of your audience — turning connections into clicks.
+                reflection of your audience - turning connections into clicks.
               </p>
-            </div>
-            <div class="site-point">
-              <h3>Grow Your Business<span class="slash-teal">/</span></h3>
+              <h3>Increase Your Business/</h3>
               <p>
-                Custom websites don't just look better — they convert better.
-                More targeted, more effective, more you.
+                Custom websites don’t just look better - they convert better.
+                With targeted calls-to-action and experiences, your visitors are
+                more likely to customers.
               </p>
             </div>
           </div>
-
-          <div class="sites-features">
-            <div class="feature-item">Custom coding for full control</div>
-            <div class="feature-item">Mobile-first, responsive designs</div>
-            <div class="feature-item">Fast, reactive websites</div>
-            <div class="feature-item">Robust search engine optimization</div>
+          <div class="feature-container">
+            <div class="vertical-line-wrapper">
+              <svg class="vertical-line">
+                <use href="#featureSlider" />
+              </svg>
+            </div>
+            <div class="features-content">
+              <div class="feature-item">Custom coding for full control</div>
+              <div class="feature-item">Mobile-first, responsive designs</div>
+              <div class="feature-item">Fast, reactive websites</div>
+              <div class="feature-item">Robust search engine optimization</div>
+            </div>
           </div>
+          <div class="row">
+            <a
+              target="_blank"
+              href="code.html/#SEO"
+              class="cta-btn"
+              aria-role="button"
+            >
+              <span class="button-text">Get Searched</span>
+              <span class="ellipse-overlay">&#x279C;</span>
+            </a>
+          </div>
+        </section>
 
-          <svg style="display: none">
-            <use href="../assets/logos.svg#watermark"></use>
-          </svg>
+        <section class="platforms">
+          <h2>Platforms We Work With</h2>
 
-          <a href="code.html#SEO" class="cta-btn cta-btn--teal" target="_blank">
-            <span class="button-text">See How It Works</span>
-            <span class="ellipse-overlay">&#x279C;</span>
-          </a>
-        </div>
+          <div class="platform-icons">
+            <img
+              width="120"
+              height="120px"
+              src="../assets/home/WordPress.svg"
+              alt="WordPress"
+            />
+            <img
+              width="90"
+              src="../assets/home/Squarespace.png"
+              alt="Squarespace"
+            />
+            <img width="90" src="../assets/home/Hubspot.png" alt="Hubspot" />
+            <img width="90" src="../assets/home/Shopify.png" alt="Shopify" />
+            <img
+              width="90"
+              src="../assets/home/WooCommerce.png"
+              alt="Woocommerce"
+            />
+          </div>
+          <p>
+            At Ink&Code, we believe custom-built websites offer unmatched
+            flexibility, performance, and brand authenticity. But we also know
+            many businesses rely on familiar platforms - so we meet you where
+            you are.
+          </p>
+        </section>
       </div>
-
-      <!-- ═══ 06 PLATFORMS ══════════════════════════════════════════════ -->
-      <section class="platforms reveal">
-        <div class="section-eyebrow">// 06 / platforms we work with</div>
-        <h2>
-          We Meet You<br /><span class="outline-text">Where You Are.</span>
-        </h2>
-        <p class="platforms-lead">
-          We believe custom-built websites offer unmatched flexibility and
-          performance. But we also know many businesses rely on familiar
-          platforms — so we work with what works for you.
-        </p>
-        <div class="platform-icons">
-          <img
-            width="120"
-            height="60"
-            src="../assets/home/WordPress.svg"
-            alt="WordPress"
-            loading="lazy"
-          />
-          <img
-            width="90"
-            height="45"
-            src="../assets/home/Squarespace.png"
-            alt="Squarespace"
-            loading="lazy"
-          />
-          <img
-            width="90"
-            height="45"
-            src="../assets/home/Hubspot.png"
-            alt="HubSpot"
-            loading="lazy"
-          />
-          <img
-            width="90"
-            height="45"
-            src="../assets/home/Shopify.png"
-            alt="Shopify"
-            loading="lazy"
-          />
-          <img
-            width="90"
-            height="45"
-            src="../assets/home/WooCommerce.png"
-            alt="WooCommerce"
-            loading="lazy"
-          />
-        </div>
-      </section>
-    </main>
-
-      </div>
-      
     </main>
     <footer-component class="full-footer"></footer-component>
   </body>
