@@ -37,15 +37,15 @@ class Header extends HTMLElement {
 
 /* ── Wrapper ─────────────────────────────────────────────────────── */
 .header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
+display: flex;
+  position: relative;
+  transition: transform 0.3s ease;
+  width: 100dvw;
+  height: inherit;
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--hdr-navy);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--hdr-border);
   transition:
     background 0.35s var(--hdr-ease),
@@ -57,6 +57,7 @@ class Header extends HTMLElement {
 /* Grain overlay */
 .header-grain {
   position: absolute;
+  width: 100%;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   opacity: 0.035;
@@ -83,18 +84,24 @@ class Header extends HTMLElement {
 }
 
 /* ── Logo ────────────────────────────────────────────────────────── */
-.header-logo a {
-  display: flex;
-  align-items: center;
-  color: var(--hdr-white);
-  transition: opacity 0.2s;
-}
-.header-logo a:hover { opacity: 0.85; }
-.header-logo svg {
-  height: 64px;
-  width: auto;
-  fill: currentColor;
-}
+.header-logo {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    width: clamp(150px, 28vw, 400px);
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    margin-inline: 1.5em 0;
+    margin-block-start: 1em;
+    color: var(--white);
+    z-index: 190;
+  }
 
 /* ── Desktop Nav ─────────────────────────────────────────────────── */
 .navbar {
@@ -322,8 +329,7 @@ class Header extends HTMLElement {
 
 /* ── Mobile overlay ──────────────────────────────────────────────── */
 .mobile-overlay {
-  position: absolute;
-  height: 100vh;
+  position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(3px);
@@ -534,7 +540,22 @@ class Header extends HTMLElement {
     <span class="ham-bar"></span>
   </button>
 
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+  
+
+  
+
+</header>
+
+  <button class="hamburger" id="hamburger"
+    aria-label="Toggle navigation menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu">
+    <span class="ham-bar"></span>
+    <span class="ham-bar"></span>
+    <span class="ham-bar"></span>
+  </button>
+
+<div class="mobile-overlay" id="mobile-overlay" aria-hidden="true"></div><div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Navigation menu">
     <div class="mobile-grain" aria-hidden="true"></div>
     <nav class="mobile-nav" aria-label="Mobile navigation">
       <ul class="mobile-nav-items">
@@ -569,10 +590,6 @@ class Header extends HTMLElement {
       </ul>
     </nav>
   </div>
-
-  <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true"></div>
-
-</header>
     `;
   }
 
@@ -712,6 +729,8 @@ class Footer extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <div class="footer-wrapper">
+      <img class="waves" src="../assets/wavesObliqPurple.svg" width="100%"
+      />
       <section class="contact" id="contact">
         <div class="headline">
           <span>Get In Touch</span>
@@ -749,8 +768,8 @@ class Footer extends HTMLElement {
         </form>
       </section>
       <footer class="footer">
-        <div>
-          <svg alt="Logo" class="footer-logo">
+        <div class="footer-logo">
+          <svg alt="Logo">
             <use href="#logo"></use>
           </svg>
         </div>
@@ -786,8 +805,7 @@ class Footer extends HTMLElement {
         </section>
         
       </footer>
-      <img class="waves"
-            src="../assets/wavesObliqPurple.svg" width="100%">
+      
     </div>
     <span class="copy-terms">&copy; 2025 Ink&Code. All rights reserved.</span>
 

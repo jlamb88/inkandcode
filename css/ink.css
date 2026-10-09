@@ -159,7 +159,9 @@ hero {
   box-shadow: 2px 2px 4px 2px #8a7093;
   overflow: hidden;
   cursor: pointer;
-  transition: color 0.3s ease, var(--light-text-color) 0.3s ease;
+  transition:
+    color 0.3s ease,
+    var(--light-text-color) 0.3s ease;
   .button-text {
     text-wrap: nowrap;
     color: var(--dark-green);
@@ -510,6 +512,7 @@ hero {
   h2 {
     font-size: var(--fs-xxl);
   }
+
   .numbers {
     display: inline-block;
     font-size: 128px;
