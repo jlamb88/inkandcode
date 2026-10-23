@@ -91,7 +91,7 @@ class Header extends HTMLElement {
 }
 .header-logo a:hover { opacity: 0.85; }
 .header-logo svg {
-  height: 64px;
+  height: 50px;
   width: auto;
   fill: currentColor;
 }

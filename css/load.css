@@ -161,7 +161,7 @@ body {
     180deg,
     #313b5f 0%,
     #1e1f50 10.4%,
-    #1e1f50 3%,
+    #1e1f50 36%,
     #4b5566 40%,
     #e8eef1 44%
   );
@@ -245,7 +245,7 @@ h2 {
     display: flex;
     position: relative;
     align-items: flex-start;
-    width: clamp(150px, 28vw, 400px);
+    width: clamp(150px, 24vw, 400px);
     svg {
       width: 100%;
       height: auto;
@@ -295,7 +295,7 @@ h2 {
   #hamburger.floating {
     position: fixed;
     top: 2em;
-    right: 0;
+    right: 10px;
     transform: translateY(0);
     opacity: 0.8;
     transition: all 0.3s ease;
@@ -597,13 +597,14 @@ hero {
   .contact {
     background: none;
     width: 90%;
-    margin-block: 10% 15%;
+    margin-block: 5% 15%;
     .headline {
       display: block;
       margin-block: 0em;
       margin-inline: 1em;
-      h2 {
+      h3 {
         font-size: var(--fs-xl);
+        color: var(--lightest-gray);
         text-align: center;
         margin-block: 0.3em;
       }
@@ -664,6 +665,7 @@ hero {
       display: flex;
       margin-block: 1em 2em;
       height: 30px;
+
       img {
         width: 40px;
         margin-inline: 0.25em;
@@ -688,6 +690,8 @@ hero {
       margin-block: 0 0.4em;
       h4 {
         margin-block: 0.2em 0.2em;
+        color: var(--lightest-gray);
+        font-size: var(--fs-md);
       }
       li {
         margin-inline: 0.5em auto;
@@ -696,10 +700,11 @@ hero {
     }
     .contact-us {
       margin-inline: 8%;
+      margin-block: 0 2em;
       .contact-row {
         display: flex;
         flex-direction: row;
-        margin-block: 0 0.5em;
+        margin-block: 0 0.4em;
         gap: 1em;
       }
     }
@@ -718,6 +723,7 @@ hero {
   margin-inline: 10% 0;
   margin-block: 1em;
 }
+
 @media screen and (min-width: 900px) {
   body {
     background: linear-gradient(
@@ -738,8 +744,10 @@ hero {
     font-size: var(--fs-base);
   }
 
-  .header {
+  .header-comp {
     height: var(--wide-header-height);
+  }
+  .header {
     position: fixed;
     display: flex;
     background: #3b4774;
@@ -948,8 +956,10 @@ hero {
       }
     }
   } /* close hero-home */
+
   .full-footer {
-    width: 100%;
+    grid-area: footer;
+    padding-inline: 5%;
     background: linear-gradient(
       to right,
       #1e1f50 0%,
@@ -957,20 +967,100 @@ hero {
       #3f3f50 80%,
       #3e3d3d 100%
     );
+    position: relative;
+    .waves {
+      position: absolute;
+      bottom: 500px;
+      left: 0px;
+      transform: scaleY(40%);
+      width: 100%;
+      height: auto;
+    }
     .footer-wrapper {
       display: flex;
       flex-direction: row-reverse;
     }
-    .footer {
-      width: 40%;
+
+    .contact {
+      background: linear-gradient(
+        to right,
+        #1e1f50 0%,
+        #1e1f50 50%,
+        #3f3f50 80%,
+        #3e3d3d 100%
+      );
+      width: 50%;
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      align-items: center;
       background: none;
-      padding-inline: 8% 0;
+      padding-block: 2em 3em;
+      margin-block-end: 0;
+      span {
+        color: #50e3c2;
+        font-family: Poppins;
+        font-size: 20px;
+        letter-spacing: 0.3px;
+      }
+      h3 {
+        font-size: var(--fs-lg);
+      }
+      .contact-form {
+        width: 90%;
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        font-family: Poppins, sans-serif;
+        font-size: 1.6rem;
+        font-weight: 300;
+        input,
+        select,
+        textarea {
+          margin-block: 0.4em;
+          padding-inline: 1em;
+          border-radius: 8px;
+          border-bottom: 1px solid #616161;
+          background: #eee;
+          width: 90%;
+          min-height: 45px;
+        }
+        textarea {
+          height: 150px;
+        }
+        label {
+          margin: 0.4em 0 auto 0.5em;
+        }
+        select {
+          width: 90%;
+        }
+        select:focus {
+          outline: 2px solid var(--highlight-color);
+        }
+
+        button {
+          width: 40%;
+          margin: 1em auto;
+          padding: 0.3em;
+          border-radius: 12px;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .footer {
+      width: 45%;
+      padding-inline: 1em 0;
+      color: #ededed;
       .footer-logo {
-        width: auto;
-        margin-inline: 0;
+        position: relative;
+        width: 80%;
       }
       .social {
-        margin-block: 1em 0.5em;
+        display: flex;
+        position: relative;
+        margin-block: 2em 0.5em;
         margin-inline: 8%;
         img {
           width: 40px;
@@ -979,49 +1069,34 @@ hero {
         }
       }
       .nav-footer {
-        padding-inline: 10%;
-        margin-block: 2em 3em;
-        .social {
-          margin: 1em 10%;
-          img {
-            width: 45px;
-          }
-        }
-        h4 {
-          margin-block: 1em 0;
-        }
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-inline: 0.5em;
+        margin-block: 2em;
       }
-      .contact-us {
-        width: 100%;
-        gap: 0.6em;
-        .contact-row {
-          margin-block: 0;
-        }
+      h4 {
+        margin-block: 1em 0;
+      }
+      li {
+        margin-inline: 0.5em auto;
+        padding: 0.2em;
       }
     }
 
-    .contact {
-      background: none;
-      width: 70%;
-      margin-block: 12% 0;
-      h2 {
-        font-size: var(--fs-lg);
+    .contact-row {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      padding: 0.5em;
+      img {
+        margin-inline-end: 0.3em;
       }
-      .contact-form {
-        width: 60%;
-        margin-inline: auto;
-        input {
-          min-height: 40px;
-        }
-        textarea {
-          height: 150px;
-        }
-      }
-    }
-
-    .copy-terms {
-      margin-inline: 10% 0;
-      margin-block: 1em;
     }
   }
-} /*close media query */
+  .copy-terms {
+    margin-inline: 10% 0;
+    margin-block: 1em;
+  }
+} /* close desktop */
