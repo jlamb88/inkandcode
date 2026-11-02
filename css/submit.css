@@ -1,0 +1,422 @@
+/* ==========================================================================
+   Ink & Code: Contact thank-you page
+   Shown after the contact form is submitted.
+   Tokens match the Ink & Code design system. If css/load.css already
+   defines these variables, delete the :root block below.
+   ========================================================================== */
+
+:root {
+  --navy: #1e1f50;
+  --white: #ffffff;
+  --white-soft: #ededed;
+  --off-white: #f4f4f2;
+  --slate: #4b5566;
+  --slate-light: #9da2ab;
+  --teal: #50e3c2;
+  --teal-glow: rgba(80, 227, 194, 0.35);
+  --teal-dim: rgba(80, 227, 194, 0.15);
+  --teal-num: rgba(80, 227, 194, 0.55);
+  --purple: #8a7093;
+  --dark-green: #0f5b8e;
+  --white-a10: rgba(255, 255, 255, 0.1);
+  --white-a25: rgba(255, 255, 255, 0.25);
+  --white-a35: rgba(255, 255, 255, 0.35);
+  --border: rgba(30, 31, 80, 0.1);
+  --border-teal: rgba(80, 227, 194, 0.45);
+
+  --font-display: "Poppins", sans-serif;
+  --font-headline: "Raleway", sans-serif;
+  --font-body: "Nunito", sans-serif;
+  --font-mono: "Cascadia Mono", monospace;
+
+  --radius-card: 8px;
+  --radius-pill: 24px;
+  --shadow-card: 0 2px 14px rgba(30, 31, 80, 0.06);
+  --shadow-card-hover: 0 6px 24px rgba(80, 227, 194, 0.1);
+  --shadow-cta: 2px 2px 4px 0 var(--purple);
+
+  --header-height: 80px;
+  --page-max: 1200px;
+  --grid-gap: 24px;
+}
+
+/* ---- Page frame ---------------------------------------------------------- */
+
+.ty-page {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--off-white);
+  font-family: var(--font-body);
+}
+
+.ty-container {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+}
+
+/* ---- Header -------------------------------------------------------------- */
+
+.ty-header {
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+  padding-inline: 20px;
+  background: var(--navy);
+}
+
+.ty-header .ty-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ty-wordmark {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.18px;
+  color: var(--white-soft);
+  text-decoration: none;
+}
+
+.ty-home-link {
+  padding-block: 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: var(--teal);
+  text-decoration: none;
+}
+
+/* ---- Hero (navy) --------------------------------------------------------- */
+
+.ty-hero {
+  display: flex;
+  justify-content: center;
+  padding: 96px 20px 112px;
+  background: var(--navy);
+}
+
+.ty-hero__inner {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.ty-check {
+  width: 76px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--teal);
+  border-radius: 50%;
+  background: var(--teal-dim);
+  box-shadow: 0 0 32px var(--teal-glow);
+  font-family: var(--font-mono);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.ty-eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--teal);
+}
+
+.ty-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.18px;
+  color: var(--white);
+}
+
+.ty-lede {
+  max-width: 600px;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(17px, 2vw, 21px);
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--white-soft);
+}
+
+.ty-hero__actions {
+  padding-top: 12px;
+}
+
+/* Teal slash accent on titles (decorative on light grounds) */
+.slash-accent {
+  color: var(--teal);
+}
+
+/* ---- Next steps (light) -------------------------------------------------- */
+
+.ty-next {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  padding: 88px 20px 104px;
+  background: var(--off-white);
+}
+
+.ty-next .ty-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.ty-next__head {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-label {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--dark-green);
+}
+
+.section-label::after {
+  content: "";
+  flex: 1;
+  max-width: 160px;
+  height: 1px;
+  background: linear-gradient(to right, var(--dark-green), transparent);
+}
+
+.ty-next__title {
+  margin: 0;
+  font-family: var(--font-headline);
+  font-size: clamp(35px, 5vw, 60px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+}
+
+.ty-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--grid-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---- Pricing-style step card -------------------------------------------- */
+
+.pricing-card {
+  position: relative;
+  overflow: hidden;
+  padding: 24px 36px 32px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--teal);
+  transition: height 0.3s ease;
+}
+
+.pricing-card:hover {
+  border-color: var(--border-teal);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.pricing-card:hover::before {
+  height: 100%;
+}
+
+.pricing-card__num {
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--teal-num);
+}
+
+.pricing-card h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-headline);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+
+.pricing-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--slate);
+}
+
+.ty-next__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+}
+
+.ty-next__note {
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--slate);
+}
+
+.ty-next__note a {
+  color: var(--dark-green);
+}
+
+.ty-next__note a:hover {
+  color: var(--navy);
+}
+
+/* ---- CTA button ---------------------------------------------------------- */
+
+.cta-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 44px;
+  padding: 0 2.5em 0 1em;
+  overflow: hidden;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--white);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-cta);
+}
+
+.cta-btn__text {
+  position: relative;
+  z-index: 2;
+  margin-right: 1.5em;
+  white-space: nowrap;
+  color: var(--dark-green);
+  transition: color 0.3s ease;
+}
+
+.cta-btn__arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 44px;
+  height: 100%;
+  padding-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 22px;
+  color: var(--dark-green);
+  background: var(--teal);
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+}
+
+.cta-btn:focus-visible,
+.ty-wordmark:focus-visible,
+.ty-home-link:focus-visible,
+.ty-next__note a:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+/* Ghost variant for navy bands */
+.cta-btn--ghost {
+  background: var(--white-a10);
+  border: 1.5px solid var(--white-a35);
+  box-shadow: none;
+}
+
+.cta-btn--ghost .cta-btn__text {
+  color: var(--white);
+}
+
+.cta-btn--ghost .cta-btn__arrow {
+  color: var(--white);
+  background: var(--white-a25);
+}
+
+@media (hover: hover) {
+  .cta-btn:hover .cta-btn__arrow { width: 100%; }
+  .cta-btn:hover .cta-btn__text { color: var(--navy); }
+  .cta-btn--ghost:hover .cta-btn__arrow {
+    color: var(--navy);
+    background: var(--teal);
+  }
+}
+
+/* ---- Footer -------------------------------------------------------------- */
+
+.ty-footer {
+  padding: 28px 20px;
+  background: var(--navy);
+}
+
+.ty-footer .ty-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ty-footer__brand {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white-soft);
+}
+
+.ty-footer__legal {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--slate-light);
+}
+
+/* ---- Motion -------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-btn__text,
+  .cta-btn__arrow,
+  .pricing-card,
+  .pricing-card::before {
+    transition: none;
+  }
+}

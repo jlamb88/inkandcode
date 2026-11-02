@@ -273,7 +273,7 @@ header-comp .header.mobile-open .header-logo { opacity: 0; pointer-events: none;
     
 <header class="header">
   <div class="header-logo">
-  <a href="/home.html" role="menuitem">
+  <a href="/index.html" role="menuitem">
     <svg aria-label="Logo" role="img"viewBox="0 0 367 91">
       <use href="#logo" />
     </svg>
@@ -325,14 +325,14 @@ header-comp .header.mobile-open .header-logo { opacity: 0; pointer-events: none;
             <span><small class="menu-eyebrow" aria-hidden="true">// dev</small><a href='code.html' refer='noreferer' role='menuitem'>Web Services</span>
           </div>
             <div class="menu-items">
-              <li><a refer='noreferer' role='menuitem' href="code.html/#webdevelop">Web Development</a></li>
-              <li><a refer='noreferer' role='menuitem' href="code.html/#SEO">SEO & Performance</a></li>
-              <li><a refer='noreferer' role='menuitem' href="code.html/#hosting">Web Hosting & Maintenance</a></li>
+              <li><a refer='noreferer' role='menuitem' href="code.html#development">Web Development</a></li>
+              <li><a refer='noreferer' role='menuitem' href="code.html#SEO">SEO & Performance</a></li>
+              <li><a refer='noreferer' role='menuitem' href="code.html#hosting">Web Hosting & Maintenance</a></li>
             </div>
           </ul>
         </li>
         <li><a refer='noreferer' role='menuitem' href="about.html">CTRL + Us</a></li>
-        <li><a refer='noreferer' role='menuitem' href="#contact">Hit Us Up</a></li>
+        <li><a refer='noreferer' role='menuitem' href="contact.html">Hit Us Up</a></li>
   </ul>
 </nav>
 </div>
@@ -516,15 +516,15 @@ class Footer extends HTMLElement {
         <nav class="nav-footer">
           <h4>SERVICES</h4>
           <ul aria-label="Services menu">
-            <li><a target="_blank" href="ink.html/#webdesign">Web Design</a></li>
-            <li><a target="_blank" href="code.html/#development">Web Development</a></li>
-            <li><a target="_blank" href="code.html/#SEO">Search Engine Optimization (SEO)</a></li>
-            <li><a target="_blank" href="code.html/#hosting">Web Hosting</a></li>
+            <li><a target="_blank" href="code.html">Web Design</a></li>
+            <li><a target="_blank" href="code.html#development">Web Development</a></li>
+            <li><a target="_blank" href="code.html#SEO">Search Engine Optimization (SEO)</a></li>
+            <li><a target="_blank" href="code.html#hosting">Web Hosting</a></li>
             <li><a target="_blank" href="ink.html">Graphic Design</a></li>
           </ul>
           <h4>LINKS</h4>
           <ul aria-label="Links Menu">
-            <li><a target="_blank" href="code.html/#pricing">Pricing</a></li>
+            <li><a target="_blank" href="code.html#pricing">Pricing</a></li>
             <li><a target="_blank" href="about.html">About</a></li>
           </ul>
         </nav>

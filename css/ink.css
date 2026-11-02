@@ -968,8 +968,16 @@ main {
   }
 
   .design {
+    .span-window {
+      width: 100vw;
+      height: 525px;
+      overflow: hidden;
+    }
     .window-image {
-      height: 750px;
+      width: auto;
+      height: 80%;
+      object-fit: contain;
+      object-position: 20% 100%;
     }
     .section-eyebrow {
       font-size: 1.8rem;

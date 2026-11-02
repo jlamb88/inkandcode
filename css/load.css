@@ -597,7 +597,8 @@ hero {
   .contact {
     background: none;
     width: 90%;
-    margin-block: 5% 15%;
+    padding-block: 1em 0;
+    margin-block: 5%;
     .headline {
       display: block;
       margin-block: 0em;

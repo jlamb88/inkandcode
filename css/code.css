@@ -289,7 +289,7 @@ hero {
     width: 100%;
   }
   .cta-btn:hover .button-text {
-    color: white;
+    color: var(--dark-blue);
   }
 }
 
@@ -868,11 +868,11 @@ hero {
     font-family: "Cascadia Mono", monospace;
     font-size: var(--fs-sm);
     letter-spacing: 0.03em;
-    color: var(--dark-green);
+    color: var(--teal);
   }
   .cursor {
     display: inline-block;
-    color: var(--dark-green);
+    color: var(--teal);
     animation: term-blink 1.1s steps(1) infinite;
   }
   @keyframes term-blink {
@@ -899,7 +899,7 @@ hero {
   }
   .term-check {
     font-family: "Cascadia Mono", monospace;
-    color: var(--dark-green);
+    color: var(--teal);
     font-weight: 700;
   }
   .term-label {
