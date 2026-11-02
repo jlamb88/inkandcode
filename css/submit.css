@@ -234,7 +234,9 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .pricing-card::before {
@@ -374,8 +376,12 @@
 }
 
 @media (hover: hover) {
-  .cta-btn:hover .cta-btn__arrow { width: 100%; }
-  .cta-btn:hover .cta-btn__text { color: var(--navy); }
+  .cta-btn:hover .cta-btn__arrow {
+    width: 100%;
+  }
+  .cta-btn:hover .cta-btn__text {
+    color: var(--navy);
+  }
   .cta-btn--ghost:hover .cta-btn__arrow {
     color: var(--navy);
     background: var(--teal);
@@ -408,6 +414,10 @@
   font-size: 12px;
   line-height: 1.4;
   color: var(--slate-light);
+}
+
+.svg-footer {
+  display: none;
 }
 
 /* ---- Motion -------------------------------------------------------------- */
