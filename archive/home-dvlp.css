@@ -1,0 +1,995 @@
+/* ═══════════════════════════════════════════════════════════════════
+   INK & CODE — Homepage  |  home.css
+   Light body → dark fade last ~20%
+   Scale: html 62.5% → 1rem = 10px → 1.6rem = 16px standard
+   Spacing in em  |  font-size in rem
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens ─────────────────────────────────────────────────────── */
+:root {
+  --bg: #f4f4f2;
+  --surface: #ffffff;
+  --border: rgba(30, 31, 80, 0.1);
+  --border-teal: rgba(80, 227, 194, 0.45);
+
+  --text-head: #1e1f50;
+  --text-body: #7e8a9a;
+  --text-muted: #9da2ab;
+
+  --navy: #1e1f50;
+  --navy-deep: #2b3457;
+  --slate: #4b5566;
+  --teal: #50e3c2;
+  --teal-glow: rgba(80, 227, 194, 0.35);
+  --purple: #8a7093;
+  --purple-dark: #531368;
+  --white: #ededed;
+
+  /* dark-green kept for any load.css compatibility */
+  --dark-green: #1e1f50;
+}
+
+/* ─── Scale ──────────────────────────────────────────────────────── */
+html {
+  font-size: 62.5%; /* 1rem = 10px; 1.6rem = 16px */
+  scroll-behavior: smooth;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-body);
+  font-family: "Nunito", sans-serif;
+  font-size: 1.6rem;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+}
+a {
+  text-decoration: none;
+}
+
+/* ─── Typography ─────────────────────────────────────────────────── */
+h2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: clamp(3.5rem, 6.5vw, 8rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text-head);
+}
+h3 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--text-head);
+  margin-bottom: 0.5em;
+}
+p {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.75;
+  color: var(--text-body);
+  font-weight: 400;
+}
+
+/* ─── Utilities ──────────────────────────────────────────────────── */
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--navy);
+}
+.slash-teal {
+  color: var(--teal);
+}
+
+.caveat-accent {
+  font-family: "Caveat", cursive;
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: var(--teal);
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.section-watermark {
+  position: absolute;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: clamp(7rem, 14vw, 16rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: rgba(80, 227, 194, 0.055);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+.section-watermark.right {
+  right: -2%;
+  top: -1rem;
+}
+.section-watermark.left {
+  left: -2%;
+  top: -1rem;
+}
+
+/* Monospace eyebrow label used on dark sections */
+.section-eyebrow {
+  font-family: "Cascadia Mono", monospace;
+  font-size: 1.15rem;
+  color: #50e3c2;
+  letter-spacing: 0.16em;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.section-eyebrow::after {
+  content: "";
+  display: inline-block;
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(to right, #50e3c2, transparent);
+}
+
+/* Teal glow border top — applied to process section */
+.teal-border-top {
+  border-top: 1px solid rgba(80, 227, 194, 0.18);
+  padding-top: 2em;
+}
+.slash-divider {
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: clamp(4rem, 8vw, 9rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgba(30, 31, 80, 0.055);
+  text-align: center;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── CTA Button ─────────────────────────────────────────────────── */
+.cta-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 50px;
+  padding-inline: 1em 3em;
+  padding-block: 0.75em;
+  margin-block: 1.5em 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border-radius: 24px;
+  background: var(--navy);
+  box-shadow: 2px 2px 12px rgba(30, 31, 80, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+}
+.cta-btn .button-text {
+  white-space: nowrap;
+  color: #fff;
+  margin-inline-end: 1.5em;
+  z-index: 10;
+  transition: color 0.25s;
+}
+.ellipse-overlay {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 56px;
+  padding-inline-end: 14px;
+  background: var(--teal);
+  color: var(--navy);
+  font-size: 2.2rem;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: width 0.22s ease;
+  z-index: 1;
+}
+@media (hover: hover) {
+  .cta-btn:hover .ellipse-overlay {
+    width: 100%;
+  }
+  .cta-btn:hover .button-text {
+    color: var(--navy);
+  }
+}
+
+/* Ghost variant — for regional strip (dark bg) */
+.cta-btn--ghost {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  box-shadow: none;
+}
+.cta-btn--ghost .button-text {
+  color: var(--white);
+}
+.cta-btn--ghost .ellipse-overlay {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--white);
+}
+@media (hover: hover) {
+  .cta-btn--ghost:hover .ellipse-overlay {
+    background: var(--teal);
+    color: var(--navy);
+  }
+  .cta-btn--ghost:hover .button-text {
+    color: var(--navy);
+  }
+}
+
+/* Teal outline — for dark-end section */
+.cta-btn--teal {
+  background: transparent;
+  border: 1.5px solid var(--teal);
+  box-shadow: none;
+}
+.cta-btn--teal .button-text {
+  color: var(--teal);
+}
+.cta-btn--teal .ellipse-overlay {
+  background: var(--teal);
+  color: var(--navy);
+}
+@media (hover: hover) {
+  .cta-btn--teal:hover .button-text {
+    color: var(--navy);
+  }
+}
+
+/* ─── HERO ───────────────────────────────────────────────────────── */
+hero {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100svh;
+  min-height: 500px;
+  max-height: 900px;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 100%);
+}
+
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-teal-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 60%;
+  background: linear-gradient(to bottom, var(--teal), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  position: absolute;
+  top: 26px;
+  left: 5%;
+  font-family: "Cascadia Mono", monospace;
+  font-size: 1.2rem;
+  color: var(--teal);
+  letter-spacing: 0.14em;
+  opacity: 0.75;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+}
+.hero-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 2em;
+  height: 1px;
+  background: var(--teal);
+}
+
+.hero-reader-ada {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.65;
+  z-index: 0;
+}
+
+/* Hero word navigation */
+.hero-text {
+  position: absolute;
+  left: 5%;
+  bottom: 10%;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+.hero-text .row {
+  display: flex;
+  gap: 1.5em;
+}
+.hero-text .items {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  position: relative;
+}
+.hero-text .numbers {
+  font-family: "Cascadia Mono", monospace;
+  font-size: clamp(6rem, 12vw, 12rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  background: linear-gradient(
+    180deg,
+    rgba(157, 162, 171, 0.35) 0%,
+    rgba(215, 215, 215, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+}
+.hero-text .text {
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(2.4rem, 5vw, 6rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.hero-text .items:hover .text {
+  color: var(--teal);
+}
+
+/* Fade hero into light page background */
+hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* ─── Section base ───────────────────────────────────────────────── */
+section {
+  position: relative;
+  width: 90%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-block: 3.75em;
+}
+
+/* ─── 01 INTRO ───────────────────────────────────────────────────── */
+.intro {
+  padding-block: 3.125em 2.5em;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5em;
+  align-items: center;
+  margin-top: 1.5em;
+}
+.intro-left h2 {
+  font-size: clamp(4rem, 7vw, 9rem);
+}
+.intro-right p {
+  font-size: 1.9rem;
+  max-width: 52ch;
+}
+.intro-right p + p {
+  margin-top: 1em;
+}
+
+/* ─── 02 METHOD ──────────────────────────────────────────────────── */
+.method {
+  padding-block: 2.5em 4em;
+}
+
+.method-title {
+  font-size: clamp(4rem, 8vw, 10rem);
+  margin-bottom: 2em;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+  position: relative;
+  z-index: 1;
+}
+
+.method-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2.5em 2.5em 2em;
+  box-shadow: 0 2px 16px rgba(30, 31, 80, 0.06);
+  overflow: hidden;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+.method-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--teal);
+  transition: height 0.3s ease;
+}
+.method-card:hover {
+  border-color: var(--border-teal);
+  box-shadow: 0 6px 28px rgba(80, 227, 194, 0.1);
+}
+.method-card:hover::before {
+  height: 100%;
+}
+
+.method-num {
+  font-family: "Cascadia Mono", monospace;
+  font-size: clamp(6rem, 9vw, 9.6rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  background: linear-gradient(
+    180deg,
+    rgba(103, 103, 103, 0.24) 0%,
+    rgba(154, 154, 154, 0.24) 73.56%,
+    rgba(205, 205, 205, 0) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5em;
+}
+
+.method-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin-bottom: 0.75em;
+}
+
+.method-card h3 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  margin-bottom: 0.2em;
+}
+.method-sub {
+  font-family: "Cascadia Mono", monospace;
+  font-size: 1.2rem;
+  color: var(--teal);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75em;
+  display: block;
+  opacity: 0.7;
+}
+.method-card p {
+  font-size: 1.6rem;
+}
+
+/* ─── REGIONAL STRIP (dark band) ────────────────────────────────── */
+.regional-strip .pills {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(150deg, #531368 0%, #8a7093 55%, #4b5566 100%);
+  padding-block: 5em;
+  margin-block: 2em;
+  overflow: hidden;
+  display: none;
+}
+/* .regional-strip::before {
+  content: "ATL";
+  position: absolute;
+  right: -2%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: clamp(10rem, 22vw, 28rem);
+  letter-spacing: -0.06em;
+  color: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+} */
+.regional-inner {
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+.regional-strip .section-eyebrow {
+  color: var(--teal);
+}
+.regional-headline {
+  font-size: clamp(3.5rem, 7vw, 8rem);
+  color: var(--white);
+  margin-bottom: 0.75em;
+}
+.regional-headline .outline-text {
+  -webkit-text-stroke: 2px var(--white);
+  color: transparent;
+}
+.regional-sub {
+  font-size: 1.8rem;
+  color: rgba(237, 237, 237, 0.7);
+  max-width: 50ch;
+  margin-bottom: 2em;
+}
+.city-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: 3.5rem;
+}
+.city-strip-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #ededed;
+  padding: 0.6rem 1.6rem 0.6rem 0;
+}
+.city-strip-item .city-num-sm {
+  font-family: "Cascadia Mono", monospace;
+  font-size: 0.9rem;
+  color: rgba(80, 227, 194, 0.5);
+}
+.city-strip-item .city-slash {
+  color: rgba(80, 227, 194, 0.35);
+  font-weight: 300;
+  padding-left: 1.2rem;
+}
+.city-strip-item.home-city .city-name-sm {
+  color: #50e3c2;
+  font-weight: 600;
+}
+.city-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em;
+  margin-bottom: 2em;
+}
+.city-pill {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 0.4em 1.2em;
+}
+.city-pill--hq {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+.pill-tag {
+  font-family: "Cascadia Mono", monospace;
+  font-size: 0.9rem;
+  margin-left: 0.5em;
+  opacity: 0.7;
+}
+
+/* ─── 03 PRICING ─────────────────────────────────────────────────── */
+.pricing {
+  padding-block: 3.75em;
+}
+.pricing h2 {
+  margin-bottom: 0.5em;
+}
+.pricing-lead {
+  font-size: 1.9rem;
+  max-width: 55ch;
+  margin-bottom: 2.5em;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5em;
+  margin-bottom: 2em;
+}
+
+.pricing-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2.5em 2em;
+  box-shadow: 0 2px 14px rgba(30, 31, 80, 0.06);
+  overflow: hidden;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--teal);
+  transition: height 0.3s ease;
+}
+.pricing-card:hover {
+  border-color: var(--border-teal);
+  box-shadow: 0 6px 24px rgba(80, 227, 194, 0.1);
+}
+.pricing-card:hover::before {
+  height: 100%;
+}
+
+.pricing-num {
+  font-family: "Cascadia Mono", monospace;
+  font-size: 1.2rem;
+  color: rgba(80, 227, 194, 0.55);
+  margin-bottom: 0.75em;
+}
+.pricing-card h3 {
+  font-size: 2rem;
+}
+.pricing-card p {
+  font-size: 1.5rem;
+}
+
+.pricing-tagline {
+  font-family: "Nunito", sans-serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* ─── 04 SEO ─────────────────────────────────────────────────────── */
+.seo {
+  padding-block: 3.75em;
+}
+.seo-lead {
+  font-size: 1.9rem;
+  max-width: 58ch;
+  margin-block: 1.5em 2.5em;
+}
+
+.seo-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  margin-bottom: 2em;
+  position: relative;
+  z-index: 1;
+}
+.seo-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  padding-block: 1.5em;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.seo-item:hover {
+  background: rgba(80, 227, 194, 0.04);
+}
+.seo-num {
+  font-family: "Cascadia Mono", monospace;
+  font-size: 1.2rem;
+  color: rgba(80, 227, 194, 0.5);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.seo-text {
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 700;
+  color: var(--text-head);
+  letter-spacing: -0.02em;
+}
+
+/* ─── 05 CUSTOM SITES (dark block) ──────────────────────────────── */
+.sites-block {
+  position: relative;
+  width: 100%;
+  background: var(--navy);
+  padding-block: 6em;
+  overflow: hidden;
+}
+.sites-block::before {
+  content: "CUSTOM";
+  position: absolute;
+  right: -2%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: clamp(6rem, 14vw, 18rem);
+  letter-spacing: -0.05em;
+  color: rgba(80, 227, 194, 0.04);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.sites-inner {
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+.sites-block .section-eyebrow {
+  color: var(--teal);
+}
+.sites-headline {
+  font-size: clamp(4rem, 8vw, 10rem);
+  color: var(--white);
+  margin-bottom: 1.5em;
+}
+.sites-headline .outline-text {
+  -webkit-text-stroke: 2px var(--teal);
+  color: transparent;
+}
+
+.sites-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3em;
+  margin-bottom: 3em;
+}
+.site-point h3 {
+  color: var(--white);
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  margin-bottom: 0.5em;
+}
+.site-point p {
+  color: var(--text-muted);
+  font-size: 1.6rem;
+}
+
+.sites-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em 2.5em;
+  padding: 1.5em 2em;
+  border: 1px solid rgba(80, 227, 194, 0.15);
+  border-radius: 8px;
+  background: rgba(80, 227, 194, 0.04);
+  margin-bottom: 2.5em;
+}
+.sites-features .feature-item {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+.sites-features .feature-item::before {
+  content: "→ ";
+  color: var(--teal);
+  font-size: 1.2rem;
+}
+
+/* ─── 06 PLATFORMS ───────────────────────────────────────────────── */
+.platforms {
+  padding-block: 3.75em;
+}
+.platforms h2 {
+  margin-bottom: 0.75em;
+}
+.platforms-lead {
+  font-size: 1.9rem;
+  max-width: 58ch;
+  margin-bottom: 2.5em;
+}
+.platform-icons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2em 3em;
+}
+.platform-icons img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(40%);
+  opacity: 0.8;
+  transition:
+    opacity 0.2s,
+    filter 0.2s;
+}
+.platform-icons img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+/* ─── DARK END ───────────────────────────────────────────────────── */
+.dark-end {
+  position: relative;
+  background: var(--navy);
+}
+.dark-end-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 280px;
+  background: linear-gradient(
+    to bottom,
+    var(--bg) 0%,
+    #c4c5cf 35%,
+    #6b6f82 65%,
+    var(--navy) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dark-end h2,
+.dark-end h3 {
+  color: var(--white);
+}
+.dark-end p {
+  color: var(--text-muted);
+}
+.dark-end .section-eyebrow {
+  color: var(--teal);
+}
+.dark-end .outline-text {
+  -webkit-text-stroke: 2px var(--teal);
+  color: transparent;
+}
+
+.closing {
+  position: relative;
+  z-index: 1;
+  padding-top: 11.25em;
+  padding-bottom: 6.25em;
+}
+.closing-headline {
+  font-size: clamp(4rem, 8vw, 9.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.75em;
+}
+.closing-sub {
+  font-size: 1.9rem;
+  max-width: 52ch;
+  margin-bottom: 0;
+}
+
+.full-footer {
+  position: relative;
+  z-index: 1;
+}
+.header-comp {
+  height: var(--wide-header-height, 72px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════ */
+@media screen and (min-width: 900px) {
+  hero {
+    top: calc(var(--wide-header-height, 72px) * -1);
+  }
+  .method-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .sites-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 899px) {
+  section {
+    padding-block: 2.5em;
+  }
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5em;
+  }
+  .method-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25em;
+  }
+  .sites-grid {
+    grid-template-columns: 1fr;
+    gap: 2em;
+  }
+  .platform-icons {
+    gap: 1.5em 2em;
+  }
+  .dark-end-fade {
+    height: 200px;
+  }
+  .closing {
+    padding-top: 7.5em;
+  }
+  .hero-text .row {
+    gap: 1em;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .city-pills {
+    gap: 0.5em;
+  }
+  .platform-icons {
+    justify-content: center;
+  }
+  .sites-features {
+    gap: 0.75em 1.5em;
+  }
+}

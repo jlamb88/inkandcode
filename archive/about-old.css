@@ -1,0 +1,278 @@
+hero {
+  display: block;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 14rem 7% 8rem;
+  background: linear-gradient(
+    160deg,
+    #2b3457 0%,
+    #1e1f50 40%,
+    #313b5f 80%,
+    #4b5566 100%
+  );
+  overflow: hidden;
+}
+
+/* About hero positioning */
+.hero-about {
+  min-height: clamp(420px, 60vh, 700px);
+  padding-inline: 5vw;
+  background: #1e1f50;
+  overflow: hidden;
+}
+
+/* Force hero text layout */
+.hero-about .hero-text {
+  position: absolute;
+  left: 8%;
+  bottom: 18%;
+  color: var(--white);
+}
+
+.hero-about .text {
+  font-size: var(--fs-h1);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.hero-about .outline {
+  -webkit-text-stroke: 1px var(--white);
+  color: transparent;
+}
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 14rem 7% 8rem;
+  background: linear-gradient(
+    160deg,
+    #2b3457 0%,
+    #1e1f50 40%,
+    #313b5f 80%,
+    #4b5566 100%
+  );
+  overflow: hidden;
+}
+
+/* grain overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* teal accent bar — top left */
+.hero-accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 60%;
+  background: linear-gradient(to bottom, var(--teal), transparent);
+}
+
+/* watermark CTRL+ */
+.hero-watermark {
+  position: absolute;
+  right: -2%;
+  top: 10%;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(14rem, 22vw, 28rem);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.025);
+  letter-spacing: -0.06em;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-eyebrow {
+  position: relative;
+  z-index: 1;
+  font-family: "Cascadia Mono", monospace;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--teal);
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.hero-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--teal);
+}
+
+.hero-ctrl {
+  position: relative;
+  z-index: 1;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(5rem, 12vw, 14rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+.hero-ctrl .asterisk {
+  color: var(--teal);
+}
+.hero-ctrl .outline-text {
+  -webkit-text-stroke: 1.5px var(--white);
+  color: transparent;
+}
+
+.hero-not-about {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin-bottom: 3.5rem;
+}
+.hero-not-about .word {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 4rem);
+  font-weight: 200;
+  color: var(--light-gray);
+  letter-spacing: -0.02em;
+}
+.hero-not-about .word.bracket {
+  font-weight: 700;
+  color: var(--teal);
+}
+.hero-not-about .word.strike {
+  text-decoration: line-through;
+  text-decoration-color: var(--purple);
+  color: var(--slate-light);
+}
+.hero-not-about .word.loud {
+  font-weight: 700;
+  color: var(--white);
+  font-size: clamp(2rem, 4vw, 4.8rem);
+}
+
+.hero-sub {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--slate-light);
+}
+
+/* glitch scanline */
+.scanline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--dark-blue));
+  z-index: 1;
+}
+
+/* Sections must assert contrast */
+
+.about-refusal,
+.about-intent,
+.about-principles,
+.about-capabilities,
+.about-process {
+  margin-top: 6em;
+}
+
+/* Headings */
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: var(--fs-xxl);
+  font-weight: 400;
+  margin-bottom: 0.8em;
+}
+
+/* Body copy */
+p,
+li {
+  max-width: 62ch;
+  font-size: var(--fs-base);
+  line-height: 1.6;
+}
+
+.principle-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5em;
+}
+
+.principle-card {
+  background: var(--card-background-color);
+  padding: 2.5em;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.principle-card h3 {
+  font-family: "Poppins";
+  font-size: var(--fs-lg);
+  margin-block: 0.5em;
+}
+
+.capability-list li {
+  position: relative;
+  padding-left: 1.2em;
+}
+
+.capability-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.process-steps li {
+  display: flex;
+  gap: 1.5em;
+  align-items: flex-start;
+}
+
+.process-steps .numbers {
+  opacity: 0.6;
+  font-size: var(--fs-sm);
+}
+
+.about-closing {
+  text-align: center;
+  margin-block: 8em 6em;
+}
+
+.about-cta {
+  font-family: "Poppins";
+  font-size: var(--fs-md);
+  color: var(--primary);
+}
+
+@media (min-width: 900px) {
+  .principle-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

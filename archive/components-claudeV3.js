@@ -88,83 +88,85 @@ class Footer extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <div class="footer-wrapper">
+      <img class="waves" src="../assets/wavesObliqPurple.svg" width="100%"
+      />
       <section class="contact" id="contact">
-      <span>Get In Touch</span>
-      <h2>Ready To Collaborate?</h2>
-      <script type="text/javascript"> var submitted=false</script>
-      <iframe
-        name="hiddenSubmit"
-        id="hiddenSubmit"
-        style="display: none;"
-        onload="if(submitted)
-        {window.location='submit.html'};">
-      </iframe>
-      <form
-      class="contact-form"
-      action="https://docs.google.com/forms/d/e/1FAIpQLSdGSbl2NHThGbI2LvTBIf-UBqRXg71cmHLuW-JlBYoeza8rBQ/formResponse"
-      method="post"
-      target="hiddenSubmit"
-      onSubmit="submitted=true"
-      >
-        <input type="text" name="entry.2005620554" placeholder="Name*">
-        <input type="email" name="entry.1045781291" placeholder="Email*">
-        <input type="tel" name="entry.1166974658" placeholder="Phone">
+        <div class="headline">
+          <span>Get In Touch</span>
+          <h2>Ready To Collaborate?</h2>
+        </div>
+        <script type="text/javascript"> var submitted=false</script>
+        <iframe
+          name="hiddenSubmit"
+          id="hiddenSubmit"
+          style="display: none;"
+          onload="if(submitted)
+          {window.location='submit.html'};">
+        </iframe>
+        <form
+          class="contact-form"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSdGSbl2NHThGbI2LvTBIf-UBqRXg71cmHLuW-JlBYoeza8rBQ/formResponse"
+          method="post"
+          target="hiddenSubmit"
+          onSubmit="submitted=true"
+          >
+          <input type="text" name="entry.2005620554" placeholder="Name*">
+          <input type="email" name="entry.1045781291" placeholder="Email*">
+          <input type="tel" name="entry.1166974658" placeholder="Phone">
 
-        <label for="entry.839337160">I Want To Talk About...</label>
-        <select name="entry.839337160" id="entry.839337160">
-          <option value="Making A Website">Making A Website</option>
-          <option value="Updating My Website">Updating My Website</option>
-          <option value="Improving My Searches">Improving My Searches</option>
-          <option value="Designing Something Pretty">Designing Something Pretty</option>
-          <option value="Hosting and Maintaining My Website">Hosting and Maintaining My Website</select>
-        </select>
-        <textarea name="entry.1389680958" placeholder="Your Message or Questions"></textarea>
-        <button type="submit">Submit</button>
-      </form>
-  </section>
-  <footer class="footer">
-      <div>
-        <svg alt="Logo" class="footer-logo">
-          <use href="#logo"></use>
-        </svg>
-      </div>
-      <div class="social">
-        <img src="../assets/facebook.svg" width="30px"/>
-        <img src="../assets/instagram.svg" width="30px"/>
-        <img src="../assets/linkedIn.svg" width="30px"/>
-        </div>
-      <nav class="nav-footer">
-        <h4>SERVICES</h4>
-        <ul aria-label="Services menu">
-          <li><a target="_blank" href="ink.html/#webdesign">Web Design</a></li>
-          <li><a target="_blank" href="code.html/#development">Web Development</a></li>
-          <li><a target="_blank" href="code.html/#SEO">Search Engine Optimization (SEO)</a></li>
-          <li><a target="_blank" href="code.html/#hosting">Web Hosting</a></li>
-          <li><a target="_blank" href="ink.html">Graphic Design</a></li>
-        </ul>
-        <h4>LINKS</h4>
-        <ul aria-label="Links Menu">
-          <li><a target="_blank" href="code.html/#pricing">Pricing</a></li>
-          <li><a target="_blank" href="about.html">About</a></li>
-        </ul>
-        </nav>
-      <section class="contact-us">
-        <div class="contact-row">
-          <img src="../assets/email.svg" width="30"/>
-          <a mailto="info@inkandcode.com">info@inkandcode.com</a>
-        </div>
-        <div class="contact-row">
-          <img src="../assets/phone.svg" width="30px">
-          <span>555-555-1111</span>
-        </div>
+          <label for="entry.839337160">I Want To Talk About...</label>
+          <select name="entry.839337160" id="entry.839337160">
+            <option value="Making A Website">Making A Website</option>
+            <option value="Updating My Website">Updating My Website</option>
+            <option value="Improving My Searches">Improving My Searches</option>
+            <option value="Designing Something Pretty">Designing Something Pretty</option>
+            <option value="Hosting and Maintaining My Website">Hosting and Maintaining My Website</select>
+          </select>
+          <textarea name="entry.1389680958" placeholder="Your Message or Questions"></textarea>
+          <button type="submit">Submit</button>
+        </form>
       </section>
-      <div>
-      </div>
+      <footer class="footer">
+        <div class="footer-logo">
+          <svg alt="Logo">
+            <use href="#logo"></use>
+          </svg>
+        </div>
+        <div class="social">
+          <img src="../assets/facebook.svg" width="30px"/>
+          <img src="../assets/instagram.svg" width="30px"/>
+          <img src="../assets/linkedIn.svg" width="30px"/>
+        </div>
+        <nav class="nav-footer">
+          <h4>SERVICES</h4>
+          <ul aria-label="Services menu">
+            <li><a target="_blank" href="ink.html/#webdesign">Web Design</a></li>
+            <li><a target="_blank" href="code.html/#development">Web Development</a></li>
+            <li><a target="_blank" href="code.html/#SEO">Search Engine Optimization (SEO)</a></li>
+            <li><a target="_blank" href="code.html/#hosting">Web Hosting</a></li>
+            <li><a target="_blank" href="ink.html">Graphic Design</a></li>
+          </ul>
+          <h4>LINKS</h4>
+          <ul aria-label="Links Menu">
+            <li><a target="_blank" href="code.html/#pricing">Pricing</a></li>
+            <li><a target="_blank" href="about.html">About</a></li>
+          </ul>
+        </nav>
+        <section class="contact-us">
+          <div class="contact-row">
+            <img src="../assets/email.svg" width="30"/>
+            <a mailto="info@inkandcode.com">info@inkandcode.com</a>
+          </div>
+          <div class="contact-row">
+            <img src="../assets/phone.svg" width="30px">
+            <span>555-555-1111</span>
+          </div>
+        </section>
+        
+      </footer>
+      
     </div>
-  </footer>
-   <img class="waves"
-        src="../assets/wavesObliqPurple.svg" width="100%">
-  <span class="copy-terms">&copy; 2025 Ink&Code. All rights reserved.</span>
+    <span class="copy-terms">&copy; 2025 Ink&Code. All rights reserved.</span>
 
     `;
   }
@@ -245,9 +247,36 @@ const DATA = {
 
   maintenance: {
     title: "Maintenance",
-    description: "Ongoing updates, hosting, and support.",
-    features: ["Updates", "Backups", "Monitoring", "Security"],
-    plans: []
+    description:
+      "Ongoing updates, hosting, and support to keep your site fast, secure, and online.",
+    features: [
+      "Hosting",
+      "Updates",
+      "Backups",
+      "Uptime Monitoring",
+      "Security",
+      "Support Response"
+    ],
+    plans: [
+      {
+        name: "Standby",
+        price: "$39/mo",
+        theme: "launch",
+        values: ["Shared", "Monthly", "Monthly", "X", "Basic", "72 hr"]
+      },
+      {
+        name: "Autopilot",
+        price: "$89/mo",
+        theme: "orbit",
+        values: ["Shared", "Bi-Weekly", "Weekly", "✔", "Standard", "48 hr"]
+      },
+      {
+        name: "Mission Control",
+        price: "$179/mo",
+        theme: "planetary",
+        values: ["Managed", "Weekly", "Daily", "✔ 24/7", "Advanced", "24 hr"]
+      }
+    ]
   }
 };
 
@@ -382,5 +411,3 @@ window.addEventListener("resize", () => {
 /* ---------- Init ---------- */
 
 render();
-
-
