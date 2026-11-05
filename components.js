@@ -531,7 +531,7 @@ class Footer extends HTMLElement {
         <section class="contact-us">
           <div class="contact-row">
             <img src="../assets/email.svg" width="30"/>
-            <a mailto="info@inkandcode.com">info@inkandcode.com</a>
+          <a href=mailto:"info@inkandcodestudio.com">info@inkandcode.com</a>
           </div>
           <div class="contact-row">
             <img src="../assets/phone.svg" width="30px">
