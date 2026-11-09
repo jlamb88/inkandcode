@@ -510,7 +510,7 @@ class Footer extends HTMLElement {
         </div>
         <div class="social">
           <img src="../assets/facebook.svg" width="30px"/>
-          <img src="../assets/instagram.svg" width="30px"/>
+          // <img src="../assets/instagram.svg" width="30px"/>
           <img src="../assets/linkedIn.svg" width="30px"/>
         </div>
         <nav class="nav-footer">
@@ -526,6 +526,7 @@ class Footer extends HTMLElement {
           <ul aria-label="Links Menu">
             <li><a target="_blank" href="code.html#pricing">Pricing</a></li>
             <li><a target="_blank" href="about.html">About</a></li>
+            <li><a href="legal.html">Legal &amp; Privacy</a></li>
           </ul>
         </nav>
         <section class="contact-us">
@@ -535,14 +536,14 @@ class Footer extends HTMLElement {
           </div>
           <div class="contact-row">
             <img src="../assets/phone.svg" width="30px">
-            <span>555-555-1111</span>
+            <span>678-453-8505</span>
           </div>
         </section>
         
       </footer>
       
     </div>
-    <span class="copy-terms">&copy; 2025 Ink&Code. All rights reserved.</span>
+    <span class="copy-terms">&copy; 2026 Ink&Code. All rights reserved.</span>
 
     `;
   }
