@@ -41,7 +41,7 @@ h3 {
   position: absolute;
   font-family: "Raleway", sans-serif;
   font-weight: 800;
-  font-size: clamp(7rem, 14vw, 16rem);
+  font-size: clamp(8rem, 12vw, 16rem);
   line-height: 0.8;
   letter-spacing: -0.05em;
   color: rgba(80, 227, 194, 0.055);
@@ -49,9 +49,11 @@ h3 {
   user-select: none;
   white-space: nowrap;
   z-index: 0;
+  overflow-x: hidden;
 }
 .section-watermark.right {
-  right: -10%;
+  right: -15%;
+  top: 20px;
 }
 .section-watermark.left {
   left: -2%;
@@ -64,7 +66,7 @@ h3 {
   font-size: 1.4rem;
   color: var(--teal);
   letter-spacing: 0.16em;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5em;
   display: flex;
   align-items: center;
   gap: 0.9rem;
@@ -104,7 +106,7 @@ h3 {
   width: 60%;
   padding-inline: 0.75em 2.5em;
   padding-block: 0.75em;
-  margin-block: 2em;
+  margin-block: 1em;
   font-size: 1.6rem;
   font-weight: 700;
   border-radius: 24px;
@@ -166,7 +168,9 @@ h3 {
     color: rgb(217 217 217 / 10%);
   }
   .section-watermark {
-    top: -70px;
+    top: -50px;
+    left: -35px;
+    font-size: var(--fs-h1);
   }
   .process-desc {
     margin-block: 1em 3em;
@@ -176,7 +180,7 @@ h3 {
       height: 75px;
       bottom: 20px;
     }
-    .numbers {
+    .numbers left {
       top: -0.5em;
     }
     .text {
@@ -244,21 +248,7 @@ h3 {
   .cta-btn {
     display: none;
   }
-  /* .regional-strip::before {
-  content: "ATL";
-  position: absolute;
-  right: -2%;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: "Raleway", sans-serif;
-  font-weight: 800;
-  font-size: clamp(10rem, 22vw, 28rem);
-  letter-spacing: -0.06em;
-  color: rgba(255, 255, 255, 0.04);
-  pointer-events: none;
-  user-select: none;
-  line-height: 1;
-} */
+
   .regional-inner {
     position: relative;
     z-index: 1;
@@ -301,7 +291,6 @@ h3 {
     line-height: 1.7;
     color: var(--lightest-gray);
     max-width: 580px;
-    margin-bottom: 2.5rem;
     font-weight: 400;
   }
   .city-strip {
@@ -495,7 +484,7 @@ h3 {
   .pricing-num {
     font-family: "Cascadia Mono", monospace;
     font-size: 1.6rem;
-    color: rgba(80, 227, 194, 0.55);
+    color: rgba(80, 227, 194, 0.8);
     margin-bottom: 0.75em;
   }
   .pricing-card p {
@@ -773,8 +762,8 @@ ul.custom-benefits li::before {
     color: var(--teal);
   }
   .sites-headline {
-    font-size: var(--fs-h1);
-    line-height: 4.6rem;
+    font-size: var(--fs-xxxl);
+    line-height: 4rem;
     color: var(--white);
     margin-bottom: 0.8em;
   }
@@ -837,14 +826,14 @@ ul.custom-benefits li::before {
     -webkit-text-stroke: 1.5px #ededed;
   }
   .section-watermark {
-    color: rgba(80, 227, 194, 0.1);
+    color: rgba(80, 227, 194, 0.25);
   }
   .cta-btn {
     margin-block-start: 0em;
   }
 }
 .seo-lead {
-  margin-block: 1em 2em;
+  margin-block: 1em;
 }
 
 .seo-list {
@@ -1046,7 +1035,7 @@ p {
     margin-block: 4em 8em;
     padding-inline: 8%;
     .outline {
-      font-size: var(--fs-h1);
+      font-size: var(--fs-xxxl);
       line-height: 60px;
     }
     .subheading {
@@ -1070,8 +1059,9 @@ p {
       width: 40%;
     }
     .section-watermark.right {
-      right: -2%;
+      right: 0;
       top: -2%;
+      font-size: clamp(8rem, 8vw, 12rem);
     }
   } /* close base values */
 
@@ -1361,7 +1351,7 @@ p {
       width: 50%;
       img {
         height: 80px;
-        margin: 1.5em;
+        margin: 1em;
       }
     }
     .platforms-lead {

@@ -3,13 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ink & Code | Digital Studio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100..900&family=Caveat:wght@400..700&family=Orbit&family=Cascadia+Mono:wght@200..700&display=swap"
+    <title>Ink & Code Digital Studio | Graphic and Web Design </title>
+    <meta name="description"
+      content="Ink & Code creates distinctive websites, digital experiences, and brand identities that help businesses stand out.">
+
+<meta name="robots" content="index, follow">
+
+<meta name="author" content="Ink & Code">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100..900&family=Caveat:wght@400..700&family=Orbit&family=Cascadia+Mono:wght@200..700&display=swap"
       rel="stylesheet"
     />
+    
     <link rel="preload" 
           as="style" 
           href="../css/reset.css"
@@ -27,8 +35,13 @@
     /></noscript>
     
     <link rel="stylesheet" href="./css/home.css" as="style" />
-    <link rel="preload" as="image" href="../assets/home/hero-lg.svg" />
-    <link rel="preload" as="image" href="../assets/home/hero-sm.png" />
+
+    <!-- <link rel="preload" as="image" fetchpriority="high" media="(min-width: 601px)" href="../assets/home/hero-lg.svg" />
+    <link rel="preload" loading="eager"
+    fetchpriority="high"
+    as="image"
+    media="(max-width: 600px)" 
+    href="../assets/home/hero-sm.png" /> -->
     <script
       src="./components.js"
       type="text/javascript"
@@ -175,10 +188,10 @@
     <header-comp class="header-comp"></header-comp>
     <hero id="stopper">
       <picture>
-        <source
+        <!-- <source
           media="(min-width: 601px)"
           srcset="../assets/home/hero-lg-home.svg"
-        />
+        /> -->
         <source
           media="(max-width: 600px)"
           srcset="../assets/home/hero-sm-home.png"
@@ -186,10 +199,12 @@
         <img
           class="hero-img"
           fetchpriority="high"
+          loading="eager"
+          decoding="async"
           width="1800"
           height="750"
           alt="curved multi colored modern metallic sculpture"
-          src="./assets/home/hero-lg-home.svg"
+          src="../assets/home/hero-lg-home.svg"
         />
       </picture>
       <h1 class="hero-reader-ada">Collaborate, Design, Create, Succeed</h1>
@@ -205,11 +220,11 @@
           </a>
         </div>
         <div class="row">
-          <a href="#create" class="items">
+          <a href="#custom" class="items">
             <span class="numbers">03</span>
             <span class="text">Create/</span>
           </a>
-          <a href="#succeed" class="items">
+          <a href="#SEO" class="items">
             <span class="numbers">04</span>
             <span class="text">Succeed/</span>
           </a>
@@ -238,7 +253,8 @@
           at Ink&Code - where we break boundaries, not budgets.
         </p>
         <div class="row">
-          <a href="#contact" class="cta-btn" aria-role="button">
+          <a href="#contact" class="cta-btn" 
+          role="button">
             <span class="button-text">Let's Create</span>
             <span class="ellipse-overlay"> &#x279C; </span>
           </a>
@@ -249,11 +265,12 @@
           class="waves"
           width="600px"
           src="../assets/wavesObliqGreen.svg"
+          alt=""
         />
       </div>
 
       <section class="process">
-        <h2 class="section-watermark right">OUR<br />METHOD</h2>
+        <h2 class="section-watermark left ">OUR<br />METHOD</h2>
         <section class="process-desc" id="collaborate">
           <div class="desc-content">
             <div class="row">
@@ -400,7 +417,8 @@
           </div>
         </div>
         <div class="row">
-          <a href="about.html" class="cta-btn" aria-role="button">
+          <a href="about.html" class="cta-btn" 
+          role="button">
             <span class="button-text">Our Story</span>
             <span class="ellipse-overlay">➜</span>
           </a>
@@ -433,11 +451,12 @@
             class="pricing-waves"
             width="600px"
             src="../assets/wavesObliqGreen.svg"
+            alt=""
           />
         </div>
         <section class="pricing reveal">
         <span class="section-watermark right" aria-hidden="true">PRICE</span>
-        <div class="section-eyebrow">// invest in your brand</div>
+        <div class="section-eyebrow">// invest.in.your.brand</div>
         <h2>Affordable Doesn't Mean Ordinary.</h2>
         <p class="pricing-lead">
           Our transparent pricing fits budgets of all sizes without cutting
@@ -485,9 +504,9 @@
       </section>
        <!-- ═══ 04 SEO ════════════════════════════════════════════════════ -->
         
-      <section class="seo reveal">
+      <section class="seo reveal" id="SEO">
         <span class="section-watermark right" aria-hidden="true">SEO</span>
-        <div class="section-eyebrow">// get found</div>
+        <div class="section-eyebrow">// get.found</div>
         <h2>
           Ranked<span class="slash-teal">/</span><br />
           <span class="outline-txt">or invisible.</span>
@@ -526,9 +545,9 @@
       </section>
 
       <!-- ═══ 05 CUSTOM SITES (dark block) ════════════════════════════ -->
-      <div class="sites-block reveal">
+      <section class="sites-block reveal" id="custom">
         <div class="sites-inner">
-          <div class="section-eyebrow">// why custom wins</div>
+          <div class="section-eyebrow">// why.custom.wins</div>
           <h2 class="sites-headline">
             Not Stock.<br />
             Not Stale.<br />
@@ -582,11 +601,11 @@
             <span class="ellipse-overlay">&#x279C;</span>
           </a>
         </div>
-      </div>
+      </section>
 
       <!-- ═══ 06 PLATFORMS ══════════════════════════════════════════════ -->
       <section class="platforms reveal">
-        <div class="section-eyebrow">// platforms we work with</div>
+        <div class="section-eyebrow">// platforms.we.work.with</div>
         <h2>
           We Meet You<br /><span class="outline-text">Where You Are.</span>
         </h2>

@@ -5,7 +5,7 @@
   --planetary: #4245ba;
   --plan-header: 175px;
   --plan-row: 32px;
-  --grid-gap: 24px;
+  --grid-gap: 16px;
 
   /* about.html-derived accent tokens (site tokens like --teal, --purple,
      --slate-light, --teal-dim, --teal-glow already come from load.css) */
@@ -40,6 +40,7 @@
   color: transparent;
   font-weight: 400;
   margin-inline: 0;
+  font-size: inherit;
 }
 .body-text {
   max-width: 640px;
@@ -295,6 +296,7 @@ hero {
 
 .services {
   position: relative;
+  width: auto;
   overflow: hidden;
   margin-inline: 8% 0px;
   .section-label {
@@ -304,7 +306,7 @@ hero {
     width: 50%;
     font-weight: 700;
     font-size: var(--fs-h1);
-    line-height: 36px;
+    line-height: 46px;
     letter-spacing: -1px;
     background: linear-gradient(
       180deg,
@@ -321,7 +323,8 @@ hero {
   display: flex;
   flex-direction: column;
   width: 88%;
-  margin-block-start: 1em;
+  margin-block-start: 1.2em;
+  margin-inline: 1em;
 }
 
 .adv-item {
@@ -330,7 +333,7 @@ hero {
   grid-template-columns: 28px 1fr;
   align-items: start;
   gap: 1.2em;
-  padding-block: 1em;
+  padding-block: 0.5em;
   border-bottom: 1px solid rgba(91, 91, 91, 0.26);
   transition: background 0.2s;
 }
@@ -340,7 +343,7 @@ hero {
 .adv-item::after {
   content: "/";
   position: absolute;
-  right: -0.2em;
+  right: 0.5em;
   top: 30%;
   transform: translateY(-50%);
   font-family: "Raleway", sans-serif;
@@ -414,7 +417,7 @@ hero {
     gap: 5%;
     position: relative;
     margin-block: 0.5em;
-    margin-inline: 1em;
+    margin-inline: 0.5em;
     padding-block: 0.2em;
   }
 
@@ -518,10 +521,11 @@ hero {
     font-size: var(--fs-sm);
     font-weight: 700;
     letter-spacing: -0.18px;
+    white-space: nowrap;
     z-index: 10;
   }
   .feature-label > span {
-    padding-inline: 0.5em;
+    padding-inline: 0.3em;
     padding-block: 0.5em;
   }
 
@@ -697,9 +701,6 @@ hero {
     background: rgba(154, 154, 154, 0.4);
     position: absolute;
     top: 32%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
     .arrow {
       color: rgba(0, 0, 0, 0.452);

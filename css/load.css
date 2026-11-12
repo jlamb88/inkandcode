@@ -132,7 +132,7 @@ html {
     -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   accent-color: var(--primary);
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 *,
@@ -295,7 +295,6 @@ h2 {
   #hamburger.floating {
     position: fixed;
     top: 2em;
-    right: 10px;
     transform: translateY(0);
     opacity: 0.8;
     transition: all 0.3s ease;
@@ -506,7 +505,7 @@ hero {
     right: -2px;
     bottom: 2em;
     .row {
-      margin-block-end: 0.1em;
+      margin-block-end: 0.3em;
       position: relative;
     }
     .text {
@@ -554,6 +553,9 @@ hero {
   .cta-btn {
     margin-inline: auto;
   }
+  .section-watermark {
+    font-size: var(--fs-xxxl);
+  }
   .subheading {
     display: flex;
     position: relative;
@@ -566,7 +568,7 @@ hero {
   }
 
   p {
-    padding-inline: 1em 0;
+    padding-inline: 0.3em 0;
     margin-block-start: 1em;
     width: 90%;
     font-weight: 300;
@@ -576,7 +578,7 @@ hero {
 .outline {
   -webkit-text-stroke: 1px var(--lightest-gray);
   color: transparent;
-  font-size: var(--fs-xxl);
+  font-size: var(--fs-lg);
   margin-inline-end: 0.2em;
 }
 
@@ -909,7 +911,7 @@ hero {
       bottom: 25%;
       right: 0;
       .row {
-        margin-block-end: 0.3em;
+        margin-block-end: 0.8em;
         line-height: 48px;
       }
     }

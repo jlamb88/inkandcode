@@ -36,7 +36,7 @@ class Header extends HTMLElement {
   --hdr-teal:        #50e3c2;
   --hdr-white:       #ededed;
   --hdr-ease:        cubic-bezier(0.4, 0, 0.2, 1);
-  --hdr-float-right: 30px;      /* floating hamburger: distance from right edge */
+  --hdr-float-right: 50px;      /* floating hamburger: distance from right edge */
 }
 
 /* 3 ── floating hamburger offset (beats the global ".header #hamburger.floating") */
@@ -273,7 +273,7 @@ header-comp .header.mobile-open .header-logo { opacity: 0; pointer-events: none;
     
 <header class="header">
   <div class="header-logo">
-  <a href="/index.html" role="menuitem">
+  <a href="/index.html" role="button" aria-details="Logo link to home page">
     <svg aria-label="Logo" role="img"viewBox="0 0 367 91">
       <use href="#logo" />
     </svg>
@@ -364,7 +364,7 @@ header-comp .header.mobile-open .header-logo { opacity: 0; pointer-events: none;
         </button>
         <ul class="mobile-submenu">
           <li><a href="code.html">Web Services</a></li>
-          <li><a href="code.html/#webdevelop">Web Development</a></li>
+          <li><a href="code.html#development">Web Development</a></li>
           <li><a href="code.html/#SEO">SEO &amp; Performance</a></li>
           <li><a href="code.html/#hosting">Web Hosting &amp; Maintenance</a></li>
         </ul>
@@ -464,7 +464,7 @@ class Footer extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <div class="footer-wrapper">
-      <img class="waves" src="../assets/wavesObliqPurple.svg" width="100%"
+      <img class="waves" src="../assets/wavesObliqPurple.svg" alt="" width="100%"
       />
       <section class="contact" id="contact">
         <div class="headline">
@@ -509,9 +509,9 @@ class Footer extends HTMLElement {
           </svg>
         </div>
         <div class="social">
-          <img src="../assets/facebook.svg" width="30px"/>
-          // <img src="../assets/instagram.svg" width="30px"/>
-          <img src="../assets/linkedIn.svg" width="30px"/>
+          <img src="../assets/facebook.svg" width="30px" alt="Facebook" role="button"/>
+          <!-- <img src="../assets/instagram.svg" width="30px" alt="Instagram"/> -->
+          <img src="../assets/linkedIn.svg" width="30px" alt="Linked In" role="button"/>
         </div>
         <nav class="nav-footer">
           <h4>SERVICES</h4>
@@ -531,11 +531,11 @@ class Footer extends HTMLElement {
         </nav>
         <section class="contact-us">
           <div class="contact-row">
-            <img src="../assets/email.svg" width="30"/>
-          <a href=mailto:"info@inkandcodestudio.com">info@inkandcode.com</a>
+            <img src="../assets/email.svg" width="30px" alt="" />
+          <a href=mailto:"info@inkandcodestudio.com">info@inkandcodestudio.com</a>
           </div>
           <div class="contact-row">
-            <img src="../assets/phone.svg" width="30px">
+            <img src="../assets/phone.svg" width="30px" alt="">
             <span>678-453-8505</span>
           </div>
         </section>
