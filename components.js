@@ -293,7 +293,7 @@ header-comp .header.mobile-open .header-logo { opacity: 0; pointer-events: none;
       <span></span>
     </label>
     <div class="nav-overlay"></div>
-    <nav class="navbar">
+    <nav class="navbar" role="aria-menu">
       <svg class="mini-logo">
         <use href="assets/logos.svg#miniLogo">
       </svg>
@@ -331,7 +331,7 @@ header-comp .header.mobile-open .header-logo { opacity: 0; pointer-events: none;
             </div>
           </ul>
         </li>
-        <li><a refer='noreferer' role='menuitem' href="about.html">CTRL + Us</a></li>
+        <li><a refer='noreferer' href="about.html">CTRL + Us</a></li>
         <li><a refer='noreferer' role='menuitem' href="contact.html">Hit Us Up</a></li>
   </ul>
 </nav>
