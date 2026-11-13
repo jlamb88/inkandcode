@@ -293,7 +293,7 @@ header-comp .header.mobile-open .header-logo { opacity: 0; pointer-events: none;
       <span></span>
     </label>
     <div class="nav-overlay"></div>
-    <nav class="navbar" role="aria-menu">
+    <nav class="navbar" role="navigation">
       <svg class="mini-logo">
         <use href="assets/logos.svg#miniLogo">
       </svg>
