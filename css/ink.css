@@ -65,41 +65,44 @@
   pointer-events: none;
 }
 /* Large ghosted watermark — navy tint on light backgrounds */
-.section-watermark {
-  position: absolute;
-  top: 0;
-  left: -2%;
-  font-family: "Raleway", sans-serif;
-  font-weight: 800;
-  font-size: clamp(7rem, 15vw, 18rem);
-  line-height: 1;
-  letter-spacing: -0.05em;
-  color: rgba(30, 31, 80, 0.04);
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
+.headline {
+  .section-watermark {
+    position: absolute;
+    top: 0;
+    left: -2%;
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    font-size: clamp(6rem, 12vw, 16rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: rgba(30, 31, 80, 0.04);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+  .section-watermark.right {
+    left: auto;
+    right: -2%;
+  }
+  .watermark-num {
+    position: relative;
+    top: 200px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    font-size: clamp(6rem, 22vw, 20rem);
+    line-height: 0.85;
+    background: linear-gradient(
+      135deg,
+      rgba(80, 227, 194, 0.14) 0%,
+      rgba(80, 227, 194, 0.02) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
-.section-watermark.right {
-  left: auto;
-  right: -2%;
-}
-.watermark-num {
-  font-family: "Raleway", sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.06em;
-  font-size: clamp(12rem, 28vw, 36rem);
-  line-height: 0.85;
-  background: linear-gradient(
-    135deg,
-    rgba(80, 227, 194, 0.14) 0%,
-    rgba(80, 227, 194, 0.02) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* Caveat handwritten accent */
 .caveat-accent {
   font-family: "Caveat", cursive;
@@ -935,7 +938,7 @@ main {
     }
     h2,
     .outline-text {
-      font-size: var(--fs-h1);
+      font-size: var(--fs-h2);
       line-height: 64px;
     }
   }

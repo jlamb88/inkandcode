@@ -293,7 +293,8 @@ header-comp .header.mobile-open .header-logo { opacity: 0; pointer-events: none;
       <span></span>
     </label>
     <div class="nav-overlay"></div>
-    <nav class="navbar" role="navigation">
+    <nav class="navbar" role="navigation
+    ">
       <svg class="mini-logo">
         <use href="assets/logos.svg#miniLogo">
       </svg>
@@ -306,7 +307,7 @@ header-comp .header.mobile-open .header-logo { opacity: 0; pointer-events: none;
           </label>
           <ul class="submenu" role="menu">
             <div class="menu-title">
-            <span><small class="menu-eyebrow" aria-hidden="true">// design</small><a href='ink.html' refer='noreferer' role='menuitem'>Graphic Design</span>
+            <span><small class="menu-eyebrow" aria-hidden="true">// design</small><a href='ink.html' refer='noreferer' role='menuitem'>Graphic Design</a></span>
             </div>
             <div class="menu-items">
               <li><a href="ink.html#branding" refer='noreferer' role="menuitem">Brand Design</a></li>
@@ -322,7 +323,7 @@ header-comp .header.mobile-open .header-logo { opacity: 0; pointer-events: none;
           </label>
           <ul class="submenu">
           <div class="menu-title">
-            <span><small class="menu-eyebrow" aria-hidden="true">// dev</small><a href='code.html' refer='noreferer' role='menuitem'>Web Services</span>
+            <span><small class="menu-eyebrow" aria-hidden="true">// dev</small><a href='code.html' refer='noreferer' role='menuitem'>Web Services</a></span>
           </div>
             <div class="menu-items">
               <li><a refer='noreferer' role='menuitem' href="code.html#development">Web Development</a></li>

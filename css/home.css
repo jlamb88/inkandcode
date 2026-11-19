@@ -49,7 +49,7 @@ h3 {
   user-select: none;
   white-space: nowrap;
   z-index: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 .section-watermark.right {
   right: -15%;
@@ -167,9 +167,8 @@ h3 {
     letter-spacing: -2px;
     color: rgb(217 217 217 / 10%);
   }
-  .section-watermark {
+  .section-watermark.right {
     top: -50px;
-    left: -35px;
     font-size: var(--fs-h1);
   }
   .process-desc {
@@ -411,6 +410,7 @@ h3 {
 }
 .pricing {
   padding-block: 2.5em;
+  overflow-x: clip;
   .section-watermark {
     opacity: 0.4;
     right: -10%;
@@ -816,8 +816,10 @@ ul.custom-benefits li::before {
 }
 
 .seo {
+  overflow-x: clip;
   h2 {
     font-weight: 600;
+    overflow-x: clip;
   }
   .slash-teal {
     color: var(--teal);
