@@ -510,7 +510,9 @@ class Footer extends HTMLElement {
           </svg>
         </div>
         <div class="social">
+          <a href="https://www.facebook.com/people/InkCode-Digital-Studios/61595905455761/">
           <img src="../assets/facebook.svg" width="30px" alt="Facebook" role="button"/>
+          </a>
           <!-- <img src="../assets/instagram.svg" width="30px" alt="Instagram"/> -->
           <img src="../assets/linkedIn.svg" width="30px" alt="Linked In" role="button"/>
         </div>

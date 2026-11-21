@@ -84,3 +84,14 @@ document.querySelectorAll('.header a, .hero-text a').forEach(link => {
 window.addEventListener("scroll", () => {
     document.documentElement.style.setProperty("--scrollY", window.scrollY + "px");
 });
+
+import { registerSW } from 'virtual:pwa-register';
+
+registerSW({
+    onNeedRefresh() {
+        // Optional: Prompt user to reload if registerType is 'prompt'
+    },
+    onOfflineReady() {
+        console.log('App is ready to work offline');
+    }
+});

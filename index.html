@@ -5,184 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ink & Code Digital Studio | Graphic and Web Design </title>
     <meta name="description"
-      content="Ink & Code creates distinctive websites, digital experiences, and brand identities that help businesses stand out.">
+      content="Ink & Code creates distinctive websites, digital experiences, and brand identities that help businesses stand out. Based in Atlanta but serviving the Southeast.">
 
-<meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow">
 
-<meta name="author" content="Ink & Code">
+    <meta name="author" content="Ink & Code">
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100..900&family=Caveat:wght@400..700&family=Orbit&family=Cascadia+Mono:wght@200..700&display=swap"
-      rel="stylesheet"
-    />
-    
-    <link rel="preload" 
-          as="style" 
-          href="../css/reset.css"
-    />
-    <link rel="stylesheet" href="../css/reset.css" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100..900&family=Caveat:wght@400..700&family=Orbit&family=Cascadia+Mono:wght@200..700&display=swap"
+          rel="stylesheet"
+        />
+    
+    <!-- <link rel="preload" 
+          as="style" 
+          href="./css/reset.css"
+    /> 
+    ****REMOVE FOR VITE BUNDLING****
+    -->
+    <link rel="stylesheet" href="./css/reset.css" as="style" />
+    <!-- <link
       rel="preload"
-      href="../css/load.css"
+      href="./css/load.css"
       as="style"
       fetchpriority="high"
       onload="this.onload=null;this.rel='stylesheet'"
     />
+    ****REMOVE FOR VITE BUNDLING****
+     -->
     <noscript
-      ><link rel="stylesheet" href="../css/load.css" as="style"
+      ><link rel="stylesheet" href="./css/load.css" as="style"
     /></noscript>
     
     <link rel="stylesheet" href="./css/home.css" as="style" />
 
-    <link rel="preload" as="image" fetchpriority="high" media="(min-width: 601px)" href="../assets/home/hero-lg-home.webp" />
+    <link rel="preload" as="image" fetchpriority="high" media="(min-width: 601px)" href="./assets/home/hero-lg-home.webp" />
     <link rel="preload" loading="eager"
     fetchpriority="high"
     as="image"
     media="(max-width: 600px)" 
-    href="../assets/home/hero-sm-home.webp" />
+    href="./assets/home/hero-sm-home.webp" />
     <script
-      src="./components.js"
-      type="text/javascript"
+      src="components.js"
+      type="module"
       defer
     ></script>
     <script 
-      src="./index.js"
-      type="text/javascript"
+      src="index.js"
+      type="module"
       defer
     ></script>
-  
-  <!-- ── Scroll-driven entry animations ─────────────────────────────
-       animation-timeline: view() drives each animation from the
-       element's own scroll position. No JS required.
-       animation-fill-mode: both holds the 'from' state (opacity:0)
-       before the range starts so nothing flashes in unexpectedly.
-  ──────────────────────────────────────────────────────────────── -->
-  <style>
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── Sections with .reveal ──────────────────────────────────── */
-    .reveal {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 25%;
-    }
-
-    /* ── Headline (no reveal class in markup) ───────────────────── */
-    .headline {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 25%;
-    }
-
-    /* ── Process desc sections — vertical stack, view() staggers
-          them naturally as each enters the viewport ─────────────── */
-    .process-desc {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 30%;
-    }
-
-    /* ── Pricing cards — staggered 3 ───────────────────────────── */
-    .pricing-grid > .pricing-card {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .pricing-grid > .pricing-card:nth-child(1) { animation-range: entry 0%  entry 25%; }
-    .pricing-grid > .pricing-card:nth-child(2) { animation-range: entry 8%  entry 33%; }
-    .pricing-grid > .pricing-card:nth-child(3) { animation-range: entry 16% entry 41%; }
-
-    /* ── SEO list rows — staggered 3 ───────────────────────────── */
-    .seo-list > .seo-item {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .seo-list > .seo-item:nth-child(1) { animation-range: entry 0%  entry 22%; }
-    .seo-list > .seo-item:nth-child(2) { animation-range: entry 7%  entry 29%; }
-    .seo-list > .seo-item:nth-child(3) { animation-range: entry 14% entry 36%; }
-
-    /* ── Custom-site points — staggered 4 ──────────────────────── */
-    .sites-grid > .site-point {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .sites-grid > .site-point:nth-child(1) { animation-range: entry 0%  entry 25%; }
-    .sites-grid > .site-point:nth-child(2) { animation-range: entry 7%  entry 32%; }
-    .sites-grid > .site-point:nth-child(3) { animation-range: entry 14% entry 39%; }
-    .sites-grid > .site-point:nth-child(4) { animation-range: entry 21% entry 46%; }
-
-    /* ── Feature items — staggered 4 ───────────────────────────── */
-    .sites-features > .feature-item {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .sites-features > .feature-item:nth-child(1) { animation-range: entry 0%  entry 20%; }
-    .sites-features > .feature-item:nth-child(2) { animation-range: entry 5%  entry 25%; }
-    .sites-features > .feature-item:nth-child(3) { animation-range: entry 10% entry 30%; }
-    .sites-features > .feature-item:nth-child(4) { animation-range: entry 15% entry 35%; }
-
-    /* ── City strip items — staggered 8 ────────────────────────── */
-    .city-strip > .city-strip-item {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .city-strip > .city-strip-item:nth-child(1) { animation-range: entry 0%  entry 20%; }
-    .city-strip > .city-strip-item:nth-child(2) { animation-range: entry 4%  entry 24%; }
-    .city-strip > .city-strip-item:nth-child(3) { animation-range: entry 8%  entry 28%; }
-    .city-strip > .city-strip-item:nth-child(4) { animation-range: entry 12% entry 32%; }
-    .city-strip > .city-strip-item:nth-child(5) { animation-range: entry 16% entry 36%; }
-    .city-strip > .city-strip-item:nth-child(6) { animation-range: entry 20% entry 40%; }
-    .city-strip > .city-strip-item:nth-child(7) { animation-range: entry 24% entry 44%; }
-    .city-strip > .city-strip-item:nth-child(8) { animation-range: entry 28% entry 48%; }
-
-    /* ── City pills — staggered 8 ──────────────────────────────── */
-    .city-pills > .city-pill {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .city-pills > .city-pill:nth-child(1) { animation-range: entry 0%  entry 20%; }
-    .city-pills > .city-pill:nth-child(2) { animation-range: entry 3%  entry 23%; }
-    .city-pills > .city-pill:nth-child(3) { animation-range: entry 6%  entry 26%; }
-    .city-pills > .city-pill:nth-child(4) { animation-range: entry 9%  entry 29%; }
-    .city-pills > .city-pill:nth-child(5) { animation-range: entry 12% entry 32%; }
-    .city-pills > .city-pill:nth-child(6) { animation-range: entry 15% entry 35%; }
-    .city-pills > .city-pill:nth-child(7) { animation-range: entry 18% entry 38%; }
-    .city-pills > .city-pill:nth-child(8) { animation-range: entry 21% entry 41%; }
-
-    /* ── Platform logos — staggered 5 ──────────────────────────── */
-    .platform-icons > img {
-      animation: fadeUp linear both;
-      animation-timeline: view();
-    }
-    .platform-icons > img:nth-child(1) { animation-range: entry 0%  entry 22%; }
-    .platform-icons > img:nth-child(2) { animation-range: entry 5%  entry 27%; }
-    .platform-icons > img:nth-child(3) { animation-range: entry 10% entry 32%; }
-    .platform-icons > img:nth-child(4) { animation-range: entry 15% entry 37%; }
-    .platform-icons > img:nth-child(5) { animation-range: entry 20% entry 42%; }
-
-    /* ── Reduced motion ─────────────────────────────────────────── */
-    @media (prefers-reduced-motion: reduce) {
-      .reveal,
-      .headline,
-      .process-desc,
-      .pricing-grid > .pricing-card,
-      .seo-list > .seo-item,
-      .sites-grid > .site-point,
-      .sites-features > .feature-item,
-      .city-strip > .city-strip-item,
-      .city-pills > .city-pill,
-      .platform-icons > img {
-        animation: none;
-        opacity: 1;
-        transform: none;
-      }
-    }
-  </style>
-</head>
+  </head>
 
   <body>
     <header-comp class="header-comp"></header-comp>
@@ -454,7 +328,7 @@
             alt=""
           />
         </div>
-        <section class="pricing reveal">
+        <section class="pricing">
         <span class="section-watermark right" aria-hidden="true">PRICE</span>
         <div class="section-eyebrow">// invest.in.your.brand</div>
         <h2>Affordable Doesn't Mean Ordinary.</h2>
@@ -504,7 +378,7 @@
       </section>
        <!-- ═══ 04 SEO ════════════════════════════════════════════════════ -->
         
-      <section class="seo reveal" id="SEO">
+      <section class="seo" id="SEO">
         <span class="section-watermark right" aria-hidden="true">SEO</span>
         <div class="section-eyebrow">// get.found</div>
         <h2>
@@ -545,7 +419,7 @@
       </section>
 
       <!-- ═══ 05 CUSTOM SITES (dark block) ════════════════════════════ -->
-      <section class="sites-block reveal" id="custom">
+      <section class="custom-sites" id="custom">
         <div class="sites-inner">
           <div class="section-eyebrow">// why.custom.wins</div>
           <h2 class="sites-headline">

@@ -805,6 +805,11 @@ hero {
   height: 300px;
   bottom: -40%;
 }
+@keyframes term-blink {
+  50% {
+    opacity: 0;
+  }
+}
 .SEO {
   position: relative;
   overflow: hidden;
@@ -876,11 +881,7 @@ hero {
     color: var(--teal);
     animation: term-blink 1.1s steps(1) infinite;
   }
-  @keyframes term-blink {
-    50% {
-      opacity: 0;
-    }
-  }
+
   .term-results {
     display: flex;
     flex-direction: column;

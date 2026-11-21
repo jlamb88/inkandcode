@@ -126,6 +126,44 @@
     --toggle-background-off: var(--dark-gray);
   }
 }
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Sections with .reveal ──────────────────────────────────── */
+.reveal {
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 25%;
+}
+
+/* ── Process desc sections — vertical stack, view() staggers
+          them naturally as each enters the viewport ─────────────── */
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .headline,
+  .process-desc,
+  .pricing-grid > .pricing-card,
+  .seo-list > .seo-item,
+  .sites-grid > .site-point,
+  .sites-features > .feature-item,
+  .city-strip > .city-strip-item,
+  .city-pills > .city-pill,
+  .platform-icons > img {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
 
 html {
   font-size: 62.5%;
@@ -140,6 +178,7 @@ html {
 :after,
 :before {
   box-sizing: border-box;
+  border: 1.5px solid red;
 }
 
 body {
@@ -191,6 +230,7 @@ input[type="checkbox"] {
 main {
   grid-area: main;
   max-width: 1600px;
+  overflow-x: clip;
 }
 
 a {
@@ -209,7 +249,7 @@ h1 {
 
 h2 {
   font-family: Poppins;
-  font-size: var(--fs-xl);
+  font-size: var(--fs-lg);
   font-weight: 400;
   color: inherit;
 }
@@ -503,7 +543,7 @@ hero {
     font-family: "Poppins";
     line-height: 30px;
     letter-spacing: 0.18px;
-    right: -2px;
+    right: -5px;
     bottom: 2em;
     .row {
       margin-block-end: 0.3em;
@@ -513,7 +553,6 @@ hero {
       align-items: center;
       -webkit-text-stroke: 0.8px #fff;
       color: transparent;
-      margin-inline-end: 0.1em;
     }
     .items {
       display: flex;
@@ -545,6 +584,7 @@ hero {
 
 .headline {
   margin-block: 0.3em;
+
   h2 {
     font-family: Raleway, sans-serif;
   }
@@ -574,6 +614,9 @@ hero {
     width: 90%;
     font-weight: 300;
   }
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 25%;
 }
 
 .outline {
@@ -705,9 +748,11 @@ hero {
     .contact-us {
       margin-inline: 8%;
       margin-block: 0 2em;
+      width: 100%;
       .contact-row {
         display: flex;
         flex-direction: row;
+        width: 90%;
         margin-block: 0 0.4em;
         gap: 1em;
       }
